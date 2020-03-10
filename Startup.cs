@@ -20,27 +20,14 @@ namespace ChecklistAPI
             Configuration = configuration;
         }
 
-        readonly string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
-
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddCors(options => 
-            {
-                options.AddPolicy(MyAllowSpecificOrigins,
-                builder =>
-                {
-                    builder.WithOrigins("http://*.sbitc.com")
-                        .SetIsOriginAllowedToAllowWildcardSubdomains()
-                        .AllowAnyHeader()
-                        .AllowAnyOrigin()
-                        .AllowAnyMethod();
-                    
-                });
-            });
+            services.AddCors();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -50,6 +37,11 @@ namespace ChecklistAPI
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseCors(options => 
+            options.WithOrigins("http://localhost:4200")
+            .AllowAnyMethod()
+            .AllowAnyHeader());
 
             app.UseHttpsRedirection();
 
@@ -62,7 +54,8 @@ namespace ChecklistAPI
                 endpoints.MapControllers();
             });
 
-            app.UseCors(MyAllowSpecificOrigins);
+
+
         }
     }
 }

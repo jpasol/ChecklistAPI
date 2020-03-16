@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using ChecklistAPI;
+using EquipmentChecklistDataAccess;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -29,8 +30,10 @@ namespace ChecklistAPI
         {
             services.AddControllers();
             services.AddCors();
-            services.AddDbContext<IssuesContext>(options =>
+            services.AddDbContextPool<AppDBContext>(options =>
+
             options.UseSqlServer(Configuration.GetConnectionString("DevConnection")));
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -56,7 +59,6 @@ namespace ChecklistAPI
             {
                 endpoints.MapControllers();
             });
-
 
 
         }

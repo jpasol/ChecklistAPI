@@ -2,8 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using EquipmentChecklistDataAccess;
+using EquipmentChecklistDataAccess.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace ChecklistAPI.Controllers
 {
@@ -11,37 +14,48 @@ namespace ChecklistAPI.Controllers
     [ApiController]
     public class IssuesController : ControllerBase
     {
-        private string[] Issues = new string[]
-        {
-            "Incomplete",
-            "Missing",
-            "Broken",
-            "Deformed",
-            "Busted",
-            "UnderPressure",
-            "Malfunctioning",
-            "Loosen",
-            "Leaking"
-        };
+        private readonly AppDBContext _context;
 
+        public IssuesController(AppDBContext context)
+        {
+            _context = context;
+        }
         // GET: api/Issues
         [HttpGet]
-        public IEnumerable<Issues> Get()
+        public async Task<ActionResult<IEnumerable<Issues>>> Get()
         {
-            return Enumerable.Range(1, Issues.Length).Select(index => new Issues
-            {
-                Key = index,
-                Description = Issues[index - 1]
-            })
-                .ToArray();
+            return await _context.Issues.ToListAsync();
         }
-                
 
-        // GET: api/Issues/5
-        [HttpGet("{id}", Name = "Get")]
-        public string Get(int id)
+
+        // GET: api/Issues/id/5
+        [HttpGet("id/{key}")]
+        public async Task<ActionResult<Issues[]>> Get(int key)
         {
-            return "value";
+            var issue = await _context.Issues.FindAsync(key);
+
+            if (issue == null)
+            {
+                return NotFound();
+            }
+
+            return new Issues[] { issue };
+        }
+
+
+        // GET: api/Issues/description/5
+        [HttpGet("description/{key}")]
+        public async Task<ActionResult<Issues[]>> Get(string key)
+        {
+            var issue = await _context.Issues.Where<Issues>(issue => issue.Description.StartsWith(@$"{key}")).ToArrayAsync();
+            
+
+            if (issue == null)
+            {
+                return NotFound();
+            }
+
+            return issue;
         }
 
         // POST: api/Issues

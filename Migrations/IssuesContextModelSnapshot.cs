@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace ChecklistAPI.Migrations
 {
-    [DbContext(typeof(IssuesContext))]
+    [DbContext(typeof(AppDBContext))]
     partial class IssuesContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
@@ -32,6 +32,22 @@ namespace ChecklistAPI.Migrations
                     b.HasKey("Key");
 
                     b.ToTable("Issues");
+                });
+
+            modelBuilder.Entity("ChecklistAPI.Models.Components", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Component")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Components");
                 });
 #pragma warning restore 612, 618
         }

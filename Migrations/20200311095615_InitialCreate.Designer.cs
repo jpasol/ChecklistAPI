@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace ChecklistAPI.Migrations
 {
-    [DbContext(typeof(IssuesContext))]
+    [DbContext(typeof(AppDBContext))]
     [Migration("20200311095615_InitialCreate")]
     partial class InitialCreate
     {

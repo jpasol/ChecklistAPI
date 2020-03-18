@@ -245,3 +245,7 @@ C:\Users\jpasol\Desktop\Repository\ChecklistAPI\obj\Debug\netcoreapp3.1\Checklis
 C:\Users\jpasol\Desktop\Repository\ChecklistAPI\obj\Debug\netcoreapp3.1\ChecklistAPI.pdb
 C:\Users\jpasol\Desktop\Repository\ChecklistAPI\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
 C:\Users\jpasol\Desktop\Repository\ChecklistAPI\obj\Debug\netcoreapp3.1\ChecklistAPI.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\jpasol\Desktop\Repository\ChecklistAPI\bin\Debug\netcoreapp3.1\EquipmentChecklistDataAccess.dll
+C:\Users\jpasol\Desktop\Repository\ChecklistAPI\bin\Debug\netcoreapp3.1\EquipmentChecklistDataAccess.pdb
+C:\Users\jpasol\Desktop\Repository\ChecklistAPI\obj\Debug\netcoreapp3.1\ChecklistAPI.csproj.CoreCompileInputs.cache
+C:\Users\jpasol\Desktop\Repository\ChecklistAPI\obj\Debug\netcoreapp3.1\ChecklistAPI.genruntimeconfig.cache

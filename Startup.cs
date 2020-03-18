@@ -30,7 +30,7 @@ namespace ChecklistAPI
         {
             services.AddControllers();
             services.AddCors();
-            services.AddDbContextPool<AppDBContext>(options =>
+            services.AddDbContext<AppDBContext>(options =>
 
             options.UseSqlServer(Configuration.GetConnectionString("DevConnection")));
 

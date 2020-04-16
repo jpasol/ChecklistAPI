@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using ChecklistAPI;
+using EquipmentChecklistDataAccess.Models;
 using EquipmentChecklistDataAccess;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -30,7 +31,7 @@ namespace ChecklistAPI
         {
             services.AddControllers();
             services.AddCors();
-            services.AddDbContext<AppDBContext>(options =>
+            services.AddDbContext<EquipmentChecklistDBContext>(options =>
 
             options.UseSqlServer(Configuration.GetConnectionString("DevConnection")));
 

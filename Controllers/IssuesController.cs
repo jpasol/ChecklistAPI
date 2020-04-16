@@ -14,15 +14,15 @@ namespace ChecklistAPI.Controllers
     [ApiController]
     public class IssuesController : ControllerBase
     {
-        private readonly AppDBContext _context;
+        private readonly EquipmentChecklistDBContext _context;
 
-        public IssuesController(AppDBContext context)
+        public IssuesController(EquipmentChecklistDBContext context)
         {
             _context = context;
         }
         // GET: api/Issues
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Issues>>> Get()
+        public async Task<ActionResult<IEnumerable<Issue>>> Get()
         {
             return await _context.Issues.ToListAsync();
         }
@@ -30,7 +30,7 @@ namespace ChecklistAPI.Controllers
 
         // GET: api/Issues/id/5
         [HttpGet("id/{key}")]
-        public async Task<ActionResult<Issues[]>> Get(int key)
+        public async Task<ActionResult<Issue[]>> Get(int key)
         {
             var issue = await _context.Issues.FindAsync(key);
 
@@ -39,15 +39,15 @@ namespace ChecklistAPI.Controllers
                 return NotFound();
             }
 
-            return new Issues[] { issue };
+            return new Issue[] { issue };
         }
 
 
         // GET: api/Issues/description/5
         [HttpGet("description/{key}")]
-        public async Task<ActionResult<Issues[]>> Get(string key)
+        public async Task<ActionResult<Issue[]>> Get(string key)
         {
-            var issue = await _context.Issues.Where<Issues>(issue => issue.Description.StartsWith(@$"{key}")).ToArrayAsync();
+            var issue = await _context.Issues.Where<Issue>(issue => issue.Id.StartsWith(@$"{key}")).ToArrayAsync();
             
 
             if (issue == null)

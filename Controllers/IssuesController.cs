@@ -1,11 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.Json;
 using System.Threading.Tasks;
 using EquipmentChecklistDataAccess;
 using EquipmentChecklistDataAccess.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Filters;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
+using Microsoft.CodeAnalysis.FlowAnalysis;
 using Microsoft.EntityFrameworkCore;
 
 namespace ChecklistAPI.Controllers
@@ -60,20 +64,57 @@ namespace ChecklistAPI.Controllers
 
         // POST: api/Issues
         [HttpPost]
-        public void Post([FromBody] string value)
+        public async Task<ActionResult<Issue>> Post([FromBody] object value)
         {
+            var issue = JsonSerializer.Deserialize<Issue>(value.ToString());
+            if (!_context.Issues.Contains(issue))
+            {
+                _context.Issues.Add(issue);
+                await _context.SaveChangesAsync();
+                return issue;
+            } else
+            {
+                return BadRequest();
+            }
         }
 
-        // PUT: api/Issues/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        // PUT: api/component/test
+        [HttpPut("{name}")]
+        public async Task<ActionResult<Issue>> Put(string name, [FromBody] object value)
         {
+            var oldIssue = new Issue();
+            var newIssue = new Issue();
+
+            oldIssue = await _context.Issues.FindAsync(name);
+
+            if (_context.Issues.Contains(oldIssue))
+            {
+                newIssue = JsonSerializer.Deserialize<Issue>(value.ToString());
+                _context.Issues.Remove(oldIssue);
+                _context.Issues.Add(newIssue);
+                await _context.SaveChangesAsync();
+                return Ok();
+            }
+            else
+            {
+                return BadRequest();
+            }
         }
 
         // DELETE: api/ApiWithActions/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
+        [HttpDelete()]
+        public async Task<ActionResult<Issue>> Delete([FromBody] object value)
         {
+            var issue = JsonSerializer.Deserialize<Issue>(value.ToString());
+            if (_context.Issues.Contains(issue))
+            {
+                _context.Issues.Remove(issue);
+                await _context.SaveChangesAsync();
+                return Ok();
+            }else
+            {
+                return BadRequest();
+            }
         }
     }
 }

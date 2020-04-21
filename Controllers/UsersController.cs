@@ -12,48 +12,48 @@ namespace ChecklistAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ComponentsController : ControllerBase
+    public class UsersController : ControllerBase
     {
         private readonly EquipmentChecklistDBContext _context;
 
-        public ComponentsController(EquipmentChecklistDBContext context)
+        public UsersController(EquipmentChecklistDBContext context)
         {
             _context = context;
         }
 
-        // GET: api/Components
+        // GET: api/Users
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Component>>> GetComponents()
+        public async Task<ActionResult<IEnumerable<User>>> GetUsers()
         {
-            return await _context.Components.ToListAsync();
+            return await _context.Users.ToListAsync();
         }
 
-        // GET: api/Components/5
+        // GET: api/Users/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Component>> GetComponent(string id)
+        public async Task<ActionResult<User>> GetUser(string id)
         {
-            var component = await _context.Components.FindAsync(id);
+            var user = await _context.Users.FindAsync(id);
 
-            if (component == null)
+            if (user == null)
             {
                 return NotFound();
             }
 
-            return component;
+            return user;
         }
 
-        // PUT: api/Components/5
+        // PUT: api/Users/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutComponent(string id, Component component)
+        public async Task<IActionResult> PutUser(string id, User user)
         {
-            if (id != component.Id)
+            if (id != user.Id)
             {
                 return BadRequest();
             }
 
-            _context.Entry(component).State = EntityState.Modified;
+            _context.Entry(user).State = EntityState.Modified;
 
             try
             {
@@ -61,7 +61,7 @@ namespace ChecklistAPI.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!ComponentExists(id))
+                if (!UserExists(id))
                 {
                     return NotFound();
                 }
@@ -74,20 +74,20 @@ namespace ChecklistAPI.Controllers
             return NoContent();
         }
 
-        // POST: api/Components
+        // POST: api/Users
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
-        public async Task<ActionResult<Component>> PostComponent(Component component)
+        public async Task<ActionResult<User>> PostUser(User user)
         {
-            _context.Components.Add(component);
+            _context.Users.Add(user);
             try
             {
                 await _context.SaveChangesAsync();
             }
             catch (DbUpdateException)
             {
-                if (ComponentExists(component.Id))
+                if (UserExists(user.Id))
                 {
                     return Conflict();
                 }
@@ -97,28 +97,28 @@ namespace ChecklistAPI.Controllers
                 }
             }
 
-            return CreatedAtAction("GetComponent", new { id = component.Id }, component);
+            return CreatedAtAction("GetUser", new { id = user.Id }, user);
         }
 
-        // DELETE: api/Components/5
+        // DELETE: api/Users/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<Component>> DeleteComponent(string id)
+        public async Task<ActionResult<User>> DeleteUser(string id)
         {
-            var component = await _context.Components.FindAsync(id);
-            if (component == null)
+            var user = await _context.Users.FindAsync(id);
+            if (user == null)
             {
                 return NotFound();
             }
 
-            _context.Components.Remove(component);
+            _context.Users.Remove(user);
             await _context.SaveChangesAsync();
 
-            return component;
+            return user;
         }
 
-        private bool ComponentExists(string id)
+        private bool UserExists(string id)
         {
-            return _context.Components.Any(e => e.Id == id);
+            return _context.Users.Any(e => e.Id == id);
         }
     }
 }

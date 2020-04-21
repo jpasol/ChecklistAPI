@@ -12,48 +12,48 @@ namespace ChecklistAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class IssuesController : ControllerBase
+    public class BreakdownsController : ControllerBase
     {
         private readonly EquipmentChecklistDBContext _context;
 
-        public IssuesController(EquipmentChecklistDBContext context)
+        public BreakdownsController(EquipmentChecklistDBContext context)
         {
             _context = context;
         }
 
-        // GET: api/Issues
+        // GET: api/Breakdowns
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Issue>>> GetIssues()
+        public async Task<ActionResult<IEnumerable<Breakdown>>> GetBreakdowns()
         {
-            return await _context.Issues.ToListAsync();
+            return await _context.Breakdowns.ToListAsync();
         }
 
-        // GET: api/Issues/5
+        // GET: api/Breakdowns/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Issue>> GetIssue(string id)
+        public async Task<ActionResult<Breakdown>> GetBreakdown(int id)
         {
-            var issue = await _context.Issues.FindAsync(id);
+            var breakdown = await _context.Breakdowns.FindAsync(id);
 
-            if (issue == null)
+            if (breakdown == null)
             {
                 return NotFound();
             }
 
-            return issue;
+            return breakdown;
         }
 
-        // PUT: api/Issues/5
+        // PUT: api/Breakdowns/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutIssue(string id, Issue issue)
+        public async Task<IActionResult> PutBreakdown(int id, Breakdown breakdown)
         {
-            if (id != issue.Id)
+            if (id != breakdown.Id)
             {
                 return BadRequest();
             }
 
-            _context.Entry(issue).State = EntityState.Modified;
+            _context.Entry(breakdown).State = EntityState.Modified;
 
             try
             {
@@ -61,7 +61,7 @@ namespace ChecklistAPI.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!IssueExists(id))
+                if (!BreakdownExists(id))
                 {
                     return NotFound();
                 }
@@ -74,51 +74,37 @@ namespace ChecklistAPI.Controllers
             return NoContent();
         }
 
-        // POST: api/Issues
+        // POST: api/Breakdowns
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
-        public async Task<ActionResult<Issue>> PostIssue(Issue issue)
+        public async Task<ActionResult<Breakdown>> PostBreakdown(Breakdown breakdown)
         {
-            _context.Issues.Add(issue);
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateException)
-            {
-                if (IssueExists(issue.Id))
-                {
-                    return Conflict();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+            _context.Breakdowns.Add(breakdown);
+            await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetIssue", new { id = issue.Id }, issue);
+            return CreatedAtAction("GetBreakdown", new { id = breakdown.Id }, breakdown);
         }
 
-        // DELETE: api/Issues/5
+        // DELETE: api/Breakdowns/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<Issue>> DeleteIssue(string id)
+        public async Task<ActionResult<Breakdown>> DeleteBreakdown(int id)
         {
-            var issue = await _context.Issues.FindAsync(id);
-            if (issue == null)
+            var breakdown = await _context.Breakdowns.FindAsync(id);
+            if (breakdown == null)
             {
                 return NotFound();
             }
 
-            _context.Issues.Remove(issue);
+            _context.Breakdowns.Remove(breakdown);
             await _context.SaveChangesAsync();
 
-            return issue;
+            return breakdown;
         }
 
-        private bool IssueExists(string id)
+        private bool BreakdownExists(int id)
         {
-            return _context.Issues.Any(e => e.Id == id);
+            return _context.Breakdowns.Any(e => e.Id == id);
         }
     }
 }

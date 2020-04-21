@@ -12,48 +12,48 @@ namespace ChecklistAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ComponentsController : ControllerBase
+    public class EquipmentsController : ControllerBase
     {
         private readonly EquipmentChecklistDBContext _context;
 
-        public ComponentsController(EquipmentChecklistDBContext context)
+        public EquipmentsController(EquipmentChecklistDBContext context)
         {
             _context = context;
         }
 
-        // GET: api/Components
+        // GET: api/Equipments
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Component>>> GetComponents()
+        public async Task<ActionResult<IEnumerable<Equipment>>> GetEquipments()
         {
-            return await _context.Components.ToListAsync();
+            return await _context.Equipments.ToListAsync();
         }
 
-        // GET: api/Components/5
+        // GET: api/Equipments/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Component>> GetComponent(string id)
+        public async Task<ActionResult<Equipment>> GetEquipment(string id)
         {
-            var component = await _context.Components.FindAsync(id);
+            var equipment = await _context.Equipments.FindAsync(id);
 
-            if (component == null)
+            if (equipment == null)
             {
                 return NotFound();
             }
 
-            return component;
+            return equipment;
         }
 
-        // PUT: api/Components/5
+        // PUT: api/Equipments/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutComponent(string id, Component component)
+        public async Task<IActionResult> PutEquipment(string id, Equipment equipment)
         {
-            if (id != component.Id)
+            if (id != equipment.Id)
             {
                 return BadRequest();
             }
 
-            _context.Entry(component).State = EntityState.Modified;
+            _context.Entry(equipment).State = EntityState.Modified;
 
             try
             {
@@ -61,7 +61,7 @@ namespace ChecklistAPI.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!ComponentExists(id))
+                if (!EquipmentExists(id))
                 {
                     return NotFound();
                 }
@@ -74,20 +74,20 @@ namespace ChecklistAPI.Controllers
             return NoContent();
         }
 
-        // POST: api/Components
+        // POST: api/Equipments
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
-        public async Task<ActionResult<Component>> PostComponent(Component component)
+        public async Task<ActionResult<Equipment>> PostEquipment(Equipment equipment)
         {
-            _context.Components.Add(component);
+            _context.Equipments.Add(equipment);
             try
             {
                 await _context.SaveChangesAsync();
             }
             catch (DbUpdateException)
             {
-                if (ComponentExists(component.Id))
+                if (EquipmentExists(equipment.Id))
                 {
                     return Conflict();
                 }
@@ -97,28 +97,28 @@ namespace ChecklistAPI.Controllers
                 }
             }
 
-            return CreatedAtAction("GetComponent", new { id = component.Id }, component);
+            return CreatedAtAction("GetEquipment", new { id = equipment.Id }, equipment);
         }
 
-        // DELETE: api/Components/5
+        // DELETE: api/Equipments/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<Component>> DeleteComponent(string id)
+        public async Task<ActionResult<Equipment>> DeleteEquipment(string id)
         {
-            var component = await _context.Components.FindAsync(id);
-            if (component == null)
+            var equipment = await _context.Equipments.FindAsync(id);
+            if (equipment == null)
             {
                 return NotFound();
             }
 
-            _context.Components.Remove(component);
+            _context.Equipments.Remove(equipment);
             await _context.SaveChangesAsync();
 
-            return component;
+            return equipment;
         }
 
-        private bool ComponentExists(string id)
+        private bool EquipmentExists(string id)
         {
-            return _context.Components.Any(e => e.Id == id);
+            return _context.Equipments.Any(e => e.Id == id);
         }
     }
 }

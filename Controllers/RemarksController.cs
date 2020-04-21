@@ -12,48 +12,48 @@ namespace ChecklistAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class IssuesController : ControllerBase
+    public class RemarksController : ControllerBase
     {
         private readonly EquipmentChecklistDBContext _context;
 
-        public IssuesController(EquipmentChecklistDBContext context)
+        public RemarksController(EquipmentChecklistDBContext context)
         {
             _context = context;
         }
 
-        // GET: api/Issues
+        // GET: api/Remarks
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Issue>>> GetIssues()
+        public async Task<ActionResult<IEnumerable<Remark>>> GetRemarks()
         {
-            return await _context.Issues.ToListAsync();
+            return await _context.Remarks.ToListAsync();
         }
 
-        // GET: api/Issues/5
+        // GET: api/Remarks/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Issue>> GetIssue(string id)
+        public async Task<ActionResult<Remark>> GetRemark(int id)
         {
-            var issue = await _context.Issues.FindAsync(id);
+            var remark = await _context.Remarks.FindAsync(id);
 
-            if (issue == null)
+            if (remark == null)
             {
                 return NotFound();
             }
 
-            return issue;
+            return remark;
         }
 
-        // PUT: api/Issues/5
+        // PUT: api/Remarks/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutIssue(string id, Issue issue)
+        public async Task<IActionResult> PutRemark(int id, Remark remark)
         {
-            if (id != issue.Id)
+            if (id != remark.Id)
             {
                 return BadRequest();
             }
 
-            _context.Entry(issue).State = EntityState.Modified;
+            _context.Entry(remark).State = EntityState.Modified;
 
             try
             {
@@ -61,7 +61,7 @@ namespace ChecklistAPI.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!IssueExists(id))
+                if (!RemarkExists(id))
                 {
                     return NotFound();
                 }
@@ -74,51 +74,37 @@ namespace ChecklistAPI.Controllers
             return NoContent();
         }
 
-        // POST: api/Issues
+        // POST: api/Remarks
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
-        public async Task<ActionResult<Issue>> PostIssue(Issue issue)
+        public async Task<ActionResult<Remark>> PostRemark(Remark remark)
         {
-            _context.Issues.Add(issue);
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateException)
-            {
-                if (IssueExists(issue.Id))
-                {
-                    return Conflict();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+            _context.Remarks.Add(remark);
+            await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetIssue", new { id = issue.Id }, issue);
+            return CreatedAtAction("GetRemark", new { id = remark.Id }, remark);
         }
 
-        // DELETE: api/Issues/5
+        // DELETE: api/Remarks/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<Issue>> DeleteIssue(string id)
+        public async Task<ActionResult<Remark>> DeleteRemark(int id)
         {
-            var issue = await _context.Issues.FindAsync(id);
-            if (issue == null)
+            var remark = await _context.Remarks.FindAsync(id);
+            if (remark == null)
             {
                 return NotFound();
             }
 
-            _context.Issues.Remove(issue);
+            _context.Remarks.Remove(remark);
             await _context.SaveChangesAsync();
 
-            return issue;
+            return remark;
         }
 
-        private bool IssueExists(string id)
+        private bool RemarkExists(int id)
         {
-            return _context.Issues.Any(e => e.Id == id);
+            return _context.Remarks.Any(e => e.Id == id);
         }
     }
 }

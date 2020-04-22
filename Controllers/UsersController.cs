@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using EquipmentChecklistDataAccess;
 using EquipmentChecklistDataAccess.Models;
+using Microsoft.AspNetCore.Identity;
 
 namespace ChecklistAPI.Controllers
 {
@@ -100,6 +101,19 @@ namespace ChecklistAPI.Controllers
             return CreatedAtAction("GetUser", new { id = user.Id }, user);
         }
 
+        [HttpPost("userAuth")]
+        public async Task<ActionResult<User>> AuthenticateUser(User user)
+        {
+            if (await LoginValid(user))
+            {
+                return Ok();
+            }
+            else
+            {
+                return BadRequest();
+            }
+        }
+
         // DELETE: api/Users/5
         [HttpDelete("{id}")]
         public async Task<ActionResult<User>> DeleteUser(string id)
@@ -119,6 +133,11 @@ namespace ChecklistAPI.Controllers
         private bool UserExists(string id)
         {
             return _context.Users.Any(e => e.Id == id);
+        }
+
+        private async Task<bool> LoginValid(User user)
+        {
+            return await _context.Users.AnyAsync(e => e.Id == user.Id && e.Password == user.Password && e.isActive);
         }
     }
 }

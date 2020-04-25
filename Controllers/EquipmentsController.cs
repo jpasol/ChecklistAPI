@@ -61,7 +61,7 @@ namespace ChecklistAPI.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!EquipmentExists(id))
+                if (!await EquipmentExists(id))
                 {
                     return NotFound();
                 }
@@ -87,7 +87,7 @@ namespace ChecklistAPI.Controllers
             }
             catch (DbUpdateException)
             {
-                if (EquipmentExists(equipment.Id))
+                if (await EquipmentExists(equipment.Id))
                 {
                     return Conflict();
                 }
@@ -98,6 +98,16 @@ namespace ChecklistAPI.Controllers
             }
 
             return CreatedAtAction("GetEquipment", new { id = equipment.Id }, equipment);
+        }
+
+        [HttpPost("Auth")]
+        public async Task<ActionResult<Equipment>> LoginEquipment(Equipment equipment)
+        {
+            if (await EquipmentExists(equipment.Id))
+            {
+                return equipment;
+            }
+            return BadRequest();
         }
 
         // DELETE: api/Equipments/5
@@ -116,9 +126,9 @@ namespace ChecklistAPI.Controllers
             return equipment;
         }
 
-        private bool EquipmentExists(string id)
+        private async Task<bool> EquipmentExists(string id)
         {
-            return _context.Equipments.Any(e => e.Id == id);
+            return await _context.Equipments.AnyAsync(e => e.Id == id);
         }
     }
 }

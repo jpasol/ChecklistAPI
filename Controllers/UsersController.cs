@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Data;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -101,12 +102,13 @@ namespace ChecklistAPI.Controllers
             return CreatedAtAction("GetUser", new { id = user.Id }, user);
         }
 
-        [HttpPost("userAuth")]
+        [HttpPost("Auth")]
         public async Task<ActionResult<User>> AuthenticateUser(User user)
         {
-            if (await LoginValid(user))
+            var authUser = await LoginValid(user);
+            if (authUser!=null)
             {
-                return Ok();
+                return authUser;
             }
             else
             {
@@ -135,9 +137,9 @@ namespace ChecklistAPI.Controllers
             return _context.Users.Any(e => e.Id == id);
         }
 
-        private async Task<bool> LoginValid(User user)
+        private async Task<ActionResult<User>> LoginValid(User user)
         {
-            return await _context.Users.AnyAsync(e => e.Id == user.Id && e.Password == user.Password && e.isActive);
+            return await _context.Users.FirstAsync(e => e.Id == user.Id && e.Password == user.Password && e.isActive);
         }
     }
 }

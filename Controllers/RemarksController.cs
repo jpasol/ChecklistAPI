@@ -25,7 +25,11 @@ namespace ChecklistAPI.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Remark>>> GetRemarks()
         {
-            return await _context.Remarks.ToListAsync();
+            return await _context.Remarks
+                .Include(x => x.Issue)
+                .Include(x => x.Component)
+                .Include(x => x.RTGForm)
+                .ToListAsync();
         }
 
         // GET: api/Remarks/5

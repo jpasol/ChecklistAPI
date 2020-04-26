@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using EquipmentChecklistDataAccess;
 using EquipmentChecklistDataAccess.Models;
+using System.Security.Cryptography.X509Certificates;
+using System.Text.Json;
 
 namespace ChecklistAPI.Controllers
 {
@@ -25,7 +27,10 @@ namespace ChecklistAPI.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<RTGForm>>> GetRTGForms()
         {
-            return await _context.RTGForms.ToListAsync();
+            return await _context.RTGForms
+                .Include(x => x.Remarks)
+                .Include(x => x.Breakdowns)
+                .ToListAsync();
         }
 
         // GET: api/RTGForms/5

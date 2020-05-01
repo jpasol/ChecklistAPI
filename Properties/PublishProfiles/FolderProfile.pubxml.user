@@ -13,4 +13,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/09/2020 09:26:03</publishTime>
     </File>
   </ItemGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="PrdConnection">
+      <Value>Persist Security Info=False%3bUser ID=sa_ictsi%3bPassword=Ictsi123%3bInitial Catalog=EquipmentChecklistDB%3bData Source=sbitc-dbase07</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
 </Project>

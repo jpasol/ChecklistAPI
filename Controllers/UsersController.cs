@@ -50,7 +50,7 @@ namespace ChecklistAPI.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutUser(string id, User user)
         {
-            if (id != user.Id)
+            if (id != user.ID)
             {
                 return BadRequest();
             }
@@ -89,7 +89,7 @@ namespace ChecklistAPI.Controllers
             }
             catch (DbUpdateException)
             {
-                if (UserExists(user.Id))
+                if (UserExists(user.ID))
                 {
                     return Conflict();
                 }
@@ -99,7 +99,7 @@ namespace ChecklistAPI.Controllers
                 }
             }
 
-            return CreatedAtAction("GetUser", new { id = user.Id }, user);
+            return CreatedAtAction("GetUser", new { id = user.ID }, user);
         }
 
         [HttpPost("Auth")]
@@ -134,12 +134,12 @@ namespace ChecklistAPI.Controllers
 
         private bool UserExists(string id)
         {
-            return _context.Users.Any(e => e.Id == id);
+            return _context.Users.Any(e => e.ID == id);
         }
 
         private async Task<ActionResult<User>> LoginValid(User user)
         {
-            return await _context.Users.FirstAsync(e => e.Id == user.Id && e.Password == user.Password && e.isActive);
+            return await _context.Users.FirstAsync(e => e.ID == user.ID && e.Password == user.Password && e.isActive);
         }
     }
 }

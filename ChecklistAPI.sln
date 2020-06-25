@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChecklistAPI", "ChecklistAP
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EquipmentChecklistDataAccess", "..\EquipmentChecklistDataAccess\EquipmentChecklistDataAccess.csproj", "{42DF9C0C-62BE-43DB-A662-77433D3DD2A4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChecklistAPI_Tests", "..\ChecklistAPI_Tests\ChecklistAPI_Tests.csproj", "{2FEAE8B4-0541-4ECB-A1B1-2703E5376A75}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{42DF9C0C-62BE-43DB-A662-77433D3DD2A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{42DF9C0C-62BE-43DB-A662-77433D3DD2A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{42DF9C0C-62BE-43DB-A662-77433D3DD2A4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2FEAE8B4-0541-4ECB-A1B1-2703E5376A75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2FEAE8B4-0541-4ECB-A1B1-2703E5376A75}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2FEAE8B4-0541-4ECB-A1B1-2703E5376A75}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2FEAE8B4-0541-4ECB-A1B1-2703E5376A75}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

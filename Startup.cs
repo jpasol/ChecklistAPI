@@ -33,7 +33,7 @@ namespace ChecklistAPI
             services.AddCors();
             services.AddDbContext<EquipmentChecklistDBContext>(options =>
 
-            options.UseSqlServer(Configuration.GetConnectionString("PrdConnection")));
+            options.UseSqlServer(Configuration.GetConnectionString("DevConnection")));
 
             services.AddControllers().AddNewtonsoftJson(options =>
             options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore

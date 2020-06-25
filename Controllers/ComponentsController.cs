@@ -48,7 +48,7 @@ namespace ChecklistAPI.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutComponent(string id, Component component)
         {
-            if (id != component.Id)
+            if (id != component.ID)
             {
                 return BadRequest();
             }
@@ -87,7 +87,7 @@ namespace ChecklistAPI.Controllers
             }
             catch (DbUpdateException)
             {
-                if (ComponentExists(component.Id))
+                if (ComponentExists(component.ID))
                 {
                     return Conflict();
                 }
@@ -97,7 +97,7 @@ namespace ChecklistAPI.Controllers
                 }
             }
 
-            return CreatedAtAction("GetComponent", new { id = component.Id }, component);
+            return CreatedAtAction("GetComponent", new { id = component.ID }, component);
         }
 
         // DELETE: api/Components/5
@@ -118,7 +118,7 @@ namespace ChecklistAPI.Controllers
 
         private bool ComponentExists(string id)
         {
-            return _context.Components.Any(e => e.Id == id);
+            return _context.Components.Any(e => e.ID == id);
         }
     }
 }

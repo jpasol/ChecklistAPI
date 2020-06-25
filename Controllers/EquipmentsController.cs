@@ -48,7 +48,7 @@ namespace ChecklistAPI.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutEquipment(string id, Equipment equipment)
         {
-            if (id != equipment.Id)
+            if (id != equipment.ID)
             {
                 return BadRequest();
             }
@@ -87,7 +87,7 @@ namespace ChecklistAPI.Controllers
             }
             catch (DbUpdateException)
             {
-                if (await EquipmentExists(equipment.Id))
+                if (await EquipmentExists(equipment.ID))
                 {
                     return Conflict();
                 }
@@ -97,13 +97,13 @@ namespace ChecklistAPI.Controllers
                 }
             }
 
-            return CreatedAtAction("GetEquipment", new { id = equipment.Id }, equipment);
+            return CreatedAtAction("GetEquipment", new { id = equipment.ID }, equipment);
         }
 
         [HttpPost("Auth")]
         public async Task<ActionResult<Equipment>> LoginEquipment(Equipment equipment)
         {
-            if (await EquipmentExists(equipment.Id))
+            if (await EquipmentExists(equipment.ID))
             {
                 return equipment;
             }
@@ -128,7 +128,7 @@ namespace ChecklistAPI.Controllers
 
         private async Task<bool> EquipmentExists(string id)
         {
-            return await _context.Equipments.AnyAsync(e => e.Id == id);
+            return await _context.Equipments.AnyAsync(e => e.ID == id);
         }
     }
 }

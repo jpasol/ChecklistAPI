@@ -14,6 +14,11 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using ChecklistAPI.Helpers;
+using System.Text;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using ChecklistAPI.Services;
+using Microsoft.IdentityModel.Tokens;
 
 namespace ChecklistAPI
 {
@@ -31,13 +36,44 @@ namespace ChecklistAPI
         {
             services.AddControllers();
             services.AddCors();
+
+            //add db context service
             services.AddDbContext<EquipmentChecklistDBContext>(options =>
 
             options.UseSqlServer(Configuration.GetConnectionString("DevConnection")));
 
+            services.AddScoped<IUserService, UserService>();
+
+            //configuration for settings appsettings as a strongly - typed object
+
+            var appSettingsSection = Configuration.GetSection("AppSettings");
+            services.Configure<AppSettings>(appSettingsSection);
+
+            // configuration to get values of appsettings
+            var appSettings = appSettingsSection.Get<AppSettings>();
+            var key = Encoding.ASCII.GetBytes(appSettings.Secret);
+
+            services.AddAuthentication(x =>
+            {
+                x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            })
+            .AddJwtBearer(x =>
+            {
+                x.RequireHttpsMetadata = false;
+                x.SaveToken = true;
+                x.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateIssuerSigningKey = true,
+                    IssuerSigningKey = new SymmetricSecurityKey(key),
+                    ValidateIssuer = false,
+                    ValidateAudience = false
+                };
+            });
+
             services.AddControllers().AddNewtonsoftJson(options =>
-            options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
-);
+            options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
+
 
         }
 
@@ -50,15 +86,16 @@ namespace ChecklistAPI
             }
 
             app.UseCors(options => 
-            options.AllowAnyOrigin()
-            .AllowAnyMethod()
-            .AllowAnyHeader());
+                options.AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader());
 
             app.UseHttpsRedirection();
 
             app.UseRouting();
 
             app.UseAuthorization();
+            app.UseAuthentication();
 
             app.UseEndpoints(endpoints =>
             {

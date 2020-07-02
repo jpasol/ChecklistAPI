@@ -270,5 +270,13 @@ C:\Users\jpasol\Desktop\Repository\ChecklistAPI\bin\Debug\netcoreapp3.1\runtimes
 C:\Users\jpasol\Desktop\Repository\ChecklistAPI\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.JsonPatch.dll
 C:\Users\jpasol\Desktop\Repository\ChecklistAPI\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 C:\Users\jpasol\Desktop\Repository\ChecklistAPI\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
+C:\Users\jpasol\Desktop\Repository\ChecklistAPI\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\jpasol\Desktop\Repository\ChecklistAPI\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Logging.dll
+C:\Users\jpasol\Desktop\Repository\ChecklistAPI\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll
+C:\Users\jpasol\Desktop\Repository\ChecklistAPI\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll
 C:\Users\jpasol\Desktop\Repository\ChecklistAPI\obj\Debug\netcoreapp3.1\ChecklistAPI.csproj.CoreCompileInputs.cache
 C:\Users\jpasol\Desktop\Repository\ChecklistAPI\obj\Debug\netcoreapp3.1\ChecklistAPI.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\jpasol\Desktop\Repository\ChecklistAPI\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\jpasol\Desktop\Repository\ChecklistAPI\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.dll
+C:\Users\jpasol\Desktop\Repository\ChecklistAPI\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\jpasol\Desktop\Repository\ChecklistAPI\bin\Debug\netcoreapp3.1\web.config

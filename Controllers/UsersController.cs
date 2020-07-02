@@ -9,18 +9,24 @@ using Microsoft.EntityFrameworkCore;
 using EquipmentChecklistDataAccess;
 using EquipmentChecklistDataAccess.Models;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authorization;
+using ChecklistAPI.Services;
+using Microsoft.VisualStudio.Web.CodeGeneration.Contracts.Messaging;
 
 namespace ChecklistAPI.Controllers
 {
+    //[Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class UsersController : ControllerBase
     {
         private readonly EquipmentChecklistDBContext _context;
+        private readonly IUserService userService;
 
-        public UsersController(EquipmentChecklistDBContext context)
+        public UsersController(EquipmentChecklistDBContext context, IUserService userService)
         {
             _context = context;
+            this.userService = userService;
         }
 
         // GET: api/Users
@@ -102,44 +108,47 @@ namespace ChecklistAPI.Controllers
             return CreatedAtAction("GetUser", new { id = user.ID }, user);
         }
 
+        //[AllowAnonymous]
         [HttpPost("Auth")]
         public async Task<ActionResult<User>> AuthenticateUser(User user)
         {
-            var authUser = await LoginValid(user);
-            if (authUser!=null)
-            {
-                return authUser;
-            }
-            else
-            {
-                return BadRequest();
-            }
+            var model = new AuthenticateRequest() {
+                Username = user.ID,
+                Password = user.Password
+            };
+
+            var response = await userService.Authenticate(model);
+
+            if (response == null)
+                return BadRequest(new { message = "Username or Password is incorrect" });
+
+            return Ok(response);
         }
 
-        // DELETE: api/Users/5
-        [HttpDelete("{id}")]
-        public async Task<ActionResult<User>> DeleteUser(string id)
-        {
-            var user = await _context.Users.FindAsync(id);
-            if (user == null)
-            {
-                return NotFound();
-            }
+        //// DELETE: api/Users/5
+        //[HttpDelete("{id}")]
+        //public async Task<ActionResult<User>> DeleteUser(string id)
+        //{
+        //    var user = await _context.Users.FindAsync(id);
+        //    if (user == null)
+        //    {
+        //        return NotFound();
+        //    }
 
-            _context.Users.Remove(user);
-            await _context.SaveChangesAsync();
+        //    _context.Users.Remove(user);
+        //    await _context.SaveChangesAsync();
 
-            return user;
-        }
+        //    return user;
+        //}
 
         private bool UserExists(string id)
         {
             return _context.Users.Any(e => e.ID == id);
         }
 
-        private async Task<ActionResult<User>> LoginValid(User user)
-        {
-            return await _context.Users.FirstAsync(e => e.ID == user.ID && e.Password == user.Password && e.isActive);
-        }
+        //private async Task<ActionResult<User>> LoginValid(User user)
+        //{
+        //    return await _context.Users.FirstAsync(e => e.ID == user.ID && e.Password == user.Password && e.isActive);
+        //}
     }
 }

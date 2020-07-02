@@ -77,44 +77,44 @@ namespace ChecklistAPI.Controllers
         // POST: api/Components
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
-        [HttpPost]
-        public async Task<ActionResult<Component>> PostComponent(Component component)
-        {
-            _context.Components.Add(component);
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateException)
-            {
-                if (ComponentExists(component.ID))
-                {
-                    return Conflict();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+        //[HttpPost]
+        //public async Task<ActionResult<Component>> PostComponent(Component component)
+        //{
+        //    _context.Components.Add(component);
+        //    try
+        //    {
+        //        await _context.SaveChangesAsync();
+        //    }
+        //    catch (DbUpdateException)
+        //    {
+        //        if (ComponentExists(component.ID))
+        //        {
+        //            return Conflict();
+        //        }
+        //        else
+        //        {
+        //            throw;
+        //        }
+        //    }
 
-            return CreatedAtAction("GetComponent", new { id = component.ID }, component);
-        }
+        //    return CreatedAtAction("GetComponent", new { id = component.ID }, component);
+        //}
 
         // DELETE: api/Components/5
-        [HttpDelete("{id}")]
-        public async Task<ActionResult<Component>> DeleteComponent(string id)
-        {
-            var component = await _context.Components.FindAsync(id);
-            if (component == null)
-            {
-                return NotFound();
-            }
+        //    [HttpDelete("{id}")]
+        //    public async Task<ActionResult<Component>> DeleteComponent(string id)
+        //    {
+        //        var component = await _context.Components.FindAsync(id);
+        //        if (component == null)
+        //        {
+        //            return NotFound();
+        //        }
 
-            _context.Components.Remove(component);
-            await _context.SaveChangesAsync();
+        //        _context.Components.Remove(component);
+        //        await _context.SaveChangesAsync();
 
-            return component;
-        }
+        //        return component;
+        //    }
 
         private bool ComponentExists(string id)
         {

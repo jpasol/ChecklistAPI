@@ -12,50 +12,51 @@ namespace ChecklistAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class EquipmentsController : ControllerBase
+    public class QuestionsController : ControllerBase
     {
         private readonly EquipmentChecklistDBContext _context;
 
-        public EquipmentsController(EquipmentChecklistDBContext context)
+        public QuestionsController(EquipmentChecklistDBContext context)
         {
             _context = context;
         }
 
-        // GET: api/Equipments
+        // GET: api/Questions
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Equipment>>> GetEquipments()
+        public async Task<ActionResult<IEnumerable<Question>>> GetQuestions()
         {
-            return await _context.Equipments
-                .Include(x => x.Equipment_Type).ThenInclude(x => x.Questions)
+            return await _context.Questions
+                .Include(x => x.Component)
+                .Include(x => x.Equipment_Type)
                 .ToListAsync();
         }
 
-        // GET: api/Equipments/5
+        // GET: api/Questions/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Equipment>> GetEquipment(string id)
+        public async Task<ActionResult<Question>> GetQuestion(string id)
         {
-            var equipment = await _context.Equipments.FindAsync(id);
+            var question = await _context.Questions.FindAsync(id);
 
-            if (equipment == null)
+            if (question == null)
             {
                 return NotFound();
             }
 
-            return equipment;
+            return question;
         }
 
-        // PUT: api/Equipments/5
+        // PUT: api/Questions/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutEquipment(string id, Equipment equipment)
+        public async Task<IActionResult> PutQuestion(string id, Question question)
         {
-            if (id != equipment.ID)
+            if (id != question.Equipment_TypeID)
             {
                 return BadRequest();
             }
 
-            _context.Entry(equipment).State = EntityState.Modified;
+            _context.Entry(question).State = EntityState.Modified;
 
             try
             {
@@ -63,7 +64,7 @@ namespace ChecklistAPI.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!await EquipmentExists(id))
+                if (!QuestionExists(id))
                 {
                     return NotFound();
                 }
@@ -76,20 +77,20 @@ namespace ChecklistAPI.Controllers
             return NoContent();
         }
 
-        // POST: api/Equipments
+        // POST: api/Questions
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         //[HttpPost]
-        //public async Task<ActionResult<Equipment>> PostEquipment(Equipment equipment)
+        //public async Task<ActionResult<Question>> PostQuestion(Question question)
         //{
-        //    _context.Equipments.Add(equipment);
+        //    _context.Questions.Add(question);
         //    try
         //    {
         //        await _context.SaveChangesAsync();
         //    }
         //    catch (DbUpdateException)
         //    {
-        //        if (await EquipmentExists(equipment.ID))
+        //        if (QuestionExists(question.EquipmentID))
         //        {
         //            return Conflict();
         //        }
@@ -99,38 +100,28 @@ namespace ChecklistAPI.Controllers
         //        }
         //    }
 
-        //    return CreatedAtAction("GetEquipment", new { id = equipment.ID }, equipment);
+        //    return CreatedAtAction("GetQuestion", new { id = question.EquipmentID }, question);
         //}
 
-        [HttpPost("Auth")]
-        public async Task<ActionResult<Equipment>> LoginEquipment(Equipment equipment)
-        {
-            if (await EquipmentExists(equipment.ID))
-            {
-                return equipment;
-            }
-            return BadRequest(new { message = "Invalid Equipment ID"});
-        }
-
-        //// DELETE: api/Equipments/5
+        //// DELETE: api/Questions/5
         //[HttpDelete("{id}")]
-        //public async Task<ActionResult<Equipment>> DeleteEquipment(string id)
+        //public async Task<ActionResult<Question>> DeleteQuestion(string id)
         //{
-        //    var equipment = await _context.Equipments.FindAsync(id);
-        //    if (equipment == null)
+        //    var question = await _context.Questions.FindAsync(id);
+        //    if (question == null)
         //    {
         //        return NotFound();
         //    }
 
-        //    _context.Equipments.Remove(equipment);
+        //    _context.Questions.Remove(question);
         //    await _context.SaveChangesAsync();
 
-        //    return equipment;
+        //    return question;
         //}
 
-        private async Task<bool> EquipmentExists(string id)
+        private bool QuestionExists(string id)
         {
-            return await _context.Equipments.AnyAsync(e => e.ID == id);
+            return _context.Questions.Any(e => e.Equipment_TypeID == id);
         }
     }
 }

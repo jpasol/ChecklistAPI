@@ -15,7 +15,7 @@ using Microsoft.VisualStudio.Web.CodeGeneration.Contracts.Messaging;
 
 namespace ChecklistAPI.Controllers
 {
-    //[Authorize]
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class UsersController : ControllerBase
@@ -108,7 +108,7 @@ namespace ChecklistAPI.Controllers
             return CreatedAtAction("GetUser", new { id = user.ID }, user);
         }
 
-        //[AllowAnonymous]
+        [AllowAnonymous]
         [HttpPost("Auth")]
         public async Task<ActionResult<User>> AuthenticateUser(User user)
         {

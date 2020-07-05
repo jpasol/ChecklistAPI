@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace ChecklistAPI.Controllers
 {
-    [Authorize]
+    [Authorize(AuthenticationSchemes = "Bearer")]
     [Route("api/[controller]")]
     [ApiController]
     public class ConditionsController : ControllerBase

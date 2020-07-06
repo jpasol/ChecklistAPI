@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using EquipmentChecklistDataAccess;
 using EquipmentChecklistDataAccess.Models;
 using Microsoft.AspNetCore.Authorization;
+using System.Security.Cryptography.X509Certificates;
 
 namespace ChecklistAPI.Controllers
 {
@@ -29,15 +30,14 @@ namespace ChecklistAPI.Controllers
         {
             return await _context.Questions
                 .Include(x => x.Component)
-                .Include(x => x.Equipment_Type)
                 .ToListAsync();
         }
 
         // GET: api/Questions/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Question>> GetQuestion(string id)
+        public async Task<ActionResult<Question[]>> GetQuestionsbyEquipmentType(string id)
         {
-            var question = await _context.Questions.FindAsync(id);
+            var question = await _context.Questions.Where(x => x.Equipment_TypeID == id).ToArrayAsync();
 
             if (question == null)
             {

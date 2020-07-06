@@ -109,7 +109,9 @@ namespace ChecklistAPI.Controllers
         {
             if (await EquipmentExists(equipment.ID))
             {
-                return equipment;
+                return await _context.Equipments
+                    .Include(x => x.Equipment_Type)
+                    .SingleOrDefaultAsync( x => x.ID == equipment.ID);
             }
             return BadRequest(new { message = "Invalid Equipment ID"});
         }

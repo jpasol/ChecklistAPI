@@ -6,7 +6,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
-    <_PublishTargetUrl>\\192.168.11.243\c$\ChecklistAPI</_PublishTargetUrl>
+    <_PublishTargetUrl>\\10.88.140.68\c$\sbitcChecklist\API</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
     <File Include="Startup.cs">
@@ -15,7 +15,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
   </ItemGroup>
   <ItemGroup>
     <DestinationConnectionStrings Include="PrdConnection">
-      <Value>Persist Security Info=False%3bUser ID=sa_ictsi%3bPassword=Ictsi123%3bInitial Catalog=EquipmentChecklistDB%3bData Source=sbitc-dbase07</Value>
+      <Value>Persist Security Info=False%3bUser ID=sa%3bPassword=su61c%40t3rm1n4l%3bInitial Catalog=EquipmentChecklistDB%3bData Source=10.88.140.68</Value>
     </DestinationConnectionStrings>
   </ItemGroup>
 </Project>

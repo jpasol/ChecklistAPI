@@ -40,7 +40,7 @@ namespace ChecklistAPI
             //add db context service
             services.AddDbContext<EquipmentChecklistDBContext>(options =>
 
-            options.UseSqlServer(Configuration.GetConnectionString("DevConnection")));
+            options.UseSqlServer(Configuration.GetConnectionString("PrdConnection")));
 
             services.AddScoped<IUserService, UserService>();
 

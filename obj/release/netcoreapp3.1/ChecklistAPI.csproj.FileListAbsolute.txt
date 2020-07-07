@@ -199,3 +199,11 @@ C:\Users\jpasol\Desktop\Repository\ChecklistAPI\obj\Release\netcoreapp3.1\static
 C:\Users\jpasol\Desktop\Repository\ChecklistAPI\obj\Release\netcoreapp3.1\ChecklistAPI.dll
 C:\Users\jpasol\Desktop\Repository\ChecklistAPI\obj\Release\netcoreapp3.1\ChecklistAPI.pdb
 C:\Users\jpasol\Desktop\Repository\ChecklistAPI\obj\Release\netcoreapp3.1\ChecklistAPI.genruntimeconfig.cache
+C:\Users\jpasol\Desktop\Repository\ChecklistAPI\bin\Release\netcoreapp3.1\web.config
+C:\Users\jpasol\Desktop\Repository\ChecklistAPI\bin\Release\netcoreapp3.1\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\jpasol\Desktop\Repository\ChecklistAPI\bin\Release\netcoreapp3.1\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\jpasol\Desktop\Repository\ChecklistAPI\bin\Release\netcoreapp3.1\Microsoft.IdentityModel.Logging.dll
+C:\Users\jpasol\Desktop\Repository\ChecklistAPI\bin\Release\netcoreapp3.1\Microsoft.IdentityModel.Protocols.dll
+C:\Users\jpasol\Desktop\Repository\ChecklistAPI\bin\Release\netcoreapp3.1\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\jpasol\Desktop\Repository\ChecklistAPI\bin\Release\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll
+C:\Users\jpasol\Desktop\Repository\ChecklistAPI\bin\Release\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll

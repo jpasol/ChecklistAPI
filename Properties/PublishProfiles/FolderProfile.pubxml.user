@@ -6,11 +6,11 @@ by editing this MSBuild file. In order to learn more about this please visit htt
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
-    <_PublishTargetUrl>\\10.88.140.68\c$\sbitcChecklist\API</_PublishTargetUrl>
+    <_PublishTargetUrl>\\10.88.140.68\c$\inetpub\wwwroot\sbitcChecklist\API</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
     <File Include="Startup.cs">
-      <publishTime>03/09/2020 09:26:03</publishTime>
+      <publishTime>09/03/2020 09:26:03</publishTime>
     </File>
   </ItemGroup>
   <ItemGroup>

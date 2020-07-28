@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using EquipmentChecklistDataAccess;
 using EquipmentChecklistDataAccess.Models;
 using Microsoft.AspNetCore.Authorization;
+using ChecklistAPI.Helpers;
 
 namespace ChecklistAPI.Controllers
 {
@@ -88,16 +89,40 @@ namespace ChecklistAPI.Controllers
         {
             try
             {
+                EnsureHasChecklistItems(checklist);
+                await EnsureSameEquipment(_context, checklist);
                 _context.Checklists.Add(checklist);
                 await _context.SaveChangesAsync();
 
                 return CreatedAtAction("GetChecklist", new { id = checklist.ID }, checklist);
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 return e.Message;
             }
 
+        }
+
+        private bool EnsureHasChecklistItems(Checklist checklist)
+        {
+            var hasChecklistItems = checklist.Checklist_Items.Count();
+            if (hasChecklistItems == 0) throw new Exception("Checklist has no items");
+            return true;
+        }
+
+        private async Task<ActionResult<object>> EnsureSameEquipment(EquipmentChecklistDBContext context, Checklist checklist)
+        {
+            var items = checklist.Checklist_Items.ToArray();
+            var equipment = await context.Equipments.FindAsync(checklist.EquipmentID);
+
+            if (checklist.EquipmentID != equipment.ID) throw new Exception("Checklist's EquipmentID is invalid");
+
+            for (int i = 0; i < items.Length; i++)
+            {
+                if (items[i].Equipment_TypeID != equipment.Equipment_TypeID) throw new Exception("Some Checklist Item's Equipment Type ID is different from Checklist's Equipment Type ID");
+            }
+
+            return true;
         }
 
     }

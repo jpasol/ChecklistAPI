@@ -50,6 +50,7 @@ namespace ChecklistAPI.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutComponent(string id, Component component)
         {
+            await Ensure5Characters(component);
             if (id != component.ID)
             {
                 return BadRequest();
@@ -79,28 +80,35 @@ namespace ChecklistAPI.Controllers
         // POST: api/Components
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
-        //[HttpPost]
-        //public async Task<ActionResult<Component>> PostComponent(Component component)
-        //{
-        //    _context.Components.Add(component);
-        //    try
-        //    {
-        //        await _context.SaveChangesAsync();
-        //    }
-        //    catch (DbUpdateException)
-        //    {
-        //        if (ComponentExists(component.ID))
-        //        {
-        //            return Conflict();
-        //        }
-        //        else
-        //        {
-        //            throw;
-        //        }
-        //    }
+        [HttpPost]
+        public async Task<ActionResult<object>> PostComponent(Component component)
+        {
+            _context.Components.Add(component);
+            try
+            {
+                await Ensure5Characters(component);
+                await _context.SaveChangesAsync();
+            }
+            catch (Exception e)
+            {
+                if (ComponentExists(component.ID))
+                {
+                    return Conflict();
+                }
+                else
+                {
+                    return e;
+                }
+            }
 
-        //    return CreatedAtAction("GetComponent", new { id = component.ID }, component);
-        //}
+            return CreatedAtAction("GetComponent", new { id = component.ID }, component);
+        }
+
+        private async Task<ActionResult<object>> Ensure5Characters(Component component)
+        {
+            if (component.ID.Length > 5) throw new Exception("Component ID has more than 5 characters");
+            return true;
+        }
 
         // DELETE: api/Components/5
         //    [HttpDelete("{id}")]
@@ -122,5 +130,6 @@ namespace ChecklistAPI.Controllers
         {
             return _context.Components.Any(e => e.ID == id);
         }
+
     }
 }

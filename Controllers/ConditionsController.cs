@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using EquipmentChecklistDataAccess;
 using EquipmentChecklistDataAccess.Models;
 using Microsoft.AspNetCore.Authorization;
+using ChecklistAPI.Helpers;
 
 namespace ChecklistAPI.Controllers
 {
@@ -50,6 +51,7 @@ namespace ChecklistAPI.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutCondition(string id, Condition condition)
         {
+            await Validator.Ensure5Characters(condition);
             if (id != condition.ID)
             {
                 return BadRequest();
@@ -79,28 +81,29 @@ namespace ChecklistAPI.Controllers
         // POST: api/Conditions
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
-        //    [HttpPost]
-        //    public async Task<ActionResult<Condition>> PostCondition(Condition condition)
-        //    {
-        //        _context.Conditions.Add(condition);
-        //        try
-        //        {
-        //            await _context.SaveChangesAsync();
-        //        }
-        //        catch (DbUpdateException)
-        //        {
-        //            if (ConditionExists(condition.ID))
-        //            {
-        //                return Conflict();
-        //            }
-        //            else
-        //            {
-        //                throw;
-        //            }
-        //        }
+        [HttpPost]
+        public async Task<ActionResult<object>> PostCondition(Condition condition)
+        {
+            _context.Conditions.Add(condition);
+            try
+            {
+                await Validator.Ensure5Characters(condition);
+                await _context.SaveChangesAsync();
+            }
+            catch (Exception e)
+            {
+                if (ConditionExists(condition.ID))
+                {
+                    return Conflict();
+                }
+                else
+                {
+                    return e;
+                }
+            }
 
-        //        return CreatedAtAction("GetCondition", new { id = condition.ID }, condition);
-        //    }
+            return CreatedAtAction("GetCondition", new { id = condition.ID }, condition);
+        }
 
         //    // DELETE: api/Conditions/5
         //    [HttpDelete("{id}")]

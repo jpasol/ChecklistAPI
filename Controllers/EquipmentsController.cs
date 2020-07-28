@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using EquipmentChecklistDataAccess;
 using EquipmentChecklistDataAccess.Models;
 using Microsoft.AspNetCore.Authorization;
+using ChecklistAPI.Helpers;
 
 namespace ChecklistAPI.Controllers
 {
@@ -50,8 +51,9 @@ namespace ChecklistAPI.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutEquipment(string id, Equipment equipment)
+        public async Task<ActionResult<object>> PutEquipment(string id, Equipment equipment)
         {
+            await Validator.Ensure5Characters(equipment);
             if (id != equipment.ID)
             {
                 return BadRequest();
@@ -63,7 +65,7 @@ namespace ChecklistAPI.Controllers
             {
                 await _context.SaveChangesAsync();
             }
-            catch (DbUpdateConcurrencyException)
+            catch (Exception e)
             {
                 if (!await EquipmentExists(id))
                 {
@@ -71,7 +73,7 @@ namespace ChecklistAPI.Controllers
                 }
                 else
                 {
-                    throw;
+                    return e;
                 }
             }
 
@@ -81,28 +83,30 @@ namespace ChecklistAPI.Controllers
         // POST: api/Equipments
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
-        //[HttpPost]
-        //public async Task<ActionResult<Equipment>> PostEquipment(Equipment equipment)
-        //{
-        //    _context.Equipments.Add(equipment);
-        //    try
-        //    {
-        //        await _context.SaveChangesAsync();
-        //    }
-        //    catch (DbUpdateException)
-        //    {
-        //        if (await EquipmentExists(equipment.ID))
-        //        {
-        //            return Conflict();
-        //        }
-        //        else
-        //        {
-        //            throw;
-        //        }
-        //    }
+        [HttpPost]
+        public async Task<ActionResult<object>> PostEquipment(Equipment equipment)
+        {
+            _context.Equipments.Add(equipment);
+            try
+            {
+                await Validator.Ensure5Characters(equipment);
+                await Validator.EnsureEquipmentTypeID(equipment);
+                await _context.SaveChangesAsync();
+            }
+            catch (Exception e)
+            {
+                if (await EquipmentExists(equipment.ID))
+                {
+                    return Conflict();
+                }
+                else
+                {
+                    return e;
+                }
+            }
 
-        //    return CreatedAtAction("GetEquipment", new { id = equipment.ID }, equipment);
-        //}
+            return CreatedAtAction("GetEquipment", new { id = equipment.ID }, equipment);
+        }
 
         [HttpPost("Auth")]
         public async Task<ActionResult<Equipment>> LoginEquipment(Equipment equipment)
@@ -116,21 +120,32 @@ namespace ChecklistAPI.Controllers
             return BadRequest(new { message = "Invalid Equipment ID"});
         }
 
-        //// DELETE: api/Equipments/5
-        //[HttpDelete("{id}")]
-        //public async Task<ActionResult<Equipment>> DeleteEquipment(string id)
-        //{
-        //    var equipment = await _context.Equipments.FindAsync(id);
-        //    if (equipment == null)
-        //    {
-        //        return NotFound();
-        //    }
+        // DELETE: api/Equipments/5
+        [HttpDelete("{id}")]
+        public async Task<ActionResult<object>> DeleteEquipment(string id)
+        {
+            var equipment = await _context.Equipments.FindAsync(id);
+            if (equipment == null)
+            {
+                return NotFound();
+            }
 
-        //    _context.Equipments.Remove(equipment);
-        //    await _context.SaveChangesAsync();
+            try
+            {
+                await Validator.EnsureEquipmentIsUnusedInContext(_context, equipment);
 
-        //    return equipment;
-        //}
+                _context.Equipments.Remove(equipment);
+                await _context.SaveChangesAsync();
+
+                return equipment;
+            }
+            catch (Exception e)
+            {
+
+                throw e;
+            }
+
+        }
 
         private async Task<bool> EquipmentExists(string id)
         {

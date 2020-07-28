@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using EquipmentChecklistDataAccess;
 using EquipmentChecklistDataAccess.Models;
 using Microsoft.AspNetCore.Authorization;
+using ChecklistAPI.Helpers;
 
 namespace ChecklistAPI.Controllers
 {
@@ -50,7 +51,7 @@ namespace ChecklistAPI.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutComponent(string id, Component component)
         {
-            await Ensure5Characters(component);
+            await Validator.Ensure5Characters(component);
             if (id != component.ID)
             {
                 return BadRequest();
@@ -86,7 +87,7 @@ namespace ChecklistAPI.Controllers
             _context.Components.Add(component);
             try
             {
-                await Ensure5Characters(component);
+                await Validator.Ensure5Characters(component);
                 await _context.SaveChangesAsync();
             }
             catch (Exception e)
@@ -104,11 +105,6 @@ namespace ChecklistAPI.Controllers
             return CreatedAtAction("GetComponent", new { id = component.ID }, component);
         }
 
-        private async Task<ActionResult<object>> Ensure5Characters(Component component)
-        {
-            if (component.ID.Length > 5) throw new Exception("Component ID has more than 5 characters");
-            return true;
-        }
 
         // DELETE: api/Components/5
         //    [HttpDelete("{id}")]

@@ -45,7 +45,6 @@ namespace ChecklistAPI
             services.AddScoped<IUserService, UserService>();
 
             //configuration for settings appsettings as a strongly - typed object
-
             var appSettingsSection = Configuration.GetSection("AppSettings");
             services.Configure<AppSettings>(appSettingsSection);
 
@@ -67,7 +66,9 @@ namespace ChecklistAPI
                     ValidateIssuerSigningKey = true,
                     IssuerSigningKey = new SymmetricSecurityKey(key),
                     ValidateIssuer = false,
-                    ValidateAudience = false
+                    ValidateAudience = false,
+                    ValidateLifetime = true,
+                    ClockSkew = TimeSpan.Zero
                 };
             });
 

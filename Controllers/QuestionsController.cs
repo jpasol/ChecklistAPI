@@ -64,7 +64,7 @@ namespace ChecklistAPI.Controllers
             {
                 await _context.SaveChangesAsync();
             }
-            catch (DbUpdateConcurrencyException)
+            catch (Exception e)
             {
                 if (!QuestionExists(id))
                 {
@@ -72,7 +72,7 @@ namespace ChecklistAPI.Controllers
                 }
                 else
                 {
-                    throw;
+                    throw e;
                 }
             }
 
@@ -82,28 +82,28 @@ namespace ChecklistAPI.Controllers
         // POST: api/Questions
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
-        //[HttpPost]
-        //public async Task<ActionResult<Question>> PostQuestion(Question question)
-        //{
-        //    _context.Questions.Add(question);
-        //    try
-        //    {
-        //        await _context.SaveChangesAsync();
-        //    }
-        //    catch (DbUpdateException)
-        //    {
-        //        if (QuestionExists(question.EquipmentID))
-        //        {
-        //            return Conflict();
-        //        }
-        //        else
-        //        {
-        //            throw;
-        //        }
-        //    }
+        [HttpPost]
+        public async Task<ActionResult<Question>> PostQuestion(Question question)
+        {
+            _context.Questions.Add(question);
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (Exception e)
+            {
+                if (QuestionExists(question.Equipment_TypeID))
+                {
+                    return Conflict();
+                }
+                else
+                {
+                    throw e;
+                }
+            }
 
-        //    return CreatedAtAction("GetQuestion", new { id = question.EquipmentID }, question);
-        //}
+            return CreatedAtAction("GetQuestion", new { id = question.Equipment_TypeID }, question);
+        }
 
         //// DELETE: api/Questions/5
         //[HttpDelete("{id}")]

@@ -34,7 +34,7 @@ namespace ChecklistAPI.Helpers
         public static async Task EnsureEquipmentIsUnusedInContext(EquipmentChecklistDBContext context, Equipment equipment)
         {
             var checklistFound = context.Checklists.Where(x => x.EquipmentID == equipment.ID).ToArray();
-            if (checklistFound != null) throw new InvalidOperationException("Equipment ID is used in a checklist, doing this will corrupt the data's integrity");
+            if (checklistFound.Length > 0) throw new InvalidOperationException("Equipment ID is used in a checklist, doing this will corrupt the data's integrity");
         }
     }
 }

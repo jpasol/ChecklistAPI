@@ -280,3 +280,6 @@ C:\Users\jpasol\Desktop\Repository\ChecklistAPI\bin\Debug\netcoreapp3.1\Microsof
 C:\Users\jpasol\Desktop\Repository\ChecklistAPI\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.dll
 C:\Users\jpasol\Desktop\Repository\ChecklistAPI\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 C:\Users\jpasol\Desktop\Repository\ChecklistAPI\bin\Debug\netcoreapp3.1\web.config
+C:\Users\jpasol\Desktop\Repository\ChecklistAPI\bin\Debug\netcoreapp3.1\System.Collections.Immutable.dll
+C:\Users\jpasol\Desktop\Repository\ChecklistAPI\bin\Debug\netcoreapp3.1\System.Diagnostics.DiagnosticSource.dll
+C:\Users\jpasol\Desktop\Repository\ChecklistAPI\bin\Debug\netcoreapp3.1\System.Text.Json.dll

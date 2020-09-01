@@ -207,3 +207,6 @@ C:\Users\jpasol\Desktop\Repository\ChecklistAPI\bin\Release\netcoreapp3.1\Micros
 C:\Users\jpasol\Desktop\Repository\ChecklistAPI\bin\Release\netcoreapp3.1\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 C:\Users\jpasol\Desktop\Repository\ChecklistAPI\bin\Release\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll
 C:\Users\jpasol\Desktop\Repository\ChecklistAPI\bin\Release\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\jpasol\Desktop\Repository\ChecklistAPI\bin\Release\netcoreapp3.1\System.Collections.Immutable.dll
+C:\Users\jpasol\Desktop\Repository\ChecklistAPI\bin\Release\netcoreapp3.1\System.Diagnostics.DiagnosticSource.dll
+C:\Users\jpasol\Desktop\Repository\ChecklistAPI\bin\Release\netcoreapp3.1\System.Text.Json.dll

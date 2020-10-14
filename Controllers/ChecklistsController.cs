@@ -47,6 +47,23 @@ namespace ChecklistAPI.Controllers
             return checklist;
         }
 
+        // GET: api/Checklists/issues
+        [HttpGet("issues")]
+        public async Task<ActionResult<IEnumerable<Checklist>>> GetChecklistIssues()
+        {
+            var checklist = await _context.Checklists
+                .Include(x => x.Checklist_Items)
+                .Where(x => (x.Checklist_Items.Where(x => x.ConditionID != "OK").Count()) > 0)
+                .ToListAsync();
+
+            if (checklist == null)
+            {
+                return NotFound();
+            }
+
+            return checklist;
+        }
+
         // PUT: api/Checklists/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.

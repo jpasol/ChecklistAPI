@@ -19,17 +19,22 @@ using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using ChecklistAPI.Services;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
+using Microsoft.AspNetCore.Server.IIS.Core;
 
 namespace ChecklistAPI
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        public Startup(IConfiguration configuration,
+            IWebHostEnvironment environment)
         {
             Configuration = configuration;
+            this.env = environment;
         }
 
         public IConfiguration Configuration { get; }
+        private readonly IWebHostEnvironment env;
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
@@ -38,9 +43,14 @@ namespace ChecklistAPI
             services.AddCors();
 
             //add db context service
-            services.AddDbContext<EquipmentChecklistDBContext>(options =>
+            services.AddDbContext<EquipmentChecklistDBContext>(options => {
+                var _conStr = "";
+                if (env.IsDevelopment()) _conStr = "DevConnection";
+                if (env.IsStaging()) _conStr = "StgConnection";
+                if (env.IsProduction()) _conStr = "PrdConnection";
 
-            options.UseSqlServer(Configuration.GetConnectionString("PrdConnection")));
+                options.UseSqlServer(Configuration.GetConnectionString(_conStr)); }
+            );
 
             services.AddScoped<IUserService, UserService>();
 

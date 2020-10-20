@@ -1,26 +1,16 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using ChecklistAPI;
-using EquipmentChecklistDataAccess.Models;
 using EquipmentChecklistDataAccess;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using ChecklistAPI.Helpers;
 using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using ChecklistAPI.Services;
 using Microsoft.IdentityModel.Tokens;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
-using Microsoft.AspNetCore.Server.IIS.Core;
+using Microsoft.Data.SqlClient;
 
 namespace ChecklistAPI
 {
@@ -39,8 +29,14 @@ namespace ChecklistAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(o => o.AddDefaultPolicy(builder => {
+                builder.AllowAnyOrigin()
+                       .AllowAnyMethod()
+                       .AllowAnyHeader();
+            }));
+
             services.AddControllers();
-            services.AddCors();
+
 
             //add db context service
             services.AddDbContext<EquipmentChecklistDBContext>(options => {
@@ -95,11 +91,7 @@ namespace ChecklistAPI
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseCors(options => 
-                options.AllowAnyOrigin()
-                .AllowAnyMethod()
-                .AllowAnyHeader());
-
+            app.UseCors();
             app.UseHttpsRedirection();
 
             app.UseRouting();

@@ -45,7 +45,7 @@ namespace ChecklistAPI
                 if (env.IsStaging()) _conStr = "StgConnection";
                 if (env.IsProduction()) _conStr = "PrdConnection";
 
-                options.UseSqlServer(Configuration.GetConnectionString(_conStr)); }
+                options.UseSqlServer(Configuration.GetConnectionString(_conStr)); } //change to "PrdConnection" when using efcore 'update-database' to prod
             );
 
             services.AddScoped<IUserService, UserService>();

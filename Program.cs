@@ -21,7 +21,16 @@ namespace ChecklistAPI
             Host.CreateDefaultBuilder(args)
                 .ConfigureLogging((_context, _builder) => {
 
-                    _builder.AddFile("Logs/myApp-{Date}.txt");
+                    var _currentPath = AppDomain.CurrentDomain.BaseDirectory;
+                    var _fileName = "myApp-{Date}.txt";
+                    var _logPath = "";
+                    var _stgPath = "\\\\10.88.140.68\\c$\\EquipmentChecklistLogs\\Staging";
+                    var _prdPath = "\\\\10.88.140.68\\c$\\EquipmentChecklistLogs\\Production";
+
+                    if (_context.HostingEnvironment.IsDevelopment()) _logPath = $"{ _currentPath}\\Logs\\{_fileName}";
+                    if (_context.HostingEnvironment.IsStaging()) _logPath = $"{_stgPath}\\{_fileName}";
+                    if (_context.HostingEnvironment.IsProduction()) _logPath = $"{_prdPath}\\{_fileName}";
+                    _builder.AddFile(_logPath);
                 }) 
                 .ConfigureWebHostDefaults(webBuilder =>
                 {

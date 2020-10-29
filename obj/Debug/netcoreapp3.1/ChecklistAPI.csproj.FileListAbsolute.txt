@@ -274,8 +274,6 @@ C:\Users\jpasol\Desktop\Repository\ChecklistAPI\bin\Debug\netcoreapp3.1\Microsof
 C:\Users\jpasol\Desktop\Repository\ChecklistAPI\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Logging.dll
 C:\Users\jpasol\Desktop\Repository\ChecklistAPI\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll
 C:\Users\jpasol\Desktop\Repository\ChecklistAPI\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll
-C:\Users\jpasol\Desktop\Repository\ChecklistAPI\obj\Debug\netcoreapp3.1\ChecklistAPI.csproj.CoreCompileInputs.cache
-C:\Users\jpasol\Desktop\Repository\ChecklistAPI\obj\Debug\netcoreapp3.1\ChecklistAPI.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\jpasol\Desktop\Repository\ChecklistAPI\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\Users\jpasol\Desktop\Repository\ChecklistAPI\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.dll
 C:\Users\jpasol\Desktop\Repository\ChecklistAPI\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
@@ -285,3 +283,12 @@ C:\Users\jpasol\Desktop\Repository\ChecklistAPI\bin\Debug\netcoreapp3.1\System.D
 C:\Users\jpasol\Desktop\Repository\ChecklistAPI\bin\Debug\netcoreapp3.1\System.Text.Json.dll
 C:\Users\jpasol\Desktop\Repository\ChecklistAPI\bin\Debug\netcoreapp3.1\Properties\serviceDependencies.json
 C:\Users\jpasol\Desktop\Repository\ChecklistAPI\bin\Debug\netcoreapp3.1\Properties\serviceDependencies.local.json
+C:\Users\jpasol\Desktop\Repository\ChecklistAPI\bin\Debug\netcoreapp3.1\Serilog.dll
+C:\Users\jpasol\Desktop\Repository\ChecklistAPI\bin\Debug\netcoreapp3.1\Serilog.Extensions.Logging.dll
+C:\Users\jpasol\Desktop\Repository\ChecklistAPI\bin\Debug\netcoreapp3.1\Serilog.Extensions.Logging.File.dll
+C:\Users\jpasol\Desktop\Repository\ChecklistAPI\bin\Debug\netcoreapp3.1\Serilog.Formatting.Compact.dll
+C:\Users\jpasol\Desktop\Repository\ChecklistAPI\bin\Debug\netcoreapp3.1\Serilog.Sinks.Async.dll
+C:\Users\jpasol\Desktop\Repository\ChecklistAPI\bin\Debug\netcoreapp3.1\Serilog.Sinks.File.dll
+C:\Users\jpasol\Desktop\Repository\ChecklistAPI\bin\Debug\netcoreapp3.1\Serilog.Sinks.RollingFile.dll
+C:\Users\jpasol\Desktop\Repository\ChecklistAPI\obj\Debug\netcoreapp3.1\ChecklistAPI.csproj.CoreCompileInputs.cache
+C:\Users\jpasol\Desktop\Repository\ChecklistAPI\obj\Debug\netcoreapp3.1\ChecklistAPI.MvcApplicationPartsAssemblyInfo.cache

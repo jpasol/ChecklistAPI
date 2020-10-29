@@ -115,3 +115,44 @@ Microsoft.Data.SqlClient.SqlException (0x80131904): Login failed for user 'sa'.
 ClientConnectionId:dff1adc1-c434-4496-8e4a-7d3aefb70f26
 Error Number:18456,State:1,Class:14
 2020-10-29T19:30:19.4907909+08:00 80000010-0000-f700-b63f-84710c7967bb [INF] Request finished in 1961.6368ms 500 text/plain (791a596a)
+2020-10-29T19:35:32.7237959+08:00  [INF] User profile is available. Using '"C:\Users\jpasol\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest. (7ac5e29c)
+2020-10-29T19:35:33.0574486+08:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2020-10-29T19:35:33.0596781+08:00  [INF] Hosting environment: "Development" (c3307c92)
+2020-10-29T19:35:33.0617198+08:00  [INF] Content root path: "C:\Users\jpasol\Desktop\Repository\ChecklistAPI" (b5d60022)
+2020-10-29T19:35:33.1200569+08:00 8000005c-0001-f900-b63f-84710c7967bb [INF] Request starting HTTP/1.1 GET http://localhost:10511/   (ca22a1cb)
+2020-10-29T19:35:33.1402001+08:00 8000005c-0001-f900-b63f-84710c7967bb [WRN] Failed to determine the https port for redirect. (ca76cc21)
+2020-10-29T19:35:33.3434786+08:00 8000005c-0001-f900-b63f-84710c7967bb [INF] Request finished in 228.0056ms 404  (791a596a)
+2020-10-29T19:35:34.8098403+08:00 80000164-0002-f900-b63f-84710c7967bb [INF] Request starting HTTP/1.1 OPTIONS http://localhost:10511/api/Users/Auth   (ca22a1cb)
+2020-10-29T19:35:34.8180417+08:00 80000164-0002-f900-b63f-84710c7967bb [INF] CORS policy execution successful. (5409d6ef)
+2020-10-29T19:35:34.8249943+08:00 80000164-0002-f900-b63f-84710c7967bb [INF] Request finished in 15.5636ms 204  (791a596a)
+2020-10-29T19:35:34.8288731+08:00 80000165-0002-f900-b63f-84710c7967bb [INF] Request starting HTTP/1.1 POST http://localhost:10511/api/Users/Auth application/json 72 (ca22a1cb)
+2020-10-29T19:35:34.8328314+08:00 80000165-0002-f900-b63f-84710c7967bb [INF] CORS policy execution successful. (5409d6ef)
+2020-10-29T19:35:34.8848582+08:00 80000165-0002-f900-b63f-84710c7967bb [INF] Executing endpoint '"ChecklistAPI.Controllers.UsersController.AuthenticateUser (ChecklistAPI)"' (500cc934)
+2020-10-29T19:35:34.9352437+08:00 80000165-0002-f900-b63f-84710c7967bb [INF] Route matched with "{action = \"AuthenticateUser\", controller = \"Users\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[EquipmentChecklistDataAccess.Models.User]] AuthenticateUser(EquipmentChecklistDataAccess.Models.User)" on controller "ChecklistAPI.Controllers.UsersController" ("ChecklistAPI"). (122b2fdf)
+2020-10-29T19:35:35.8310814+08:00 80000165-0002-f900-b63f-84710c7967bb [INF] Entity Framework Core "3.1.7" initialized '"EquipmentChecklistDBContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2020-10-29T19:35:36.3682720+08:00 80000165-0002-f900-b63f-84710c7967bb [INF] Executed DbCommand ("69"ms) [Parameters=["@__model_Username_0='?' (Size = 15), @__model_Password_1='?' (Size = 25)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(2) [u].[ID], [u].[FirstName], [u].[LastName], [u].[MiddleName], [u].[Password], [u].[isActive]
+FROM [Users] AS [u]
+WHERE ([u].[ID] = @__model_Username_0) AND ([u].[Password] = @__model_Password_1)" (0723d8ff)
+2020-10-29T19:35:36.5503294+08:00 80000165-0002-f900-b63f-84710c7967bb [INF] Executing ObjectResult, writing value of type '"EquipmentChecklistDataAccess.Models.AuthenticateResponse"'. (8a1b66c8)
+2020-10-29T19:35:36.6144475+08:00 80000165-0002-f900-b63f-84710c7967bb [INF] Executed action "ChecklistAPI.Controllers.UsersController.AuthenticateUser (ChecklistAPI)" in 1668.6618ms (afa2e885)
+2020-10-29T19:35:36.6184298+08:00 80000165-0002-f900-b63f-84710c7967bb [INF] Executed endpoint '"ChecklistAPI.Controllers.UsersController.AuthenticateUser (ChecklistAPI)"' (99874f2b)
+2020-10-29T19:35:36.6293585+08:00 80000165-0002-f900-b63f-84710c7967bb [INF] Request finished in 1800.969ms 200 application/json; charset=utf-8 (791a596a)
+2020-10-29T19:35:36.6359766+08:00 80000166-0002-f900-b63f-84710c7967bb [INF] Request starting HTTP/1.1 OPTIONS http://localhost:10511/api/admins/user   (ca22a1cb)
+2020-10-29T19:35:36.6386823+08:00 80000166-0002-f900-b63f-84710c7967bb [INF] CORS policy execution successful. (5409d6ef)
+2020-10-29T19:35:36.6439954+08:00 80000166-0002-f900-b63f-84710c7967bb [INF] Request finished in 8.0762ms 204  (791a596a)
+2020-10-29T19:35:36.6458973+08:00 80000167-0002-f900-b63f-84710c7967bb [INF] Request starting HTTP/1.1 GET http://localhost:10511/api/admins/user   (ca22a1cb)
+2020-10-29T19:35:36.6477493+08:00 80000167-0002-f900-b63f-84710c7967bb [INF] CORS policy execution successful. (5409d6ef)
+2020-10-29T19:35:36.7187461+08:00 80000167-0002-f900-b63f-84710c7967bb [INF] Successfully validated the token. (60169667)
+2020-10-29T19:35:36.7258036+08:00 80000167-0002-f900-b63f-84710c7967bb [INF] Authorization was successful. (0d575a54)
+2020-10-29T19:35:36.7279022+08:00 80000167-0002-f900-b63f-84710c7967bb [INF] Executing endpoint '"ChecklistAPI.Controllers.AdminsController.GetAdmin (ChecklistAPI)"' (500cc934)
+2020-10-29T19:35:36.7352796+08:00 80000167-0002-f900-b63f-84710c7967bb [INF] Route matched with "{action = \"GetAdmin\", controller = \"Admins\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[EquipmentChecklistDataAccess.Models.Admin]] GetAdmin(System.String)" on controller "ChecklistAPI.Controllers.AdminsController" ("ChecklistAPI"). (122b2fdf)
+2020-10-29T19:35:36.7698933+08:00 80000167-0002-f900-b63f-84710c7967bb [INF] Entity Framework Core "3.1.7" initialized '"EquipmentChecklistDBContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2020-10-29T19:35:36.7910173+08:00 80000167-0002-f900-b63f-84710c7967bb [INF] Executed DbCommand ("3"ms) [Parameters=["@__p_0='?' (Size = 15)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [a].[UserID]
+FROM [Admins] AS [a]
+WHERE [a].[UserID] = @__p_0" (0723d8ff)
+2020-10-29T19:35:36.7943746+08:00 80000167-0002-f900-b63f-84710c7967bb [INF] Executing ObjectResult, writing value of type '"Microsoft.AspNetCore.Mvc.ProblemDetails"'. (8a1b66c8)
+2020-10-29T19:35:36.8531682+08:00 80000167-0002-f900-b63f-84710c7967bb [INF] Executed action "ChecklistAPI.Controllers.AdminsController.GetAdmin (ChecklistAPI)" in 74.998ms (afa2e885)
+2020-10-29T19:35:36.8643290+08:00 80000167-0002-f900-b63f-84710c7967bb [INF] Executed endpoint '"ChecklistAPI.Controllers.AdminsController.GetAdmin (ChecklistAPI)"' (99874f2b)
+2020-10-29T19:35:36.8732277+08:00 80000167-0002-f900-b63f-84710c7967bb [INF] Request finished in 220.5036ms 404 application/problem+json; charset=utf-8 (791a596a)

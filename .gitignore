@@ -1,4 +1,5 @@
-
+bin/*
+obj/*
 Properties/PublishProfiles/Production.pubxml.user
 Properties/PublishProfiles/Production.pubxml.user
 *.testlog

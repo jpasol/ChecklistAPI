@@ -156,3 +156,616 @@ WHERE [a].[UserID] = @__p_0" (0723d8ff)
 2020-10-29T19:35:36.8531682+08:00 80000167-0002-f900-b63f-84710c7967bb [INF] Executed action "ChecklistAPI.Controllers.AdminsController.GetAdmin (ChecklistAPI)" in 74.998ms (afa2e885)
 2020-10-29T19:35:36.8643290+08:00 80000167-0002-f900-b63f-84710c7967bb [INF] Executed endpoint '"ChecklistAPI.Controllers.AdminsController.GetAdmin (ChecklistAPI)"' (99874f2b)
 2020-10-29T19:35:36.8732277+08:00 80000167-0002-f900-b63f-84710c7967bb [INF] Request finished in 220.5036ms 404 application/problem+json; charset=utf-8 (791a596a)
+2020-10-29T20:40:28.6441115+08:00  [INF] User profile is available. Using '"C:\Users\jpasol\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest. (7ac5e29c)
+2020-10-29T20:40:29.1891737+08:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2020-10-29T20:40:29.2402453+08:00  [INF] Hosting environment: "Development" (c3307c92)
+2020-10-29T20:40:29.3904712+08:00  [INF] Content root path: "C:\Users\jpasol\Desktop\Repository\ChecklistAPI" (b5d60022)
+2020-10-29T20:40:29.5404108+08:00 8000000c-0001-fa00-b63f-84710c7967bb [INF] Request starting HTTP/1.1 GET http://localhost:10511/   (ca22a1cb)
+2020-10-29T20:40:29.5713416+08:00 8000000c-0001-fa00-b63f-84710c7967bb [WRN] Failed to determine the https port for redirect. (ca76cc21)
+2020-10-29T20:40:29.7692801+08:00 8000000c-0001-fa00-b63f-84710c7967bb [INF] Request finished in 233.3405ms 404  (791a596a)
+2020-10-29T20:42:44.8124942+08:00 80000028-0003-fd00-b63f-84710c7967bb [INF] Request starting HTTP/1.1 OPTIONS http://localhost:10511/api/Users/Auth   (ca22a1cb)
+2020-10-29T20:42:44.8210256+08:00 80000028-0003-fd00-b63f-84710c7967bb [INF] CORS policy execution successful. (5409d6ef)
+2020-10-29T20:42:44.8279500+08:00 80000028-0003-fd00-b63f-84710c7967bb [INF] Request finished in 15.0041ms 204  (791a596a)
+2020-10-29T20:42:44.8375293+08:00 80000029-0003-fd00-b63f-84710c7967bb [INF] Request starting HTTP/1.1 POST http://localhost:10511/api/Users/Auth application/json 72 (ca22a1cb)
+2020-10-29T20:42:44.8404325+08:00 80000029-0003-fd00-b63f-84710c7967bb [INF] CORS policy execution successful. (5409d6ef)
+2020-10-29T20:42:44.8539641+08:00 80000029-0003-fd00-b63f-84710c7967bb [INF] Executing endpoint '"ChecklistAPI.Controllers.UsersController.AuthenticateUser (ChecklistAPI)"' (500cc934)
+2020-10-29T20:42:44.9178121+08:00 80000029-0003-fd00-b63f-84710c7967bb [INF] Route matched with "{action = \"AuthenticateUser\", controller = \"Users\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[EquipmentChecklistDataAccess.Models.User]] AuthenticateUser(EquipmentChecklistDataAccess.Models.User)" on controller "ChecklistAPI.Controllers.UsersController" ("ChecklistAPI"). (122b2fdf)
+2020-10-29T20:42:45.8675304+08:00 80000029-0003-fd00-b63f-84710c7967bb [INF] Entity Framework Core "3.1.7" initialized '"EquipmentChecklistDBContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2020-10-29T20:42:46.4700245+08:00 80000029-0003-fd00-b63f-84710c7967bb [INF] Executed DbCommand ("66"ms) [Parameters=["@__model_Username_0='?' (Size = 15), @__model_Password_1='?' (Size = 25)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(2) [u].[ID], [u].[FirstName], [u].[LastName], [u].[MiddleName], [u].[Password], [u].[isActive]
+FROM [Users] AS [u]
+WHERE ([u].[ID] = @__model_Username_0) AND ([u].[Password] = @__model_Password_1)" (0723d8ff)
+2020-10-29T20:42:46.6837401+08:00 80000029-0003-fd00-b63f-84710c7967bb [INF] Executing ObjectResult, writing value of type '"EquipmentChecklistDataAccess.Models.AuthenticateResponse"'. (8a1b66c8)
+2020-10-29T20:42:46.7555917+08:00 80000029-0003-fd00-b63f-84710c7967bb [INF] Executed action "ChecklistAPI.Controllers.UsersController.AuthenticateUser (ChecklistAPI)" in 1822.2467ms (afa2e885)
+2020-10-29T20:42:46.7595357+08:00 80000029-0003-fd00-b63f-84710c7967bb [INF] Executed endpoint '"ChecklistAPI.Controllers.UsersController.AuthenticateUser (ChecklistAPI)"' (99874f2b)
+2020-10-29T20:42:46.7752079+08:00 80000029-0003-fd00-b63f-84710c7967bb [INF] Request finished in 1935.188ms 200 application/json; charset=utf-8 (791a596a)
+2020-10-29T20:42:46.7789075+08:00 8000002a-0003-fd00-b63f-84710c7967bb [INF] Request starting HTTP/1.1 OPTIONS http://localhost:10511/api/admins/user   (ca22a1cb)
+2020-10-29T20:42:46.7803456+08:00 8000002a-0003-fd00-b63f-84710c7967bb [INF] CORS policy execution successful. (5409d6ef)
+2020-10-29T20:42:46.7827951+08:00 8000002a-0003-fd00-b63f-84710c7967bb [INF] Request finished in 3.5105ms 204  (791a596a)
+2020-10-29T20:42:46.7856087+08:00 8000002b-0003-fd00-b63f-84710c7967bb [INF] Request starting HTTP/1.1 GET http://localhost:10511/api/admins/user   (ca22a1cb)
+2020-10-29T20:42:46.7872502+08:00 8000002b-0003-fd00-b63f-84710c7967bb [INF] CORS policy execution successful. (5409d6ef)
+2020-10-29T20:42:46.8668704+08:00 8000002b-0003-fd00-b63f-84710c7967bb [INF] Successfully validated the token. (60169667)
+2020-10-29T20:42:46.8742282+08:00 8000002b-0003-fd00-b63f-84710c7967bb [INF] Authorization was successful. (0d575a54)
+2020-10-29T20:42:46.8776052+08:00 8000002b-0003-fd00-b63f-84710c7967bb [INF] Executing endpoint '"ChecklistAPI.Controllers.AdminsController.GetAdmin (ChecklistAPI)"' (500cc934)
+2020-10-29T20:42:46.8857623+08:00 8000002b-0003-fd00-b63f-84710c7967bb [INF] Route matched with "{action = \"GetAdmin\", controller = \"Admins\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[EquipmentChecklistDataAccess.Models.Admin]] GetAdmin(System.String)" on controller "ChecklistAPI.Controllers.AdminsController" ("ChecklistAPI"). (122b2fdf)
+2020-10-29T20:42:46.9252439+08:00 8000002b-0003-fd00-b63f-84710c7967bb [INF] Entity Framework Core "3.1.7" initialized '"EquipmentChecklistDBContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2020-10-29T20:42:46.9492438+08:00 8000002b-0003-fd00-b63f-84710c7967bb [INF] Executed DbCommand ("3"ms) [Parameters=["@__p_0='?' (Size = 15)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [a].[UserID]
+FROM [Admins] AS [a]
+WHERE [a].[UserID] = @__p_0" (0723d8ff)
+2020-10-29T20:42:46.9532399+08:00 8000002b-0003-fd00-b63f-84710c7967bb [INF] Executing ObjectResult, writing value of type '"Microsoft.AspNetCore.Mvc.ProblemDetails"'. (8a1b66c8)
+2020-10-29T20:42:46.9754659+08:00 8000002b-0003-fd00-b63f-84710c7967bb [INF] Executed action "ChecklistAPI.Controllers.AdminsController.GetAdmin (ChecklistAPI)" in 85.2164ms (afa2e885)
+2020-10-29T20:42:46.9817432+08:00 8000002b-0003-fd00-b63f-84710c7967bb [INF] Executed endpoint '"ChecklistAPI.Controllers.AdminsController.GetAdmin (ChecklistAPI)"' (99874f2b)
+2020-10-29T20:42:46.9887695+08:00 8000002b-0003-fd00-b63f-84710c7967bb [INF] Request finished in 198.8485ms 404 application/problem+json; charset=utf-8 (791a596a)
+2020-10-29T20:42:49.9180577+08:00 8000002c-0003-fd00-b63f-84710c7967bb [INF] Request starting HTTP/1.1 OPTIONS http://localhost:10511/api/Equipments/Auth   (ca22a1cb)
+2020-10-29T20:42:49.9202991+08:00 8000002c-0003-fd00-b63f-84710c7967bb [INF] CORS policy execution successful. (5409d6ef)
+2020-10-29T20:42:49.9237732+08:00 8000002c-0003-fd00-b63f-84710c7967bb [INF] Request finished in 5.558ms 204  (791a596a)
+2020-10-29T20:42:49.9265294+08:00 8000002d-0003-fd00-b63f-84710c7967bb [INF] Request starting HTTP/1.1 POST http://localhost:10511/api/Equipments/Auth application/json 14 (ca22a1cb)
+2020-10-29T20:42:49.9287119+08:00 8000002d-0003-fd00-b63f-84710c7967bb [INF] CORS policy execution successful. (5409d6ef)
+2020-10-29T20:42:49.9333415+08:00 8000002d-0003-fd00-b63f-84710c7967bb [INF] Successfully validated the token. (60169667)
+2020-10-29T20:42:49.9356906+08:00 8000002d-0003-fd00-b63f-84710c7967bb [INF] Authorization was successful. (0d575a54)
+2020-10-29T20:42:49.9389058+08:00 8000002d-0003-fd00-b63f-84710c7967bb [INF] Executing endpoint '"ChecklistAPI.Controllers.EquipmentsController.LoginEquipment (ChecklistAPI)"' (500cc934)
+2020-10-29T20:42:49.9475017+08:00 8000002d-0003-fd00-b63f-84710c7967bb [INF] Route matched with "{action = \"LoginEquipment\", controller = \"Equipments\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[EquipmentChecklistDataAccess.Models.Equipment]] LoginEquipment(EquipmentChecklistDataAccess.Models.Equipment)" on controller "ChecklistAPI.Controllers.EquipmentsController" ("ChecklistAPI"). (122b2fdf)
+2020-10-29T20:42:49.9667177+08:00 8000002d-0003-fd00-b63f-84710c7967bb [INF] Entity Framework Core "3.1.7" initialized '"EquipmentChecklistDBContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2020-10-29T20:42:49.9904592+08:00 8000002d-0003-fd00-b63f-84710c7967bb [INF] Executed DbCommand ("2"ms) [Parameters=["@__id_0='?' (Size = 5)"], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Equipments] AS [e]
+        WHERE [e].[ID] = @__id_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END" (0723d8ff)
+2020-10-29T20:42:50.0398265+08:00 8000002d-0003-fd00-b63f-84710c7967bb [INF] Executed DbCommand ("1"ms) [Parameters=["@__equipment_ID_0='?' (Size = 5)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(2) [e].[ID], [e].[Equipment_TypeID], [e].[Shortname], [e0].[ID], [e0].[Shortname]
+FROM [Equipments] AS [e]
+LEFT JOIN [Equipment_Types] AS [e0] ON [e].[Equipment_TypeID] = [e0].[ID]
+WHERE [e].[ID] = @__equipment_ID_0" (0723d8ff)
+2020-10-29T20:42:50.0661289+08:00 8000002d-0003-fd00-b63f-84710c7967bb [INF] Executing ObjectResult, writing value of type '"EquipmentChecklistDataAccess.Models.Equipment"'. (8a1b66c8)
+2020-10-29T20:42:50.0908784+08:00 8000002d-0003-fd00-b63f-84710c7967bb [INF] Executed action "ChecklistAPI.Controllers.EquipmentsController.LoginEquipment (ChecklistAPI)" in 127.7452ms (afa2e885)
+2020-10-29T20:42:50.0940977+08:00 8000002d-0003-fd00-b63f-84710c7967bb [INF] Executed endpoint '"ChecklistAPI.Controllers.EquipmentsController.LoginEquipment (ChecklistAPI)"' (99874f2b)
+2020-10-29T20:42:50.0964744+08:00 8000002d-0003-fd00-b63f-84710c7967bb [INF] Request finished in 169.9239ms 200 application/json; charset=utf-8 (791a596a)
+2020-10-29T20:42:50.0990108+08:00 8000002e-0003-fd00-b63f-84710c7967bb [INF] Request starting HTTP/1.1 OPTIONS http://localhost:10511/api/Questions/PM   (ca22a1cb)
+2020-10-29T20:42:50.1007427+08:00 8000002e-0003-fd00-b63f-84710c7967bb [INF] CORS policy execution successful. (5409d6ef)
+2020-10-29T20:42:50.1092530+08:00 8000002e-0003-fd00-b63f-84710c7967bb [INF] Request finished in 3.8358ms 204  (791a596a)
+2020-10-29T20:42:50.1101495+08:00 8000002f-0003-fd00-b63f-84710c7967bb [INF] Request starting HTTP/1.1 GET http://localhost:10511/api/Questions/PM   (ca22a1cb)
+2020-10-29T20:42:50.1125439+08:00 8000002f-0003-fd00-b63f-84710c7967bb [INF] CORS policy execution successful. (5409d6ef)
+2020-10-29T20:42:50.1836757+08:00 8000002f-0003-fd00-b63f-84710c7967bb [INF] Successfully validated the token. (60169667)
+2020-10-29T20:42:50.1890255+08:00 8000002f-0003-fd00-b63f-84710c7967bb [INF] Authorization was successful. (0d575a54)
+2020-10-29T20:42:50.1946685+08:00 8000002f-0003-fd00-b63f-84710c7967bb [INF] Executing endpoint '"ChecklistAPI.Controllers.QuestionsController.GetQuestionsbyEquipmentType (ChecklistAPI)"' (500cc934)
+2020-10-29T20:42:50.2004378+08:00 8000002f-0003-fd00-b63f-84710c7967bb [INF] Route matched with "{action = \"GetQuestionsbyEquipmentType\", controller = \"Questions\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[EquipmentChecklistDataAccess.Models.Question[]]] GetQuestionsbyEquipmentType(System.String)" on controller "ChecklistAPI.Controllers.QuestionsController" ("ChecklistAPI"). (122b2fdf)
+2020-10-29T20:42:50.2112471+08:00 8000002f-0003-fd00-b63f-84710c7967bb [INF] Entity Framework Core "3.1.7" initialized '"EquipmentChecklistDBContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2020-10-29T20:42:50.2380586+08:00 8000002f-0003-fd00-b63f-84710c7967bb [INF] Executed DbCommand ("6"ms) [Parameters=["@__id_0='?' (Size = 5)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [q].[Equipment_TypeID], [q].[ComponentID], [q].[Question_Text], [q].[Rank]
+FROM [Questions] AS [q]
+WHERE [q].[Equipment_TypeID] = @__id_0" (0723d8ff)
+2020-10-29T20:42:50.2541177+08:00 8000002f-0003-fd00-b63f-84710c7967bb [INF] Executing ObjectResult, writing value of type '"EquipmentChecklistDataAccess.Models.Question[]"'. (8a1b66c8)
+2020-10-29T20:42:50.2665390+08:00 8000002f-0003-fd00-b63f-84710c7967bb [INF] Executed action "ChecklistAPI.Controllers.QuestionsController.GetQuestionsbyEquipmentType (ChecklistAPI)" in 63.0788ms (afa2e885)
+2020-10-29T20:42:50.2707408+08:00 8000002f-0003-fd00-b63f-84710c7967bb [INF] Executed endpoint '"ChecklistAPI.Controllers.QuestionsController.GetQuestionsbyEquipmentType (ChecklistAPI)"' (99874f2b)
+2020-10-29T20:42:50.2901585+08:00 8000002f-0003-fd00-b63f-84710c7967bb [INF] Request finished in 164.8482ms 200 application/json; charset=utf-8 (791a596a)
+2020-10-29T20:42:50.4263937+08:00 80000031-0003-fd00-b63f-84710c7967bb [INF] Request starting HTTP/1.1 GET http://localhost:10511/api/Questions/PM   (ca22a1cb)
+2020-10-29T20:42:50.4317417+08:00 80000031-0003-fd00-b63f-84710c7967bb [INF] CORS policy execution successful. (5409d6ef)
+2020-10-29T20:42:50.4363141+08:00 80000031-0003-fd00-b63f-84710c7967bb [INF] Successfully validated the token. (60169667)
+2020-10-29T20:42:50.4415492+08:00 80000031-0003-fd00-b63f-84710c7967bb [INF] Authorization was successful. (0d575a54)
+2020-10-29T20:42:50.4455696+08:00 80000031-0003-fd00-b63f-84710c7967bb [INF] Executing endpoint '"ChecklistAPI.Controllers.QuestionsController.GetQuestionsbyEquipmentType (ChecklistAPI)"' (500cc934)
+2020-10-29T20:42:50.4488083+08:00 80000031-0003-fd00-b63f-84710c7967bb [INF] Route matched with "{action = \"GetQuestionsbyEquipmentType\", controller = \"Questions\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[EquipmentChecklistDataAccess.Models.Question[]]] GetQuestionsbyEquipmentType(System.String)" on controller "ChecklistAPI.Controllers.QuestionsController" ("ChecklistAPI"). (122b2fdf)
+2020-10-29T20:42:50.4527176+08:00 80000031-0003-fd00-b63f-84710c7967bb [INF] Entity Framework Core "3.1.7" initialized '"EquipmentChecklistDBContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2020-10-29T20:42:50.4628514+08:00 80000031-0003-fd00-b63f-84710c7967bb [INF] Executed DbCommand ("2"ms) [Parameters=["@__id_0='?' (Size = 5)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [q].[Equipment_TypeID], [q].[ComponentID], [q].[Question_Text], [q].[Rank]
+FROM [Questions] AS [q]
+WHERE [q].[Equipment_TypeID] = @__id_0" (0723d8ff)
+2020-10-29T20:42:50.4661821+08:00 80000031-0003-fd00-b63f-84710c7967bb [INF] Executing ObjectResult, writing value of type '"EquipmentChecklistDataAccess.Models.Question[]"'. (8a1b66c8)
+2020-10-29T20:42:50.4697286+08:00 80000031-0003-fd00-b63f-84710c7967bb [INF] Executed action "ChecklistAPI.Controllers.QuestionsController.GetQuestionsbyEquipmentType (ChecklistAPI)" in 18.398ms (afa2e885)
+2020-10-29T20:42:50.4747715+08:00 80000031-0003-fd00-b63f-84710c7967bb [INF] Executed endpoint '"ChecklistAPI.Controllers.QuestionsController.GetQuestionsbyEquipmentType (ChecklistAPI)"' (99874f2b)
+2020-10-29T20:42:50.4788019+08:00 80000031-0003-fd00-b63f-84710c7967bb [INF] Request finished in 56.3856ms 200 application/json; charset=utf-8 (791a596a)
+2020-10-29T20:43:31.8355399+08:00 80000032-0003-fd00-b63f-84710c7967bb [INF] Request starting HTTP/1.1 OPTIONS http://localhost:10511/api/Questions/PM   (ca22a1cb)
+2020-10-29T20:43:31.8448424+08:00 80000032-0003-fd00-b63f-84710c7967bb [INF] CORS policy execution successful. (5409d6ef)
+2020-10-29T20:43:31.8565788+08:00 80000032-0003-fd00-b63f-84710c7967bb [INF] Request finished in 19.0612ms 204  (791a596a)
+2020-10-29T20:43:31.8571944+08:00 80000033-0003-fd00-b63f-84710c7967bb [INF] Request starting HTTP/1.1 GET http://localhost:10511/api/Questions/PM   (ca22a1cb)
+2020-10-29T20:43:31.8689231+08:00 80000033-0003-fd00-b63f-84710c7967bb [INF] CORS policy execution successful. (5409d6ef)
+2020-10-29T20:43:31.8725166+08:00 80000033-0003-fd00-b63f-84710c7967bb [INF] Successfully validated the token. (60169667)
+2020-10-29T20:43:31.8743517+08:00 80000033-0003-fd00-b63f-84710c7967bb [INF] Authorization was successful. (0d575a54)
+2020-10-29T20:43:31.8764145+08:00 80000033-0003-fd00-b63f-84710c7967bb [INF] Executing endpoint '"ChecklistAPI.Controllers.QuestionsController.GetQuestionsbyEquipmentType (ChecklistAPI)"' (500cc934)
+2020-10-29T20:43:31.8812048+08:00 80000033-0003-fd00-b63f-84710c7967bb [INF] Route matched with "{action = \"GetQuestionsbyEquipmentType\", controller = \"Questions\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[EquipmentChecklistDataAccess.Models.Question[]]] GetQuestionsbyEquipmentType(System.String)" on controller "ChecklistAPI.Controllers.QuestionsController" ("ChecklistAPI"). (122b2fdf)
+2020-10-29T20:43:31.8854278+08:00 80000033-0003-fd00-b63f-84710c7967bb [INF] Entity Framework Core "3.1.7" initialized '"EquipmentChecklistDBContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2020-10-29T20:43:31.8961409+08:00 80000033-0003-fd00-b63f-84710c7967bb [INF] Executed DbCommand ("3"ms) [Parameters=["@__id_0='?' (Size = 5)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [q].[Equipment_TypeID], [q].[ComponentID], [q].[Question_Text], [q].[Rank]
+FROM [Questions] AS [q]
+WHERE [q].[Equipment_TypeID] = @__id_0" (0723d8ff)
+2020-10-29T20:43:31.8994597+08:00 80000033-0003-fd00-b63f-84710c7967bb [INF] Executing ObjectResult, writing value of type '"EquipmentChecklistDataAccess.Models.Question[]"'. (8a1b66c8)
+2020-10-29T20:43:31.9224023+08:00 80000033-0003-fd00-b63f-84710c7967bb [INF] Executed action "ChecklistAPI.Controllers.QuestionsController.GetQuestionsbyEquipmentType (ChecklistAPI)" in 19.2295ms (afa2e885)
+2020-10-29T20:43:31.9302199+08:00 80000033-0003-fd00-b63f-84710c7967bb [INF] Executed endpoint '"ChecklistAPI.Controllers.QuestionsController.GetQuestionsbyEquipmentType (ChecklistAPI)"' (99874f2b)
+2020-10-29T20:43:31.9364603+08:00 80000033-0003-fd00-b63f-84710c7967bb [INF] Request finished in 78.6534ms 200 application/json; charset=utf-8 (791a596a)
+2020-10-29T20:43:34.0519900+08:00 80000034-0003-fd00-b63f-84710c7967bb [INF] Request starting HTTP/1.1 GET http://localhost:10511/api/Questions/PM   (ca22a1cb)
+2020-10-29T20:43:34.0652808+08:00 80000034-0003-fd00-b63f-84710c7967bb [INF] CORS policy execution successful. (5409d6ef)
+2020-10-29T20:43:34.0693668+08:00 80000034-0003-fd00-b63f-84710c7967bb [INF] Successfully validated the token. (60169667)
+2020-10-29T20:43:34.0713737+08:00 80000034-0003-fd00-b63f-84710c7967bb [INF] Authorization was successful. (0d575a54)
+2020-10-29T20:43:34.0740125+08:00 80000034-0003-fd00-b63f-84710c7967bb [INF] Executing endpoint '"ChecklistAPI.Controllers.QuestionsController.GetQuestionsbyEquipmentType (ChecklistAPI)"' (500cc934)
+2020-10-29T20:43:34.0763153+08:00 80000034-0003-fd00-b63f-84710c7967bb [INF] Route matched with "{action = \"GetQuestionsbyEquipmentType\", controller = \"Questions\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[EquipmentChecklistDataAccess.Models.Question[]]] GetQuestionsbyEquipmentType(System.String)" on controller "ChecklistAPI.Controllers.QuestionsController" ("ChecklistAPI"). (122b2fdf)
+2020-10-29T20:43:34.0817447+08:00 80000034-0003-fd00-b63f-84710c7967bb [INF] Entity Framework Core "3.1.7" initialized '"EquipmentChecklistDBContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2020-10-29T20:43:34.0945804+08:00 80000034-0003-fd00-b63f-84710c7967bb [INF] Executed DbCommand ("6"ms) [Parameters=["@__id_0='?' (Size = 5)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [q].[Equipment_TypeID], [q].[ComponentID], [q].[Question_Text], [q].[Rank]
+FROM [Questions] AS [q]
+WHERE [q].[Equipment_TypeID] = @__id_0" (0723d8ff)
+2020-10-29T20:43:34.1106534+08:00 80000034-0003-fd00-b63f-84710c7967bb [INF] Executing ObjectResult, writing value of type '"EquipmentChecklistDataAccess.Models.Question[]"'. (8a1b66c8)
+2020-10-29T20:43:34.1243395+08:00 80000034-0003-fd00-b63f-84710c7967bb [INF] Executed action "ChecklistAPI.Controllers.QuestionsController.GetQuestionsbyEquipmentType (ChecklistAPI)" in 35.5583ms (afa2e885)
+2020-10-29T20:43:34.1275106+08:00 80000034-0003-fd00-b63f-84710c7967bb [INF] Executed endpoint '"ChecklistAPI.Controllers.QuestionsController.GetQuestionsbyEquipmentType (ChecklistAPI)"' (99874f2b)
+2020-10-29T20:43:34.1323022+08:00 80000034-0003-fd00-b63f-84710c7967bb [INF] Request finished in 78.7571ms 200 application/json; charset=utf-8 (791a596a)
+2020-10-29T20:43:44.1371104+08:00 80000035-0003-fd00-b63f-84710c7967bb [INF] Request starting HTTP/1.1 OPTIONS http://localhost:10511/api/checklists   (ca22a1cb)
+2020-10-29T20:43:44.1407864+08:00 80000035-0003-fd00-b63f-84710c7967bb [INF] CORS policy execution successful. (5409d6ef)
+2020-10-29T20:43:44.1444729+08:00 80000035-0003-fd00-b63f-84710c7967bb [INF] Request finished in 8.2471ms 204  (791a596a)
+2020-10-29T20:43:44.1467959+08:00 80000036-0003-fd00-b63f-84710c7967bb [INF] Request starting HTTP/1.1 POST http://localhost:10511/api/checklists application/json 1141 (ca22a1cb)
+2020-10-29T20:43:44.1489127+08:00 80000036-0003-fd00-b63f-84710c7967bb [INF] CORS policy execution successful. (5409d6ef)
+2020-10-29T20:43:44.1532114+08:00 80000036-0003-fd00-b63f-84710c7967bb [INF] Successfully validated the token. (60169667)
+2020-10-29T20:43:44.1560871+08:00 80000036-0003-fd00-b63f-84710c7967bb [INF] Authorization was successful. (0d575a54)
+2020-10-29T20:43:44.1582360+08:00 80000036-0003-fd00-b63f-84710c7967bb [INF] Executing endpoint '"ChecklistAPI.Controllers.ChecklistsController.PostChecklist (ChecklistAPI)"' (500cc934)
+2020-10-29T20:43:44.1651696+08:00 80000036-0003-fd00-b63f-84710c7967bb [INF] Route matched with "{action = \"PostChecklist\", controller = \"Checklists\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Object]] PostChecklist(EquipmentChecklistDataAccess.Models.Checklist)" on controller "ChecklistAPI.Controllers.ChecklistsController" ("ChecklistAPI"). (122b2fdf)
+2020-10-29T20:45:14.2408991+08:00 80000002-0003-fa00-b63f-84710c7967bb [INF] Request starting HTTP/1.1 OPTIONS http://localhost:10511/api/Questions/PM   (ca22a1cb)
+2020-10-29T20:45:14.2592079+08:00 8000002e-0002-f700-b63f-84710c7967bb [INF] Request starting HTTP/1.1 OPTIONS http://localhost:10511/api/Users/Auth   (ca22a1cb)
+2020-10-29T20:45:14.2655450+08:00 80000036-0003-fd00-b63f-84710c7967bb [INF] Entity Framework Core "3.1.7" initialized '"EquipmentChecklistDBContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2020-10-29T20:45:14.2721523+08:00 80000002-0003-fa00-b63f-84710c7967bb [INF] CORS policy execution successful. (5409d6ef)
+2020-10-29T20:45:14.2855440+08:00 8000002e-0002-f700-b63f-84710c7967bb [INF] CORS policy execution successful. (5409d6ef)
+2020-10-29T20:45:14.2941505+08:00 80000002-0003-fa00-b63f-84710c7967bb [INF] Request finished in 65.6757ms 204  (791a596a)
+2020-10-29T20:45:14.3056364+08:00 8000002e-0002-f700-b63f-84710c7967bb [INF] Request finished in 45.9811ms 204  (791a596a)
+2020-10-29T20:45:14.3588572+08:00 80000013-0000-f700-b63f-84710c7967bb [INF] Request starting HTTP/1.1 OPTIONS http://localhost:10511/api/Users/Auth   (ca22a1cb)
+2020-10-29T20:45:14.3604866+08:00 8000002f-0002-f700-b63f-84710c7967bb [INF] Request starting HTTP/1.1 POST http://localhost:10511/api/Users/Auth application/json 72 (ca22a1cb)
+2020-10-29T20:45:14.3621817+08:00 80000013-0000-f700-b63f-84710c7967bb [INF] CORS policy execution successful. (5409d6ef)
+2020-10-29T20:45:14.3665358+08:00 8000002f-0002-f700-b63f-84710c7967bb [INF] CORS policy execution successful. (5409d6ef)
+2020-10-29T20:45:14.3684329+08:00 80000013-0000-f700-b63f-84710c7967bb [INF] Request finished in 116.8289ms 204  (791a596a)
+2020-10-29T20:45:14.3705253+08:00 80000014-0000-f700-b63f-84710c7967bb [INF] Request starting HTTP/1.1 POST http://localhost:10511/api/Users/Auth application/json 72 (ca22a1cb)
+2020-10-29T20:45:14.3721773+08:00 8000002f-0002-f700-b63f-84710c7967bb [INF] Executing endpoint '"ChecklistAPI.Controllers.UsersController.AuthenticateUser (ChecklistAPI)"' (500cc934)
+2020-10-29T20:45:14.3741463+08:00 80000014-0000-f700-b63f-84710c7967bb [INF] CORS policy execution successful. (5409d6ef)
+2020-10-29T20:45:14.3769229+08:00 8000002f-0002-f700-b63f-84710c7967bb [INF] Route matched with "{action = \"AuthenticateUser\", controller = \"Users\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[EquipmentChecklistDataAccess.Models.User]] AuthenticateUser(EquipmentChecklistDataAccess.Models.User)" on controller "ChecklistAPI.Controllers.UsersController" ("ChecklistAPI"). (122b2fdf)
+2020-10-29T20:45:14.3827166+08:00 80000014-0000-f700-b63f-84710c7967bb [INF] Executing endpoint '"ChecklistAPI.Controllers.UsersController.AuthenticateUser (ChecklistAPI)"' (500cc934)
+2020-10-29T20:45:14.3836250+08:00 8000002f-0002-f700-b63f-84710c7967bb [INF] Entity Framework Core "3.1.7" initialized '"EquipmentChecklistDBContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2020-10-29T20:45:14.3876625+08:00 80000014-0000-f700-b63f-84710c7967bb [INF] Route matched with "{action = \"AuthenticateUser\", controller = \"Users\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[EquipmentChecklistDataAccess.Models.User]] AuthenticateUser(EquipmentChecklistDataAccess.Models.User)" on controller "ChecklistAPI.Controllers.UsersController" ("ChecklistAPI"). (122b2fdf)
+2020-10-29T20:45:14.3922767+08:00 80000014-0000-f700-b63f-84710c7967bb [INF] Entity Framework Core "3.1.7" initialized '"EquipmentChecklistDBContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2020-10-29T20:45:14.3936910+08:00 8000002f-0002-f700-b63f-84710c7967bb [INF] Executed DbCommand ("5"ms) [Parameters=["@__model_Username_0='?' (Size = 15), @__model_Password_1='?' (Size = 25)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(2) [u].[ID], [u].[FirstName], [u].[LastName], [u].[MiddleName], [u].[Password], [u].[isActive]
+FROM [Users] AS [u]
+WHERE ([u].[ID] = @__model_Username_0) AND ([u].[Password] = @__model_Password_1)" (0723d8ff)
+2020-10-29T20:45:14.3982574+08:00 8000002f-0002-f700-b63f-84710c7967bb [INF] Executing ObjectResult, writing value of type '"EquipmentChecklistDataAccess.Models.AuthenticateResponse"'. (8a1b66c8)
+2020-10-29T20:45:14.4239521+08:00 8000002f-0002-f700-b63f-84710c7967bb [INF] Executed action "ChecklistAPI.Controllers.UsersController.AuthenticateUser (ChecklistAPI)" in 29.9391ms (afa2e885)
+2020-10-29T20:45:14.4284407+08:00 80000014-0000-f700-b63f-84710c7967bb [INF] Executed DbCommand ("10"ms) [Parameters=["@__model_Username_0='?' (Size = 15), @__model_Password_1='?' (Size = 25)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(2) [u].[ID], [u].[FirstName], [u].[LastName], [u].[MiddleName], [u].[Password], [u].[isActive]
+FROM [Users] AS [u]
+WHERE ([u].[ID] = @__model_Username_0) AND ([u].[Password] = @__model_Password_1)" (0723d8ff)
+2020-10-29T20:45:14.4429370+08:00 8000002f-0002-f700-b63f-84710c7967bb [INF] Executed endpoint '"ChecklistAPI.Controllers.UsersController.AuthenticateUser (ChecklistAPI)"' (99874f2b)
+2020-10-29T20:45:14.4478480+08:00 80000014-0000-f700-b63f-84710c7967bb [INF] Executing ObjectResult, writing value of type '"EquipmentChecklistDataAccess.Models.AuthenticateResponse"'. (8a1b66c8)
+2020-10-29T20:45:14.4500881+08:00 8000002f-0002-f700-b63f-84710c7967bb [INF] Request finished in 139.53ms 200 application/json; charset=utf-8 (791a596a)
+2020-10-29T20:45:14.4622240+08:00 80000014-0000-f700-b63f-84710c7967bb [INF] Executed action "ChecklistAPI.Controllers.UsersController.AuthenticateUser (ChecklistAPI)" in 62.3174ms (afa2e885)
+2020-10-29T20:45:14.4643999+08:00 80000030-0002-f700-b63f-84710c7967bb [INF] Request starting HTTP/1.1 OPTIONS http://localhost:10511/api/admins/user   (ca22a1cb)
+2020-10-29T20:45:14.4658904+08:00 80000014-0000-f700-b63f-84710c7967bb [INF] Executed endpoint '"ChecklistAPI.Controllers.UsersController.AuthenticateUser (ChecklistAPI)"' (99874f2b)
+2020-10-29T20:45:14.4673729+08:00 80000030-0002-f700-b63f-84710c7967bb [INF] CORS policy execution successful. (5409d6ef)
+2020-10-29T20:45:14.4706276+08:00 80000014-0000-f700-b63f-84710c7967bb [INF] Request finished in 100.5015ms 200 application/json; charset=utf-8 (791a596a)
+2020-10-29T20:45:14.4723022+08:00 80000030-0002-f700-b63f-84710c7967bb [INF] Request finished in 8.7209ms 204  (791a596a)
+2020-10-29T20:45:14.4737331+08:00 80000031-0002-f700-b63f-84710c7967bb [INF] Request starting HTTP/1.1 GET http://localhost:10511/api/admins/user   (ca22a1cb)
+2020-10-29T20:45:14.4786061+08:00 80000015-0000-f700-b63f-84710c7967bb [INF] Request starting HTTP/1.1 OPTIONS http://localhost:10511/api/admins/user   (ca22a1cb)
+2020-10-29T20:45:14.4830540+08:00 80000031-0002-f700-b63f-84710c7967bb [INF] CORS policy execution successful. (5409d6ef)
+2020-10-29T20:45:14.4859834+08:00 80000015-0000-f700-b63f-84710c7967bb [INF] CORS policy execution successful. (5409d6ef)
+2020-10-29T20:45:14.4880271+08:00 80000031-0002-f700-b63f-84710c7967bb [INF] Successfully validated the token. (60169667)
+2020-10-29T20:45:14.4905508+08:00 80000031-0002-f700-b63f-84710c7967bb [INF] Authorization was successful. (0d575a54)
+2020-10-29T20:45:14.4923295+08:00 80000015-0000-f700-b63f-84710c7967bb [INF] Request finished in 17.2511ms 204  (791a596a)
+2020-10-29T20:45:14.4931753+08:00 80000031-0002-f700-b63f-84710c7967bb [INF] Executing endpoint '"ChecklistAPI.Controllers.AdminsController.GetAdmin (ChecklistAPI)"' (500cc934)
+2020-10-29T20:45:14.4949653+08:00 80000031-0002-f700-b63f-84710c7967bb [INF] Route matched with "{action = \"GetAdmin\", controller = \"Admins\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[EquipmentChecklistDataAccess.Models.Admin]] GetAdmin(System.String)" on controller "ChecklistAPI.Controllers.AdminsController" ("ChecklistAPI"). (122b2fdf)
+2020-10-29T20:45:14.4992184+08:00 80000036-0003-fd00-b63f-84710c7967bb [INF] Executed DbCommand ("3"ms) [Parameters=["@__p_0='?' (Size = 5)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [e].[ID], [e].[Equipment_TypeID], [e].[Shortname]
+FROM [Equipments] AS [e]
+WHERE [e].[ID] = @__p_0" (0723d8ff)
+2020-10-29T20:45:14.5237380+08:00 80000031-0002-f700-b63f-84710c7967bb [INF] Entity Framework Core "3.1.7" initialized '"EquipmentChecklistDBContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2020-10-29T20:45:14.5283973+08:00 80000031-0002-f700-b63f-84710c7967bb [INF] Executed DbCommand ("1"ms) [Parameters=["@__p_0='?' (Size = 15)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [a].[UserID]
+FROM [Admins] AS [a]
+WHERE [a].[UserID] = @__p_0" (0723d8ff)
+2020-10-29T20:45:14.5309713+08:00 80000031-0002-f700-b63f-84710c7967bb [INF] Executing ObjectResult, writing value of type '"Microsoft.AspNetCore.Mvc.ProblemDetails"'. (8a1b66c8)
+2020-10-29T20:45:14.5409439+08:00 80000031-0002-f700-b63f-84710c7967bb [INF] Executed action "ChecklistAPI.Controllers.AdminsController.GetAdmin (ChecklistAPI)" in 36.5094ms (afa2e885)
+2020-10-29T20:45:14.5668521+08:00 80000031-0002-f700-b63f-84710c7967bb [INF] Executed endpoint '"ChecklistAPI.Controllers.AdminsController.GetAdmin (ChecklistAPI)"' (99874f2b)
+2020-10-29T20:45:14.5759139+08:00 80000031-0002-f700-b63f-84710c7967bb [INF] Request finished in 99.3207ms 404 application/problem+json; charset=utf-8 (791a596a)
+2020-10-29T20:45:14.5909075+08:00 80000032-0002-f700-b63f-84710c7967bb [INF] Request starting HTTP/1.1 GET http://localhost:10511/api/admins/user   (ca22a1cb)
+2020-10-29T20:45:14.5972555+08:00 80000032-0002-f700-b63f-84710c7967bb [INF] CORS policy execution successful. (5409d6ef)
+2020-10-29T20:45:14.6006367+08:00 80000032-0002-f700-b63f-84710c7967bb [INF] Successfully validated the token. (60169667)
+2020-10-29T20:45:14.6057225+08:00 80000032-0002-f700-b63f-84710c7967bb [INF] Authorization was successful. (0d575a54)
+2020-10-29T20:45:14.6142939+08:00 80000032-0002-f700-b63f-84710c7967bb [INF] Executing endpoint '"ChecklistAPI.Controllers.AdminsController.GetAdmin (ChecklistAPI)"' (500cc934)
+2020-10-29T20:45:14.6225110+08:00 80000032-0002-f700-b63f-84710c7967bb [INF] Route matched with "{action = \"GetAdmin\", controller = \"Admins\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[EquipmentChecklistDataAccess.Models.Admin]] GetAdmin(System.String)" on controller "ChecklistAPI.Controllers.AdminsController" ("ChecklistAPI"). (122b2fdf)
+2020-10-29T20:45:14.6412470+08:00 80000032-0002-f700-b63f-84710c7967bb [INF] Entity Framework Core "3.1.7" initialized '"EquipmentChecklistDBContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2020-10-29T20:45:14.6936300+08:00 80000032-0002-f700-b63f-84710c7967bb [INF] Executed DbCommand ("34"ms) [Parameters=["@__p_0='?' (Size = 15)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [a].[UserID]
+FROM [Admins] AS [a]
+WHERE [a].[UserID] = @__p_0" (0723d8ff)
+2020-10-29T20:45:14.7071327+08:00 80000032-0002-f700-b63f-84710c7967bb [INF] Executing ObjectResult, writing value of type '"Microsoft.AspNetCore.Mvc.ProblemDetails"'. (8a1b66c8)
+2020-10-29T20:45:14.7287510+08:00 80000032-0002-f700-b63f-84710c7967bb [INF] Executed action "ChecklistAPI.Controllers.AdminsController.GetAdmin (ChecklistAPI)" in 85.2233ms (afa2e885)
+2020-10-29T20:45:14.7597364+08:00 80000032-0002-f700-b63f-84710c7967bb [INF] Executed endpoint '"ChecklistAPI.Controllers.AdminsController.GetAdmin (ChecklistAPI)"' (99874f2b)
+2020-10-29T20:45:14.7768286+08:00 80000032-0002-f700-b63f-84710c7967bb [INF] Request finished in 177.2041ms 404 application/problem+json; charset=utf-8 (791a596a)
+2020-10-29T20:45:14.9828973+08:00 80000036-0003-fd00-b63f-84710c7967bb [INF] Executed DbCommand ("93"ms) [Parameters=["@p0='?' (DbType = DateTime2), @p1='?' (Size = 5), @p2='?' (Size = 15)"], CommandType='Text', CommandTimeout='30']"
+""SET NOCOUNT ON;
+INSERT INTO [Checklists] ([Date_Created], [EquipmentID], [UserID])
+VALUES (@p0, @p1, @p2);
+SELECT [ID]
+FROM [Checklists]
+WHERE @@ROWCOUNT = 1 AND [ID] = scope_identity();" (0723d8ff)
+2020-10-29T20:45:15.0530235+08:00 80000036-0003-fd00-b63f-84710c7967bb [INF] Executed DbCommand ("5"ms) [Parameters=["@p3='?' (DbType = Int32), @p4='?' (Size = 5), @p5='?' (Size = 5), @p6='?' (Size = 5), @p7='?' (Size = 50), @p8='?' (DbType = Int32), @p9='?' (Size = 5), @p10='?' (Size = 5), @p11='?' (Size = 5), @p12='?' (Size = 50), @p13='?' (DbType = Int32), @p14='?' (Size = 5), @p15='?' (Size = 5), @p16='?' (Size = 5), @p17='?' (Size = 50), @p18='?' (DbType = Int32), @p19='?' (Size = 5), @p20='?' (Size = 5), @p21='?' (Size = 5), @p22='?' (Size = 50), @p23='?' (DbType = Int32), @p24='?' (Size = 5), @p25='?' (Size = 5), @p26='?' (Size = 5), @p27='?' (Size = 50), @p28='?' (DbType = Int32), @p29='?' (Size = 5), @p30='?' (Size = 5), @p31='?' (Size = 5), @p32='?' (Size = 50), @p33='?' (DbType = Int32), @p34='?' (Size = 5), @p35='?' (Size = 5), @p36='?' (Size = 5), @p37='?' (Size = 50), @p38='?' (DbType = Int32), @p39='?' (Size = 5), @p40='?' (Size = 5), @p41='?' (Size = 5), @p42='?' (Size = 50), @p43='?' (DbType = Int32), @p44='?' (Size = 5), @p45='?' (Size = 5), @p46='?' (Size = 5), @p47='?' (Size = 50), @p48='?' (DbType = Int32), @p49='?' (Size = 5), @p50='?' (Size = 5), @p51='?' (Size = 5), @p52='?' (Size = 50), @p53='?' (DbType = Int32), @p54='?' (Size = 5), @p55='?' (Size = 5), @p56='?' (Size = 5), @p57='?' (Size = 50), @p58='?' (DbType = Int32), @p59='?' (Size = 5), @p60='?' (Size = 5), @p61='?' (Size = 5), @p62='?' (Size = 50), @p63='?' (DbType = Int32), @p64='?' (Size = 5), @p65='?' (Size = 5), @p66='?' (Size = 5), @p67='?' (Size = 50)"], CommandType='Text', CommandTimeout='30']"
+""SET NOCOUNT ON;
+INSERT INTO [Checklist_Items] ([ChecklistID], [Equipment_TypeID], [ComponentID], [ConditionID], [Remarks])
+VALUES (@p3, @p4, @p5, @p6, @p7),
+(@p8, @p9, @p10, @p11, @p12),
+(@p13, @p14, @p15, @p16, @p17),
+(@p18, @p19, @p20, @p21, @p22),
+(@p23, @p24, @p25, @p26, @p27),
+(@p28, @p29, @p30, @p31, @p32),
+(@p33, @p34, @p35, @p36, @p37),
+(@p38, @p39, @p40, @p41, @p42),
+(@p43, @p44, @p45, @p46, @p47),
+(@p48, @p49, @p50, @p51, @p52),
+(@p53, @p54, @p55, @p56, @p57),
+(@p58, @p59, @p60, @p61, @p62),
+(@p63, @p64, @p65, @p66, @p67);" (0723d8ff)
+2020-10-29T20:45:15.0765639+08:00 80000036-0003-fd00-b63f-84710c7967bb [INF] Executing ObjectResult, writing value of type '"EquipmentChecklistDataAccess.Models.Checklist"'. (8a1b66c8)
+2020-10-29T20:45:15.1210049+08:00 80000036-0003-fd00-b63f-84710c7967bb [INF] Executed action "ChecklistAPI.Controllers.ChecklistsController.PostChecklist (ChecklistAPI)" in 90953.9194ms (afa2e885)
+2020-10-29T20:45:15.1228851+08:00 80000036-0003-fd00-b63f-84710c7967bb [INF] Executed endpoint '"ChecklistAPI.Controllers.ChecklistsController.PostChecklist (ChecklistAPI)"' (99874f2b)
+2020-10-29T20:45:15.1249556+08:00 80000036-0003-fd00-b63f-84710c7967bb [INF] Request finished in 90978.5219ms 201 application/json; charset=utf-8 (791a596a)
+2020-10-29T20:45:21.1962800+08:00 80000033-0002-f700-b63f-84710c7967bb [INF] Request starting HTTP/1.1 OPTIONS http://localhost:10511/api/Equipments/Auth   (ca22a1cb)
+2020-10-29T20:45:21.1990727+08:00 80000033-0002-f700-b63f-84710c7967bb [INF] CORS policy execution successful. (5409d6ef)
+2020-10-29T20:45:21.2029330+08:00 80000033-0002-f700-b63f-84710c7967bb [INF] Request finished in 5.4736ms 204  (791a596a)
+2020-10-29T20:45:21.2060391+08:00 80000034-0002-f700-b63f-84710c7967bb [INF] Request starting HTTP/1.1 POST http://localhost:10511/api/Equipments/Auth application/json 14 (ca22a1cb)
+2020-10-29T20:45:21.2087045+08:00 80000034-0002-f700-b63f-84710c7967bb [INF] CORS policy execution successful. (5409d6ef)
+2020-10-29T20:45:21.2128489+08:00 80000034-0002-f700-b63f-84710c7967bb [INF] Successfully validated the token. (60169667)
+2020-10-29T20:45:21.2152644+08:00 80000034-0002-f700-b63f-84710c7967bb [INF] Authorization was successful. (0d575a54)
+2020-10-29T20:45:21.2176193+08:00 80000034-0002-f700-b63f-84710c7967bb [INF] Executing endpoint '"ChecklistAPI.Controllers.EquipmentsController.LoginEquipment (ChecklistAPI)"' (500cc934)
+2020-10-29T20:45:21.2211020+08:00 80000034-0002-f700-b63f-84710c7967bb [INF] Route matched with "{action = \"LoginEquipment\", controller = \"Equipments\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[EquipmentChecklistDataAccess.Models.Equipment]] LoginEquipment(EquipmentChecklistDataAccess.Models.Equipment)" on controller "ChecklistAPI.Controllers.EquipmentsController" ("ChecklistAPI"). (122b2fdf)
+2020-10-29T20:45:21.2315239+08:00 80000034-0002-f700-b63f-84710c7967bb [INF] Entity Framework Core "3.1.7" initialized '"EquipmentChecklistDBContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2020-10-29T20:45:21.2404851+08:00 80000034-0002-f700-b63f-84710c7967bb [INF] Executed DbCommand ("4"ms) [Parameters=["@__id_0='?' (Size = 5)"], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Equipments] AS [e]
+        WHERE [e].[ID] = @__id_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END" (0723d8ff)
+2020-10-29T20:45:21.2575263+08:00 80000034-0002-f700-b63f-84710c7967bb [INF] Executed DbCommand ("9"ms) [Parameters=["@__equipment_ID_0='?' (Size = 5)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(2) [e].[ID], [e].[Equipment_TypeID], [e].[Shortname], [e0].[ID], [e0].[Shortname]
+FROM [Equipments] AS [e]
+LEFT JOIN [Equipment_Types] AS [e0] ON [e].[Equipment_TypeID] = [e0].[ID]
+WHERE [e].[ID] = @__equipment_ID_0" (0723d8ff)
+2020-10-29T20:45:21.2628963+08:00 80000034-0002-f700-b63f-84710c7967bb [INF] Executing ObjectResult, writing value of type '"EquipmentChecklistDataAccess.Models.Equipment"'. (8a1b66c8)
+2020-10-29T20:45:21.2682473+08:00 80000034-0002-f700-b63f-84710c7967bb [INF] Executed action "ChecklistAPI.Controllers.EquipmentsController.LoginEquipment (ChecklistAPI)" in 43.2931ms (afa2e885)
+2020-10-29T20:45:21.2730509+08:00 80000034-0002-f700-b63f-84710c7967bb [INF] Executed endpoint '"ChecklistAPI.Controllers.EquipmentsController.LoginEquipment (ChecklistAPI)"' (99874f2b)
+2020-10-29T20:45:21.2755295+08:00 80000034-0002-f700-b63f-84710c7967bb [INF] Request finished in 69.9699ms 200 application/json; charset=utf-8 (791a596a)
+2020-10-29T20:45:21.2837241+08:00 80000035-0002-f700-b63f-84710c7967bb [INF] Request starting HTTP/1.1 OPTIONS http://localhost:10511/api/Questions/PM   (ca22a1cb)
+2020-10-29T20:45:21.2861673+08:00 80000035-0002-f700-b63f-84710c7967bb [INF] CORS policy execution successful. (5409d6ef)
+2020-10-29T20:45:21.3182430+08:00 80000035-0002-f700-b63f-84710c7967bb [INF] Request finished in 7.27ms 204  (791a596a)
+2020-10-29T20:45:21.3192860+08:00 80000036-0002-f700-b63f-84710c7967bb [INF] Request starting HTTP/1.1 GET http://localhost:10511/api/Questions/PM   (ca22a1cb)
+2020-10-29T20:45:21.3216588+08:00 80000036-0002-f700-b63f-84710c7967bb [INF] CORS policy execution successful. (5409d6ef)
+2020-10-29T20:45:21.3241980+08:00 80000036-0002-f700-b63f-84710c7967bb [INF] Successfully validated the token. (60169667)
+2020-10-29T20:45:21.3259465+08:00 80000036-0002-f700-b63f-84710c7967bb [INF] Authorization was successful. (0d575a54)
+2020-10-29T20:45:21.3277448+08:00 80000036-0002-f700-b63f-84710c7967bb [INF] Executing endpoint '"ChecklistAPI.Controllers.QuestionsController.GetQuestionsbyEquipmentType (ChecklistAPI)"' (500cc934)
+2020-10-29T20:45:21.3501931+08:00 80000036-0002-f700-b63f-84710c7967bb [INF] Route matched with "{action = \"GetQuestionsbyEquipmentType\", controller = \"Questions\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[EquipmentChecklistDataAccess.Models.Question[]]] GetQuestionsbyEquipmentType(System.String)" on controller "ChecklistAPI.Controllers.QuestionsController" ("ChecklistAPI"). (122b2fdf)
+2020-10-29T20:45:21.3882926+08:00 80000036-0002-f700-b63f-84710c7967bb [INF] Entity Framework Core "3.1.7" initialized '"EquipmentChecklistDBContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2020-10-29T20:45:21.4461681+08:00 80000036-0002-f700-b63f-84710c7967bb [INF] Executed DbCommand ("52"ms) [Parameters=["@__id_0='?' (Size = 5)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [q].[Equipment_TypeID], [q].[ComponentID], [q].[Question_Text], [q].[Rank]
+FROM [Questions] AS [q]
+WHERE [q].[Equipment_TypeID] = @__id_0" (0723d8ff)
+2020-10-29T20:45:21.4807839+08:00 80000036-0002-f700-b63f-84710c7967bb [INF] Executing ObjectResult, writing value of type '"EquipmentChecklistDataAccess.Models.Question[]"'. (8a1b66c8)
+2020-10-29T20:45:21.4898344+08:00 80000036-0002-f700-b63f-84710c7967bb [INF] Executed action "ChecklistAPI.Controllers.QuestionsController.GetQuestionsbyEquipmentType (ChecklistAPI)" in 133.6951ms (afa2e885)
+2020-10-29T20:45:21.4988969+08:00 80000036-0002-f700-b63f-84710c7967bb [INF] Executed endpoint '"ChecklistAPI.Controllers.QuestionsController.GetQuestionsbyEquipmentType (ChecklistAPI)"' (99874f2b)
+2020-10-29T20:45:21.5179737+08:00 80000036-0002-f700-b63f-84710c7967bb [INF] Request finished in 200.2311ms 200 application/json; charset=utf-8 (791a596a)
+2020-10-29T20:45:21.7057636+08:00 80000016-0000-f700-b63f-84710c7967bb [INF] Request starting HTTP/1.1 GET http://localhost:10511/api/Questions/PM   (ca22a1cb)
+2020-10-29T20:45:21.7496291+08:00 80000016-0000-f700-b63f-84710c7967bb [INF] CORS policy execution successful. (5409d6ef)
+2020-10-29T20:45:21.7651531+08:00 80000016-0000-f700-b63f-84710c7967bb [INF] Successfully validated the token. (60169667)
+2020-10-29T20:45:21.7681956+08:00 80000016-0000-f700-b63f-84710c7967bb [INF] Authorization was successful. (0d575a54)
+2020-10-29T20:45:21.7739827+08:00 80000016-0000-f700-b63f-84710c7967bb [INF] Executing endpoint '"ChecklistAPI.Controllers.QuestionsController.GetQuestionsbyEquipmentType (ChecklistAPI)"' (500cc934)
+2020-10-29T20:45:21.7765184+08:00 80000016-0000-f700-b63f-84710c7967bb [INF] Route matched with "{action = \"GetQuestionsbyEquipmentType\", controller = \"Questions\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[EquipmentChecklistDataAccess.Models.Question[]]] GetQuestionsbyEquipmentType(System.String)" on controller "ChecklistAPI.Controllers.QuestionsController" ("ChecklistAPI"). (122b2fdf)
+2020-10-29T20:45:21.7800408+08:00 80000016-0000-f700-b63f-84710c7967bb [INF] Entity Framework Core "3.1.7" initialized '"EquipmentChecklistDBContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2020-10-29T20:45:21.7899050+08:00 80000016-0000-f700-b63f-84710c7967bb [INF] Executed DbCommand ("6"ms) [Parameters=["@__id_0='?' (Size = 5)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [q].[Equipment_TypeID], [q].[ComponentID], [q].[Question_Text], [q].[Rank]
+FROM [Questions] AS [q]
+WHERE [q].[Equipment_TypeID] = @__id_0" (0723d8ff)
+2020-10-29T20:45:21.7937278+08:00 80000016-0000-f700-b63f-84710c7967bb [INF] Executing ObjectResult, writing value of type '"EquipmentChecklistDataAccess.Models.Question[]"'. (8a1b66c8)
+2020-10-29T20:45:21.7985550+08:00 80000016-0000-f700-b63f-84710c7967bb [INF] Executed action "ChecklistAPI.Controllers.QuestionsController.GetQuestionsbyEquipmentType (ChecklistAPI)" in 18.5022ms (afa2e885)
+2020-10-29T20:45:21.8006563+08:00 80000016-0000-f700-b63f-84710c7967bb [INF] Executed endpoint '"ChecklistAPI.Controllers.QuestionsController.GetQuestionsbyEquipmentType (ChecklistAPI)"' (99874f2b)
+2020-10-29T20:45:21.8045078+08:00 80000016-0000-f700-b63f-84710c7967bb [INF] Request finished in 99.4564ms 200 application/json; charset=utf-8 (791a596a)
+2020-10-29T20:45:52.9898791+08:00 80000017-0000-f700-b63f-84710c7967bb [INF] Request starting HTTP/1.1 OPTIONS http://localhost:10511/api/checklists   (ca22a1cb)
+2020-10-29T20:45:52.9939596+08:00 80000017-0000-f700-b63f-84710c7967bb [INF] CORS policy execution successful. (5409d6ef)
+2020-10-29T20:45:53.0101488+08:00 80000017-0000-f700-b63f-84710c7967bb [INF] Request finished in 35.1788ms 204  (791a596a)
+2020-10-29T20:45:53.0157980+08:00 80000018-0000-f700-b63f-84710c7967bb [INF] Request starting HTTP/1.1 POST http://localhost:10511/api/checklists application/json 1141 (ca22a1cb)
+2020-10-29T20:45:53.0259315+08:00 80000018-0000-f700-b63f-84710c7967bb [INF] CORS policy execution successful. (5409d6ef)
+2020-10-29T20:45:53.0292837+08:00 80000018-0000-f700-b63f-84710c7967bb [INF] Successfully validated the token. (60169667)
+2020-10-29T20:45:53.0310520+08:00 80000018-0000-f700-b63f-84710c7967bb [INF] Authorization was successful. (0d575a54)
+2020-10-29T20:45:53.0328416+08:00 80000018-0000-f700-b63f-84710c7967bb [INF] Executing endpoint '"ChecklistAPI.Controllers.ChecklistsController.PostChecklist (ChecklistAPI)"' (500cc934)
+2020-10-29T20:45:53.0422170+08:00 80000018-0000-f700-b63f-84710c7967bb [INF] Route matched with "{action = \"PostChecklist\", controller = \"Checklists\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Object]] PostChecklist(EquipmentChecklistDataAccess.Models.Checklist)" on controller "ChecklistAPI.Controllers.ChecklistsController" ("ChecklistAPI"). (122b2fdf)
+2020-10-29T20:45:53.0489451+08:00 80000018-0000-f700-b63f-84710c7967bb [INF] Entity Framework Core "3.1.7" initialized '"EquipmentChecklistDBContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2020-10-29T20:45:53.0634766+08:00 80000018-0000-f700-b63f-84710c7967bb [INF] Executed DbCommand ("7"ms) [Parameters=["@__p_0='?' (Size = 5)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [e].[ID], [e].[Equipment_TypeID], [e].[Shortname]
+FROM [Equipments] AS [e]
+WHERE [e].[ID] = @__p_0" (0723d8ff)
+2020-10-29T20:45:53.0962572+08:00 80000018-0000-f700-b63f-84710c7967bb [INF] Executed DbCommand ("3"ms) [Parameters=["@p0='?' (DbType = DateTime2), @p1='?' (Size = 5), @p2='?' (Size = 15)"], CommandType='Text', CommandTimeout='30']"
+""SET NOCOUNT ON;
+INSERT INTO [Checklists] ([Date_Created], [EquipmentID], [UserID])
+VALUES (@p0, @p1, @p2);
+SELECT [ID]
+FROM [Checklists]
+WHERE @@ROWCOUNT = 1 AND [ID] = scope_identity();" (0723d8ff)
+2020-10-29T20:45:53.1042888+08:00 80000018-0000-f700-b63f-84710c7967bb [INF] Executed DbCommand ("2"ms) [Parameters=["@p3='?' (DbType = Int32), @p4='?' (Size = 5), @p5='?' (Size = 5), @p6='?' (Size = 5), @p7='?' (Size = 50), @p8='?' (DbType = Int32), @p9='?' (Size = 5), @p10='?' (Size = 5), @p11='?' (Size = 5), @p12='?' (Size = 50), @p13='?' (DbType = Int32), @p14='?' (Size = 5), @p15='?' (Size = 5), @p16='?' (Size = 5), @p17='?' (Size = 50), @p18='?' (DbType = Int32), @p19='?' (Size = 5), @p20='?' (Size = 5), @p21='?' (Size = 5), @p22='?' (Size = 50), @p23='?' (DbType = Int32), @p24='?' (Size = 5), @p25='?' (Size = 5), @p26='?' (Size = 5), @p27='?' (Size = 50), @p28='?' (DbType = Int32), @p29='?' (Size = 5), @p30='?' (Size = 5), @p31='?' (Size = 5), @p32='?' (Size = 50), @p33='?' (DbType = Int32), @p34='?' (Size = 5), @p35='?' (Size = 5), @p36='?' (Size = 5), @p37='?' (Size = 50), @p38='?' (DbType = Int32), @p39='?' (Size = 5), @p40='?' (Size = 5), @p41='?' (Size = 5), @p42='?' (Size = 50), @p43='?' (DbType = Int32), @p44='?' (Size = 5), @p45='?' (Size = 5), @p46='?' (Size = 5), @p47='?' (Size = 50), @p48='?' (DbType = Int32), @p49='?' (Size = 5), @p50='?' (Size = 5), @p51='?' (Size = 5), @p52='?' (Size = 50), @p53='?' (DbType = Int32), @p54='?' (Size = 5), @p55='?' (Size = 5), @p56='?' (Size = 5), @p57='?' (Size = 50), @p58='?' (DbType = Int32), @p59='?' (Size = 5), @p60='?' (Size = 5), @p61='?' (Size = 5), @p62='?' (Size = 50), @p63='?' (DbType = Int32), @p64='?' (Size = 5), @p65='?' (Size = 5), @p66='?' (Size = 5), @p67='?' (Size = 50)"], CommandType='Text', CommandTimeout='30']"
+""SET NOCOUNT ON;
+INSERT INTO [Checklist_Items] ([ChecklistID], [Equipment_TypeID], [ComponentID], [ConditionID], [Remarks])
+VALUES (@p3, @p4, @p5, @p6, @p7),
+(@p8, @p9, @p10, @p11, @p12),
+(@p13, @p14, @p15, @p16, @p17),
+(@p18, @p19, @p20, @p21, @p22),
+(@p23, @p24, @p25, @p26, @p27),
+(@p28, @p29, @p30, @p31, @p32),
+(@p33, @p34, @p35, @p36, @p37),
+(@p38, @p39, @p40, @p41, @p42),
+(@p43, @p44, @p45, @p46, @p47),
+(@p48, @p49, @p50, @p51, @p52),
+(@p53, @p54, @p55, @p56, @p57),
+(@p58, @p59, @p60, @p61, @p62),
+(@p63, @p64, @p65, @p66, @p67);" (0723d8ff)
+2020-10-29T20:45:53.1295042+08:00 80000018-0000-f700-b63f-84710c7967bb [INF] Executing ObjectResult, writing value of type '"EquipmentChecklistDataAccess.Models.Checklist"'. (8a1b66c8)
+2020-10-29T20:45:53.1866682+08:00 80000018-0000-f700-b63f-84710c7967bb [INF] Executed action "ChecklistAPI.Controllers.ChecklistsController.PostChecklist (ChecklistAPI)" in 88.9024ms (afa2e885)
+2020-10-29T20:45:53.1935790+08:00 80000018-0000-f700-b63f-84710c7967bb [INF] Executed endpoint '"ChecklistAPI.Controllers.ChecklistsController.PostChecklist (ChecklistAPI)"' (99874f2b)
+2020-10-29T20:45:53.1969702+08:00 80000018-0000-f700-b63f-84710c7967bb [INF] Request finished in 183.4345ms 201 application/json; charset=utf-8 (791a596a)
+2020-10-29T20:47:45.8396921+08:00 8000000e-0001-fa00-b63f-84710c7967bb [INF] Request starting HTTP/1.1 OPTIONS http://localhost:10511/api/Users/Auth   (ca22a1cb)
+2020-10-29T20:47:45.8418582+08:00 8000000e-0001-fa00-b63f-84710c7967bb [INF] CORS policy execution successful. (5409d6ef)
+2020-10-29T20:47:45.8462950+08:00 8000000e-0001-fa00-b63f-84710c7967bb [INF] Request finished in 43.7897ms 204  (791a596a)
+2020-10-29T20:47:45.8523407+08:00 8000000f-0001-fa00-b63f-84710c7967bb [INF] Request starting HTTP/1.1 POST http://localhost:10511/api/Users/Auth application/json 72 (ca22a1cb)
+2020-10-29T20:47:45.8570259+08:00 8000000f-0001-fa00-b63f-84710c7967bb [INF] CORS policy execution successful. (5409d6ef)
+2020-10-29T20:47:45.8602609+08:00 8000000f-0001-fa00-b63f-84710c7967bb [INF] Executing endpoint '"ChecklistAPI.Controllers.UsersController.AuthenticateUser (ChecklistAPI)"' (500cc934)
+2020-10-29T20:47:45.8627606+08:00 8000000f-0001-fa00-b63f-84710c7967bb [INF] Route matched with "{action = \"AuthenticateUser\", controller = \"Users\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[EquipmentChecklistDataAccess.Models.User]] AuthenticateUser(EquipmentChecklistDataAccess.Models.User)" on controller "ChecklistAPI.Controllers.UsersController" ("ChecklistAPI"). (122b2fdf)
+2020-10-29T20:47:45.8716968+08:00 8000000f-0001-fa00-b63f-84710c7967bb [INF] Entity Framework Core "3.1.7" initialized '"EquipmentChecklistDBContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2020-10-29T20:47:45.8816269+08:00 8000000f-0001-fa00-b63f-84710c7967bb [INF] Executed DbCommand ("4"ms) [Parameters=["@__model_Username_0='?' (Size = 15), @__model_Password_1='?' (Size = 25)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(2) [u].[ID], [u].[FirstName], [u].[LastName], [u].[MiddleName], [u].[Password], [u].[isActive]
+FROM [Users] AS [u]
+WHERE ([u].[ID] = @__model_Username_0) AND ([u].[Password] = @__model_Password_1)" (0723d8ff)
+2020-10-29T20:47:45.8858350+08:00 8000000f-0001-fa00-b63f-84710c7967bb [INF] Executing ObjectResult, writing value of type '"EquipmentChecklistDataAccess.Models.AuthenticateResponse"'. (8a1b66c8)
+2020-10-29T20:47:45.8913589+08:00 8000000f-0001-fa00-b63f-84710c7967bb [INF] Executed action "ChecklistAPI.Controllers.UsersController.AuthenticateUser (ChecklistAPI)" in 24.1643ms (afa2e885)
+2020-10-29T20:47:45.8947324+08:00 8000000f-0001-fa00-b63f-84710c7967bb [INF] Executed endpoint '"ChecklistAPI.Controllers.UsersController.AuthenticateUser (ChecklistAPI)"' (99874f2b)
+2020-10-29T20:47:45.8995389+08:00 8000000f-0001-fa00-b63f-84710c7967bb [INF] Request finished in 46.9111ms 200 application/json; charset=utf-8 (791a596a)
+2020-10-29T20:47:45.9074324+08:00 80000010-0001-fa00-b63f-84710c7967bb [INF] Request starting HTTP/1.1 OPTIONS http://localhost:10511/api/admins/user   (ca22a1cb)
+2020-10-29T20:47:45.9117246+08:00 80000010-0001-fa00-b63f-84710c7967bb [INF] CORS policy execution successful. (5409d6ef)
+2020-10-29T20:47:45.9192830+08:00 80000010-0001-fa00-b63f-84710c7967bb [INF] Request finished in 10.9874ms 204  (791a596a)
+2020-10-29T20:47:45.9228239+08:00 80000011-0001-fa00-b63f-84710c7967bb [INF] Request starting HTTP/1.1 GET http://localhost:10511/api/admins/user   (ca22a1cb)
+2020-10-29T20:47:45.9272895+08:00 80000011-0001-fa00-b63f-84710c7967bb [INF] CORS policy execution successful. (5409d6ef)
+2020-10-29T20:47:45.9316857+08:00 80000011-0001-fa00-b63f-84710c7967bb [INF] Successfully validated the token. (60169667)
+2020-10-29T20:47:45.9361242+08:00 80000011-0001-fa00-b63f-84710c7967bb [INF] Authorization was successful. (0d575a54)
+2020-10-29T20:47:45.9392790+08:00 80000011-0001-fa00-b63f-84710c7967bb [INF] Executing endpoint '"ChecklistAPI.Controllers.AdminsController.GetAdmin (ChecklistAPI)"' (500cc934)
+2020-10-29T20:47:45.9422677+08:00 80000011-0001-fa00-b63f-84710c7967bb [INF] Route matched with "{action = \"GetAdmin\", controller = \"Admins\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[EquipmentChecklistDataAccess.Models.Admin]] GetAdmin(System.String)" on controller "ChecklistAPI.Controllers.AdminsController" ("ChecklistAPI"). (122b2fdf)
+2020-10-29T20:47:45.9481138+08:00 80000011-0001-fa00-b63f-84710c7967bb [INF] Entity Framework Core "3.1.7" initialized '"EquipmentChecklistDBContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2020-10-29T20:47:45.9591765+08:00 80000011-0001-fa00-b63f-84710c7967bb [INF] Executed DbCommand ("6"ms) [Parameters=["@__p_0='?' (Size = 15)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [a].[UserID]
+FROM [Admins] AS [a]
+WHERE [a].[UserID] = @__p_0" (0723d8ff)
+2020-10-29T20:47:45.9615289+08:00 80000011-0001-fa00-b63f-84710c7967bb [INF] Executing ObjectResult, writing value of type '"Microsoft.AspNetCore.Mvc.ProblemDetails"'. (8a1b66c8)
+2020-10-29T20:47:45.9767537+08:00 80000011-0001-fa00-b63f-84710c7967bb [INF] Executed action "ChecklistAPI.Controllers.AdminsController.GetAdmin (ChecklistAPI)" in 28.0469ms (afa2e885)
+2020-10-29T20:47:45.9871598+08:00 80000011-0001-fa00-b63f-84710c7967bb [INF] Executed endpoint '"ChecklistAPI.Controllers.AdminsController.GetAdmin (ChecklistAPI)"' (99874f2b)
+2020-10-29T20:47:45.9892611+08:00 80000011-0001-fa00-b63f-84710c7967bb [INF] Request finished in 67.684ms 404 application/problem+json; charset=utf-8 (791a596a)
+2020-10-29T20:47:48.1659835+08:00 80000012-0001-fa00-b63f-84710c7967bb [INF] Request starting HTTP/1.1 OPTIONS http://localhost:10511/api/Equipments/Auth   (ca22a1cb)
+2020-10-29T20:47:48.1681006+08:00 80000012-0001-fa00-b63f-84710c7967bb [INF] CORS policy execution successful. (5409d6ef)
+2020-10-29T20:47:48.1716227+08:00 80000012-0001-fa00-b63f-84710c7967bb [INF] Request finished in 5.0484ms 204  (791a596a)
+2020-10-29T20:47:48.1739262+08:00 80000013-0001-fa00-b63f-84710c7967bb [INF] Request starting HTTP/1.1 POST http://localhost:10511/api/Equipments/Auth application/json 13 (ca22a1cb)
+2020-10-29T20:47:48.1755682+08:00 80000013-0001-fa00-b63f-84710c7967bb [INF] CORS policy execution successful. (5409d6ef)
+2020-10-29T20:47:48.1786782+08:00 80000013-0001-fa00-b63f-84710c7967bb [INF] Successfully validated the token. (60169667)
+2020-10-29T20:47:48.1808407+08:00 80000013-0001-fa00-b63f-84710c7967bb [INF] Authorization was successful. (0d575a54)
+2020-10-29T20:47:48.1828837+08:00 80000013-0001-fa00-b63f-84710c7967bb [INF] Executing endpoint '"ChecklistAPI.Controllers.EquipmentsController.LoginEquipment (ChecklistAPI)"' (500cc934)
+2020-10-29T20:47:48.1847209+08:00 80000013-0001-fa00-b63f-84710c7967bb [INF] Route matched with "{action = \"LoginEquipment\", controller = \"Equipments\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[EquipmentChecklistDataAccess.Models.Equipment]] LoginEquipment(EquipmentChecklistDataAccess.Models.Equipment)" on controller "ChecklistAPI.Controllers.EquipmentsController" ("ChecklistAPI"). (122b2fdf)
+2020-10-29T20:47:48.1893029+08:00 80000013-0001-fa00-b63f-84710c7967bb [INF] Entity Framework Core "3.1.7" initialized '"EquipmentChecklistDBContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2020-10-29T20:47:48.1955852+08:00 80000013-0001-fa00-b63f-84710c7967bb [INF] Executed DbCommand ("3"ms) [Parameters=["@__id_0='?' (Size = 5)"], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Equipments] AS [e]
+        WHERE [e].[ID] = @__id_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END" (0723d8ff)
+2020-10-29T20:47:48.2019117+08:00 80000013-0001-fa00-b63f-84710c7967bb [INF] Executed DbCommand ("2"ms) [Parameters=["@__equipment_ID_0='?' (Size = 5)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(2) [e].[ID], [e].[Equipment_TypeID], [e].[Shortname], [e0].[ID], [e0].[Shortname]
+FROM [Equipments] AS [e]
+LEFT JOIN [Equipment_Types] AS [e0] ON [e].[Equipment_TypeID] = [e0].[ID]
+WHERE [e].[ID] = @__equipment_ID_0" (0723d8ff)
+2020-10-29T20:47:48.2195229+08:00 80000013-0001-fa00-b63f-84710c7967bb [INF] Executing ObjectResult, writing value of type '"EquipmentChecklistDataAccess.Models.Equipment"'. (8a1b66c8)
+2020-10-29T20:47:48.2330312+08:00 80000013-0001-fa00-b63f-84710c7967bb [INF] Executed action "ChecklistAPI.Controllers.EquipmentsController.LoginEquipment (ChecklistAPI)" in 36.3372ms (afa2e885)
+2020-10-29T20:47:48.2728145+08:00 80000013-0001-fa00-b63f-84710c7967bb [INF] Executed endpoint '"ChecklistAPI.Controllers.EquipmentsController.LoginEquipment (ChecklistAPI)"' (99874f2b)
+2020-10-29T20:47:48.2971246+08:00 80000013-0001-fa00-b63f-84710c7967bb [INF] Request finished in 100.8042ms 200 application/json; charset=utf-8 (791a596a)
+2020-10-29T20:47:48.3271232+08:00 80000014-0001-fa00-b63f-84710c7967bb [INF] Request starting HTTP/1.1 OPTIONS http://localhost:10511/api/Questions/RS   (ca22a1cb)
+2020-10-29T20:47:48.3477382+08:00 80000014-0001-fa00-b63f-84710c7967bb [INF] CORS policy execution successful. (5409d6ef)
+2020-10-29T20:47:48.3680909+08:00 80000014-0001-fa00-b63f-84710c7967bb [INF] Request finished in 47.5354ms 204  (791a596a)
+2020-10-29T20:47:48.5592358+08:00 80000015-0001-fa00-b63f-84710c7967bb [INF] Request starting HTTP/1.1 GET http://localhost:10511/api/Questions/RS   (ca22a1cb)
+2020-10-29T20:47:48.5616484+08:00 80000015-0001-fa00-b63f-84710c7967bb [INF] CORS policy execution successful. (5409d6ef)
+2020-10-29T20:47:48.5751141+08:00 80000015-0001-fa00-b63f-84710c7967bb [INF] Successfully validated the token. (60169667)
+2020-10-29T20:47:48.5787077+08:00 80000015-0001-fa00-b63f-84710c7967bb [INF] Authorization was successful. (0d575a54)
+2020-10-29T20:47:48.5809508+08:00 80000015-0001-fa00-b63f-84710c7967bb [INF] Executing endpoint '"ChecklistAPI.Controllers.QuestionsController.GetQuestionsbyEquipmentType (ChecklistAPI)"' (500cc934)
+2020-10-29T20:47:48.5874106+08:00 80000015-0001-fa00-b63f-84710c7967bb [INF] Route matched with "{action = \"GetQuestionsbyEquipmentType\", controller = \"Questions\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[EquipmentChecklistDataAccess.Models.Question[]]] GetQuestionsbyEquipmentType(System.String)" on controller "ChecklistAPI.Controllers.QuestionsController" ("ChecklistAPI"). (122b2fdf)
+2020-10-29T20:47:48.5912351+08:00 80000015-0001-fa00-b63f-84710c7967bb [INF] Entity Framework Core "3.1.7" initialized '"EquipmentChecklistDBContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2020-10-29T20:47:48.5977075+08:00 80000015-0001-fa00-b63f-84710c7967bb [INF] Executed DbCommand ("3"ms) [Parameters=["@__id_0='?' (Size = 5)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [q].[Equipment_TypeID], [q].[ComponentID], [q].[Question_Text], [q].[Rank]
+FROM [Questions] AS [q]
+WHERE [q].[Equipment_TypeID] = @__id_0" (0723d8ff)
+2020-10-29T20:47:48.6026118+08:00 80000015-0001-fa00-b63f-84710c7967bb [INF] Executing ObjectResult, writing value of type '"EquipmentChecklistDataAccess.Models.Question[]"'. (8a1b66c8)
+2020-10-29T20:47:48.6082795+08:00 80000015-0001-fa00-b63f-84710c7967bb [INF] Executed action "ChecklistAPI.Controllers.QuestionsController.GetQuestionsbyEquipmentType (ChecklistAPI)" in 16.2629ms (afa2e885)
+2020-10-29T20:47:48.6122689+08:00 80000015-0001-fa00-b63f-84710c7967bb [INF] Executed endpoint '"ChecklistAPI.Controllers.QuestionsController.GetQuestionsbyEquipmentType (ChecklistAPI)"' (99874f2b)
+2020-10-29T20:47:48.6193995+08:00 80000015-0001-fa00-b63f-84710c7967bb [INF] Request finished in 55.754ms 200 application/json; charset=utf-8 (791a596a)
+2020-10-29T20:48:01.5101948+08:00 80000016-0001-fa00-b63f-84710c7967bb [INF] Request starting HTTP/1.1 OPTIONS http://localhost:10511/api/checklists   (ca22a1cb)
+2020-10-29T20:48:01.5149594+08:00 80000016-0001-fa00-b63f-84710c7967bb [INF] CORS policy execution successful. (5409d6ef)
+2020-10-29T20:48:01.5301153+08:00 80000016-0001-fa00-b63f-84710c7967bb [INF] Request finished in 7.5323ms 204  (791a596a)
+2020-10-29T20:48:01.5350188+08:00 80000017-0001-fa00-b63f-84710c7967bb [INF] Request starting HTTP/1.1 POST http://localhost:10511/api/checklists application/json 1300 (ca22a1cb)
+2020-10-29T20:48:01.5368527+08:00 80000017-0001-fa00-b63f-84710c7967bb [INF] CORS policy execution successful. (5409d6ef)
+2020-10-29T20:48:01.5396359+08:00 80000017-0001-fa00-b63f-84710c7967bb [INF] Successfully validated the token. (60169667)
+2020-10-29T20:48:01.5436826+08:00 80000017-0001-fa00-b63f-84710c7967bb [INF] Authorization was successful. (0d575a54)
+2020-10-29T20:48:01.5541438+08:00 80000017-0001-fa00-b63f-84710c7967bb [INF] Executing endpoint '"ChecklistAPI.Controllers.ChecklistsController.PostChecklist (ChecklistAPI)"' (500cc934)
+2020-10-29T20:48:01.5564326+08:00 80000017-0001-fa00-b63f-84710c7967bb [INF] Route matched with "{action = \"PostChecklist\", controller = \"Checklists\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Object]] PostChecklist(EquipmentChecklistDataAccess.Models.Checklist)" on controller "ChecklistAPI.Controllers.ChecklistsController" ("ChecklistAPI"). (122b2fdf)
+2020-10-29T20:48:01.5612728+08:00 80000017-0001-fa00-b63f-84710c7967bb [INF] Entity Framework Core "3.1.7" initialized '"EquipmentChecklistDBContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2020-10-29T20:48:01.5722071+08:00 80000017-0001-fa00-b63f-84710c7967bb [INF] Executed DbCommand ("4"ms) [Parameters=["@__p_0='?' (Size = 5)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [e].[ID], [e].[Equipment_TypeID], [e].[Shortname]
+FROM [Equipments] AS [e]
+WHERE [e].[ID] = @__p_0" (0723d8ff)
+2020-10-29T20:48:01.6192921+08:00 80000017-0001-fa00-b63f-84710c7967bb [INF] Executed DbCommand ("14"ms) [Parameters=["@p0='?' (DbType = DateTime2), @p1='?' (Size = 5), @p2='?' (Size = 15)"], CommandType='Text', CommandTimeout='30']"
+""SET NOCOUNT ON;
+INSERT INTO [Checklists] ([Date_Created], [EquipmentID], [UserID])
+VALUES (@p0, @p1, @p2);
+SELECT [ID]
+FROM [Checklists]
+WHERE @@ROWCOUNT = 1 AND [ID] = scope_identity();" (0723d8ff)
+2020-10-29T20:48:01.6326074+08:00 80000017-0001-fa00-b63f-84710c7967bb [INF] Executed DbCommand ("6"ms) [Parameters=["@p3='?' (DbType = Int32), @p4='?' (Size = 5), @p5='?' (Size = 5), @p6='?' (Size = 5), @p7='?' (Size = 50), @p8='?' (DbType = Int32), @p9='?' (Size = 5), @p10='?' (Size = 5), @p11='?' (Size = 5), @p12='?' (Size = 50), @p13='?' (DbType = Int32), @p14='?' (Size = 5), @p15='?' (Size = 5), @p16='?' (Size = 5), @p17='?' (Size = 50), @p18='?' (DbType = Int32), @p19='?' (Size = 5), @p20='?' (Size = 5), @p21='?' (Size = 5), @p22='?' (Size = 50), @p23='?' (DbType = Int32), @p24='?' (Size = 5), @p25='?' (Size = 5), @p26='?' (Size = 5), @p27='?' (Size = 50), @p28='?' (DbType = Int32), @p29='?' (Size = 5), @p30='?' (Size = 5), @p31='?' (Size = 5), @p32='?' (Size = 50), @p33='?' (DbType = Int32), @p34='?' (Size = 5), @p35='?' (Size = 5), @p36='?' (Size = 5), @p37='?' (Size = 50), @p38='?' (DbType = Int32), @p39='?' (Size = 5), @p40='?' (Size = 5), @p41='?' (Size = 5), @p42='?' (Size = 50), @p43='?' (DbType = Int32), @p44='?' (Size = 5), @p45='?' (Size = 5), @p46='?' (Size = 5), @p47='?' (Size = 50), @p48='?' (DbType = Int32), @p49='?' (Size = 5), @p50='?' (Size = 5), @p51='?' (Size = 5), @p52='?' (Size = 50), @p53='?' (DbType = Int32), @p54='?' (Size = 5), @p55='?' (Size = 5), @p56='?' (Size = 5), @p57='?' (Size = 50), @p58='?' (DbType = Int32), @p59='?' (Size = 5), @p60='?' (Size = 5), @p61='?' (Size = 5), @p62='?' (Size = 50), @p63='?' (DbType = Int32), @p64='?' (Size = 5), @p65='?' (Size = 5), @p66='?' (Size = 5), @p67='?' (Size = 50), @p68='?' (DbType = Int32), @p69='?' (Size = 5), @p70='?' (Size = 5), @p71='?' (Size = 5), @p72='?' (Size = 50), @p73='?' (DbType = Int32), @p74='?' (Size = 5), @p75='?' (Size = 5), @p76='?' (Size = 5), @p77='?' (Size = 50)"], CommandType='Text', CommandTimeout='30']"
+""SET NOCOUNT ON;
+INSERT INTO [Checklist_Items] ([ChecklistID], [Equipment_TypeID], [ComponentID], [ConditionID], [Remarks])
+VALUES (@p3, @p4, @p5, @p6, @p7),
+(@p8, @p9, @p10, @p11, @p12),
+(@p13, @p14, @p15, @p16, @p17),
+(@p18, @p19, @p20, @p21, @p22),
+(@p23, @p24, @p25, @p26, @p27),
+(@p28, @p29, @p30, @p31, @p32),
+(@p33, @p34, @p35, @p36, @p37),
+(@p38, @p39, @p40, @p41, @p42),
+(@p43, @p44, @p45, @p46, @p47),
+(@p48, @p49, @p50, @p51, @p52),
+(@p53, @p54, @p55, @p56, @p57),
+(@p58, @p59, @p60, @p61, @p62),
+(@p63, @p64, @p65, @p66, @p67),
+(@p68, @p69, @p70, @p71, @p72),
+(@p73, @p74, @p75, @p76, @p77);" (0723d8ff)
+2020-10-29T20:48:01.6412105+08:00 80000017-0001-fa00-b63f-84710c7967bb [INF] Executing ObjectResult, writing value of type '"EquipmentChecklistDataAccess.Models.Checklist"'. (8a1b66c8)
+2020-10-29T20:48:01.6454718+08:00 80000017-0001-fa00-b63f-84710c7967bb [INF] Executed action "ChecklistAPI.Controllers.ChecklistsController.PostChecklist (ChecklistAPI)" in 86.3521ms (afa2e885)
+2020-10-29T20:48:01.6708375+08:00 80000017-0001-fa00-b63f-84710c7967bb [INF] Executed endpoint '"ChecklistAPI.Controllers.ChecklistsController.PostChecklist (ChecklistAPI)"' (99874f2b)
+2020-10-29T20:48:01.6744352+08:00 80000017-0001-fa00-b63f-84710c7967bb [INF] Request finished in 139.8824ms 201 application/json; charset=utf-8 (791a596a)
+2020-10-29T20:50:05.4171242+08:00  [INF] User profile is available. Using '"C:\Users\jpasol\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest. (7ac5e29c)
+2020-10-29T20:50:06.5582132+08:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2020-10-29T20:50:06.5638067+08:00  [INF] Hosting environment: "Development" (c3307c92)
+2020-10-29T20:50:06.5727370+08:00  [INF] Content root path: "C:\Users\jpasol\Desktop\Repository\ChecklistAPI" (b5d60022)
+2020-10-29T20:50:06.6551018+08:00 80000019-0001-fa00-b63f-84710c7967bb [INF] Request starting HTTP/1.1 GET http://localhost:10511/   (ca22a1cb)
+2020-10-29T20:50:06.6779236+08:00 80000019-0001-fa00-b63f-84710c7967bb [WRN] Failed to determine the https port for redirect. (ca76cc21)
+2020-10-29T20:50:06.9420859+08:00 80000019-0001-fa00-b63f-84710c7967bb [INF] Request finished in 268.1678ms 404  (791a596a)
+2020-10-29T20:50:42.3355994+08:00 8000001a-0000-f700-b63f-84710c7967bb [INF] Request starting HTTP/1.1 OPTIONS http://localhost:10511/api/Users/Auth   (ca22a1cb)
+2020-10-29T20:50:42.3450013+08:00 8000001a-0000-f700-b63f-84710c7967bb [INF] CORS policy execution successful. (5409d6ef)
+2020-10-29T20:50:42.3511965+08:00 8000001a-0000-f700-b63f-84710c7967bb [INF] Request finished in 16.3739ms 204  (791a596a)
+2020-10-29T20:50:42.3586457+08:00 8000001b-0000-f700-b63f-84710c7967bb [INF] Request starting HTTP/1.1 POST http://localhost:10511/api/Users/Auth application/json 72 (ca22a1cb)
+2020-10-29T20:50:42.3622507+08:00 8000001b-0000-f700-b63f-84710c7967bb [INF] CORS policy execution successful. (5409d6ef)
+2020-10-29T20:50:42.3703780+08:00 8000001b-0000-f700-b63f-84710c7967bb [INF] Executing endpoint '"ChecklistAPI.Controllers.UsersController.AuthenticateUser (ChecklistAPI)"' (500cc934)
+2020-10-29T20:50:42.4291204+08:00 8000001b-0000-f700-b63f-84710c7967bb [INF] Route matched with "{action = \"AuthenticateUser\", controller = \"Users\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[EquipmentChecklistDataAccess.Models.User]] AuthenticateUser(EquipmentChecklistDataAccess.Models.User)" on controller "ChecklistAPI.Controllers.UsersController" ("ChecklistAPI"). (122b2fdf)
+2020-10-29T20:50:43.2956225+08:00 8000001b-0000-f700-b63f-84710c7967bb [INF] Entity Framework Core "3.1.7" initialized '"EquipmentChecklistDBContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2020-10-29T20:50:43.8374471+08:00 8000001b-0000-f700-b63f-84710c7967bb [INF] Executed DbCommand ("64"ms) [Parameters=["@__model_Username_0='?' (Size = 15), @__model_Password_1='?' (Size = 25)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(2) [u].[ID], [u].[FirstName], [u].[LastName], [u].[MiddleName], [u].[Password], [u].[isActive]
+FROM [Users] AS [u]
+WHERE ([u].[ID] = @__model_Username_0) AND ([u].[Password] = @__model_Password_1)" (0723d8ff)
+2020-10-29T20:50:44.0153841+08:00 8000001b-0000-f700-b63f-84710c7967bb [INF] Executing ObjectResult, writing value of type '"EquipmentChecklistDataAccess.Models.AuthenticateResponse"'. (8a1b66c8)
+2020-10-29T20:50:44.0799703+08:00 8000001b-0000-f700-b63f-84710c7967bb [INF] Executed action "ChecklistAPI.Controllers.UsersController.AuthenticateUser (ChecklistAPI)" in 1639.9491ms (afa2e885)
+2020-10-29T20:50:44.0825412+08:00 8000001b-0000-f700-b63f-84710c7967bb [INF] Executed endpoint '"ChecklistAPI.Controllers.UsersController.AuthenticateUser (ChecklistAPI)"' (99874f2b)
+2020-10-29T20:50:44.0930988+08:00 8000001b-0000-f700-b63f-84710c7967bb [INF] Request finished in 1736.3742ms 200 application/json; charset=utf-8 (791a596a)
+2020-10-29T20:50:44.0995005+08:00 8000001c-0000-f700-b63f-84710c7967bb [INF] Request starting HTTP/1.1 OPTIONS http://localhost:10511/api/admins/user   (ca22a1cb)
+2020-10-29T20:50:44.1024063+08:00 8000001c-0000-f700-b63f-84710c7967bb [INF] CORS policy execution successful. (5409d6ef)
+2020-10-29T20:50:44.1092332+08:00 8000001c-0000-f700-b63f-84710c7967bb [INF] Request finished in 6.4328ms 204  (791a596a)
+2020-10-29T20:50:44.1114108+08:00 8000001d-0000-f700-b63f-84710c7967bb [INF] Request starting HTTP/1.1 GET http://localhost:10511/api/admins/user   (ca22a1cb)
+2020-10-29T20:50:44.1132443+08:00 8000001d-0000-f700-b63f-84710c7967bb [INF] CORS policy execution successful. (5409d6ef)
+2020-10-29T20:50:44.1821677+08:00 8000001d-0000-f700-b63f-84710c7967bb [INF] Successfully validated the token. (60169667)
+2020-10-29T20:50:44.1886224+08:00 8000001d-0000-f700-b63f-84710c7967bb [INF] Authorization was successful. (0d575a54)
+2020-10-29T20:50:44.1915333+08:00 8000001d-0000-f700-b63f-84710c7967bb [INF] Executing endpoint '"ChecklistAPI.Controllers.AdminsController.GetAdmin (ChecklistAPI)"' (500cc934)
+2020-10-29T20:50:44.1987328+08:00 8000001d-0000-f700-b63f-84710c7967bb [INF] Route matched with "{action = \"GetAdmin\", controller = \"Admins\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[EquipmentChecklistDataAccess.Models.Admin]] GetAdmin(System.String)" on controller "ChecklistAPI.Controllers.AdminsController" ("ChecklistAPI"). (122b2fdf)
+2020-10-29T20:50:44.2334448+08:00 8000001d-0000-f700-b63f-84710c7967bb [INF] Entity Framework Core "3.1.7" initialized '"EquipmentChecklistDBContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2020-10-29T20:50:44.2592442+08:00 8000001d-0000-f700-b63f-84710c7967bb [INF] Executed DbCommand ("5"ms) [Parameters=["@__p_0='?' (Size = 15)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [a].[UserID]
+FROM [Admins] AS [a]
+WHERE [a].[UserID] = @__p_0" (0723d8ff)
+2020-10-29T20:50:44.2626346+08:00 8000001d-0000-f700-b63f-84710c7967bb [INF] Executing ObjectResult, writing value of type '"Microsoft.AspNetCore.Mvc.ProblemDetails"'. (8a1b66c8)
+2020-10-29T20:50:44.2821730+08:00 8000001d-0000-f700-b63f-84710c7967bb [INF] Executed action "ChecklistAPI.Controllers.AdminsController.GetAdmin (ChecklistAPI)" in 79.5837ms (afa2e885)
+2020-10-29T20:50:44.3166356+08:00 8000001d-0000-f700-b63f-84710c7967bb [INF] Executed endpoint '"ChecklistAPI.Controllers.AdminsController.GetAdmin (ChecklistAPI)"' (99874f2b)
+2020-10-29T20:50:44.3234399+08:00 8000001d-0000-f700-b63f-84710c7967bb [INF] Request finished in 207.1924ms 404 application/problem+json; charset=utf-8 (791a596a)
+2020-10-29T20:50:46.8294798+08:00 8000001e-0000-f700-b63f-84710c7967bb [INF] Request starting HTTP/1.1 OPTIONS http://localhost:10511/api/Equipments/Auth   (ca22a1cb)
+2020-10-29T20:50:46.8319570+08:00 8000001e-0000-f700-b63f-84710c7967bb [INF] CORS policy execution successful. (5409d6ef)
+2020-10-29T20:50:46.8358635+08:00 8000001e-0000-f700-b63f-84710c7967bb [INF] Request finished in 6.4667ms 204  (791a596a)
+2020-10-29T20:50:46.8384659+08:00 8000001f-0000-f700-b63f-84710c7967bb [INF] Request starting HTTP/1.1 POST http://localhost:10511/api/Equipments/Auth application/json 13 (ca22a1cb)
+2020-10-29T20:50:46.8407583+08:00 8000001f-0000-f700-b63f-84710c7967bb [INF] CORS policy execution successful. (5409d6ef)
+2020-10-29T20:50:46.8450556+08:00 8000001f-0000-f700-b63f-84710c7967bb [INF] Successfully validated the token. (60169667)
+2020-10-29T20:50:46.8474562+08:00 8000001f-0000-f700-b63f-84710c7967bb [INF] Authorization was successful. (0d575a54)
+2020-10-29T20:50:46.8495217+08:00 8000001f-0000-f700-b63f-84710c7967bb [INF] Executing endpoint '"ChecklistAPI.Controllers.EquipmentsController.LoginEquipment (ChecklistAPI)"' (500cc934)
+2020-10-29T20:50:46.8563424+08:00 8000001f-0000-f700-b63f-84710c7967bb [INF] Route matched with "{action = \"LoginEquipment\", controller = \"Equipments\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[EquipmentChecklistDataAccess.Models.Equipment]] LoginEquipment(EquipmentChecklistDataAccess.Models.Equipment)" on controller "ChecklistAPI.Controllers.EquipmentsController" ("ChecklistAPI"). (122b2fdf)
+2020-10-29T20:50:46.8764053+08:00 8000001f-0000-f700-b63f-84710c7967bb [INF] Entity Framework Core "3.1.7" initialized '"EquipmentChecklistDBContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2020-10-29T20:50:46.9007639+08:00 8000001f-0000-f700-b63f-84710c7967bb [INF] Executed DbCommand ("2"ms) [Parameters=["@__id_0='?' (Size = 5)"], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Equipments] AS [e]
+        WHERE [e].[ID] = @__id_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END" (0723d8ff)
+2020-10-29T20:50:46.9584234+08:00 8000001f-0000-f700-b63f-84710c7967bb [INF] Executed DbCommand ("7"ms) [Parameters=["@__equipment_ID_0='?' (Size = 5)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(2) [e].[ID], [e].[Equipment_TypeID], [e].[Shortname], [e0].[ID], [e0].[Shortname]
+FROM [Equipments] AS [e]
+LEFT JOIN [Equipment_Types] AS [e0] ON [e].[Equipment_TypeID] = [e0].[ID]
+WHERE [e].[ID] = @__equipment_ID_0" (0723d8ff)
+2020-10-29T20:50:46.9827748+08:00 8000001f-0000-f700-b63f-84710c7967bb [INF] Executing ObjectResult, writing value of type '"EquipmentChecklistDataAccess.Models.Equipment"'. (8a1b66c8)
+2020-10-29T20:50:46.9952467+08:00 8000001f-0000-f700-b63f-84710c7967bb [INF] Executed action "ChecklistAPI.Controllers.EquipmentsController.LoginEquipment (ChecklistAPI)" in 134.8251ms (afa2e885)
+2020-10-29T20:50:47.0006673+08:00 8000001f-0000-f700-b63f-84710c7967bb [INF] Executed endpoint '"ChecklistAPI.Controllers.EquipmentsController.LoginEquipment (ChecklistAPI)"' (99874f2b)
+2020-10-29T20:50:47.0049889+08:00 8000001f-0000-f700-b63f-84710c7967bb [INF] Request finished in 164.3292ms 200 application/json; charset=utf-8 (791a596a)
+2020-10-29T20:50:47.0244100+08:00 80000020-0000-f700-b63f-84710c7967bb [INF] Request starting HTTP/1.1 OPTIONS http://localhost:10511/api/Questions/SL   (ca22a1cb)
+2020-10-29T20:50:47.0300245+08:00 80000020-0000-f700-b63f-84710c7967bb [INF] CORS policy execution successful. (5409d6ef)
+2020-10-29T20:50:47.0553400+08:00 80000020-0000-f700-b63f-84710c7967bb [INF] Request finished in 9.6542ms 204  (791a596a)
+2020-10-29T20:50:47.0571466+08:00 80000021-0000-f700-b63f-84710c7967bb [INF] Request starting HTTP/1.1 GET http://localhost:10511/api/Questions/SL   (ca22a1cb)
+2020-10-29T20:50:47.0597704+08:00 80000021-0000-f700-b63f-84710c7967bb [INF] CORS policy execution successful. (5409d6ef)
+2020-10-29T20:50:47.0658673+08:00 80000021-0000-f700-b63f-84710c7967bb [INF] Successfully validated the token. (60169667)
+2020-10-29T20:50:47.0706511+08:00 80000021-0000-f700-b63f-84710c7967bb [INF] Authorization was successful. (0d575a54)
+2020-10-29T20:50:47.0729319+08:00 80000021-0000-f700-b63f-84710c7967bb [INF] Executing endpoint '"ChecklistAPI.Controllers.QuestionsController.GetQuestionsbyEquipmentType (ChecklistAPI)"' (500cc934)
+2020-10-29T20:50:47.0817472+08:00 80000021-0000-f700-b63f-84710c7967bb [INF] Route matched with "{action = \"GetQuestionsbyEquipmentType\", controller = \"Questions\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[EquipmentChecklistDataAccess.Models.Question[]]] GetQuestionsbyEquipmentType(System.String)" on controller "ChecklistAPI.Controllers.QuestionsController" ("ChecklistAPI"). (122b2fdf)
+2020-10-29T20:50:47.0861549+08:00 80000021-0000-f700-b63f-84710c7967bb [INF] Entity Framework Core "3.1.7" initialized '"EquipmentChecklistDBContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2020-10-29T20:50:47.1015896+08:00 80000021-0000-f700-b63f-84710c7967bb [INF] Executed DbCommand ("1"ms) [Parameters=["@__id_0='?' (Size = 5)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [q].[Equipment_TypeID], [q].[ComponentID], [q].[Question_Text], [q].[Rank]
+FROM [Questions] AS [q]
+WHERE [q].[Equipment_TypeID] = @__id_0" (0723d8ff)
+2020-10-29T20:50:47.1207390+08:00 80000021-0000-f700-b63f-84710c7967bb [INF] Executing ObjectResult, writing value of type '"EquipmentChecklistDataAccess.Models.Question[]"'. (8a1b66c8)
+2020-10-29T20:50:47.1375436+08:00 80000021-0000-f700-b63f-84710c7967bb [INF] Executed action "ChecklistAPI.Controllers.QuestionsController.GetQuestionsbyEquipmentType (ChecklistAPI)" in 49.5324ms (afa2e885)
+2020-10-29T20:50:47.1399764+08:00 80000021-0000-f700-b63f-84710c7967bb [INF] Executed endpoint '"ChecklistAPI.Controllers.QuestionsController.GetQuestionsbyEquipmentType (ChecklistAPI)"' (99874f2b)
+2020-10-29T20:50:47.1682605+08:00 80000021-0000-f700-b63f-84710c7967bb [INF] Request finished in 84.7624ms 200 application/json; charset=utf-8 (791a596a)
+2020-10-29T20:50:47.6742013+08:00 80000022-0000-f700-b63f-84710c7967bb [INF] Request starting HTTP/1.1 GET http://localhost:10511/api/Questions/SL   (ca22a1cb)
+2020-10-29T20:50:47.6823239+08:00 80000022-0000-f700-b63f-84710c7967bb [INF] CORS policy execution successful. (5409d6ef)
+2020-10-29T20:50:47.6913788+08:00 80000022-0000-f700-b63f-84710c7967bb [INF] Successfully validated the token. (60169667)
+2020-10-29T20:50:47.7000409+08:00 80000022-0000-f700-b63f-84710c7967bb [INF] Authorization was successful. (0d575a54)
+2020-10-29T20:50:47.7066780+08:00 80000022-0000-f700-b63f-84710c7967bb [INF] Executing endpoint '"ChecklistAPI.Controllers.QuestionsController.GetQuestionsbyEquipmentType (ChecklistAPI)"' (500cc934)
+2020-10-29T20:50:47.7348275+08:00 80000022-0000-f700-b63f-84710c7967bb [INF] Route matched with "{action = \"GetQuestionsbyEquipmentType\", controller = \"Questions\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[EquipmentChecklistDataAccess.Models.Question[]]] GetQuestionsbyEquipmentType(System.String)" on controller "ChecklistAPI.Controllers.QuestionsController" ("ChecklistAPI"). (122b2fdf)
+2020-10-29T20:50:47.7446093+08:00 80000022-0000-f700-b63f-84710c7967bb [INF] Entity Framework Core "3.1.7" initialized '"EquipmentChecklistDBContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2020-10-29T20:50:47.7544745+08:00 80000022-0000-f700-b63f-84710c7967bb [INF] Executed DbCommand ("2"ms) [Parameters=["@__id_0='?' (Size = 5)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [q].[Equipment_TypeID], [q].[ComponentID], [q].[Question_Text], [q].[Rank]
+FROM [Questions] AS [q]
+WHERE [q].[Equipment_TypeID] = @__id_0" (0723d8ff)
+2020-10-29T20:50:47.7601297+08:00 80000022-0000-f700-b63f-84710c7967bb [INF] Executing ObjectResult, writing value of type '"EquipmentChecklistDataAccess.Models.Question[]"'. (8a1b66c8)
+2020-10-29T20:50:47.7698507+08:00 80000022-0000-f700-b63f-84710c7967bb [INF] Executed action "ChecklistAPI.Controllers.QuestionsController.GetQuestionsbyEquipmentType (ChecklistAPI)" in 28.2561ms (afa2e885)
+2020-10-29T20:50:47.7742967+08:00 80000022-0000-f700-b63f-84710c7967bb [INF] Executed endpoint '"ChecklistAPI.Controllers.QuestionsController.GetQuestionsbyEquipmentType (ChecklistAPI)"' (99874f2b)
+2020-10-29T20:50:47.7823384+08:00 80000022-0000-f700-b63f-84710c7967bb [INF] Request finished in 104.3942ms 200 application/json; charset=utf-8 (791a596a)
+2020-10-29T20:50:58.2460266+08:00 80000023-0000-f700-b63f-84710c7967bb [INF] Request starting HTTP/1.1 OPTIONS http://localhost:10511/api/checklists   (ca22a1cb)
+2020-10-29T20:50:58.2605962+08:00 80000023-0000-f700-b63f-84710c7967bb [INF] CORS policy execution successful. (5409d6ef)
+2020-10-29T20:50:58.2928039+08:00 80000023-0000-f700-b63f-84710c7967bb [INF] Request finished in 29.044ms 204  (791a596a)
+2020-10-29T20:50:58.2933219+08:00 80000024-0000-f700-b63f-84710c7967bb [INF] Request starting HTTP/1.1 POST http://localhost:10511/api/checklists application/json 1300 (ca22a1cb)
+2020-10-29T20:50:58.2960204+08:00 80000024-0000-f700-b63f-84710c7967bb [INF] CORS policy execution successful. (5409d6ef)
+2020-10-29T20:50:58.3002709+08:00 80000024-0000-f700-b63f-84710c7967bb [INF] Successfully validated the token. (60169667)
+2020-10-29T20:50:58.3105972+08:00 80000024-0000-f700-b63f-84710c7967bb [INF] Authorization was successful. (0d575a54)
+2020-10-29T20:50:58.3299429+08:00 80000024-0000-f700-b63f-84710c7967bb [INF] Executing endpoint '"ChecklistAPI.Controllers.ChecklistsController.PostChecklist (ChecklistAPI)"' (500cc934)
+2020-10-29T20:50:58.3413769+08:00 80000024-0000-f700-b63f-84710c7967bb [INF] Route matched with "{action = \"PostChecklist\", controller = \"Checklists\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Object]] PostChecklist(EquipmentChecklistDataAccess.Models.Checklist)" on controller "ChecklistAPI.Controllers.ChecklistsController" ("ChecklistAPI"). (122b2fdf)
+2020-10-29T20:50:58.4108619+08:00 80000024-0000-f700-b63f-84710c7967bb [INF] Entity Framework Core "3.1.7" initialized '"EquipmentChecklistDBContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2020-10-29T20:50:58.4260478+08:00 80000024-0000-f700-b63f-84710c7967bb [INF] Executed DbCommand ("4"ms) [Parameters=["@__p_0='?' (Size = 5)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [e].[ID], [e].[Equipment_TypeID], [e].[Shortname]
+FROM [Equipments] AS [e]
+WHERE [e].[ID] = @__p_0" (0723d8ff)
+2020-10-29T20:50:58.6066996+08:00 80000024-0000-f700-b63f-84710c7967bb [INF] Executed DbCommand ("2"ms) [Parameters=["@p0='?' (DbType = DateTime2), @p1='?' (Size = 5), @p2='?' (Size = 15)"], CommandType='Text', CommandTimeout='30']"
+""SET NOCOUNT ON;
+INSERT INTO [Checklists] ([Date_Created], [EquipmentID], [UserID])
+VALUES (@p0, @p1, @p2);
+SELECT [ID]
+FROM [Checklists]
+WHERE @@ROWCOUNT = 1 AND [ID] = scope_identity();" (0723d8ff)
+2020-10-29T20:50:58.6499147+08:00 80000024-0000-f700-b63f-84710c7967bb [INF] Executed DbCommand ("2"ms) [Parameters=["@p3='?' (DbType = Int32), @p4='?' (Size = 5), @p5='?' (Size = 5), @p6='?' (Size = 5), @p7='?' (Size = 50), @p8='?' (DbType = Int32), @p9='?' (Size = 5), @p10='?' (Size = 5), @p11='?' (Size = 5), @p12='?' (Size = 50), @p13='?' (DbType = Int32), @p14='?' (Size = 5), @p15='?' (Size = 5), @p16='?' (Size = 5), @p17='?' (Size = 50), @p18='?' (DbType = Int32), @p19='?' (Size = 5), @p20='?' (Size = 5), @p21='?' (Size = 5), @p22='?' (Size = 50), @p23='?' (DbType = Int32), @p24='?' (Size = 5), @p25='?' (Size = 5), @p26='?' (Size = 5), @p27='?' (Size = 50), @p28='?' (DbType = Int32), @p29='?' (Size = 5), @p30='?' (Size = 5), @p31='?' (Size = 5), @p32='?' (Size = 50), @p33='?' (DbType = Int32), @p34='?' (Size = 5), @p35='?' (Size = 5), @p36='?' (Size = 5), @p37='?' (Size = 50), @p38='?' (DbType = Int32), @p39='?' (Size = 5), @p40='?' (Size = 5), @p41='?' (Size = 5), @p42='?' (Size = 50), @p43='?' (DbType = Int32), @p44='?' (Size = 5), @p45='?' (Size = 5), @p46='?' (Size = 5), @p47='?' (Size = 50), @p48='?' (DbType = Int32), @p49='?' (Size = 5), @p50='?' (Size = 5), @p51='?' (Size = 5), @p52='?' (Size = 50), @p53='?' (DbType = Int32), @p54='?' (Size = 5), @p55='?' (Size = 5), @p56='?' (Size = 5), @p57='?' (Size = 50), @p58='?' (DbType = Int32), @p59='?' (Size = 5), @p60='?' (Size = 5), @p61='?' (Size = 5), @p62='?' (Size = 50), @p63='?' (DbType = Int32), @p64='?' (Size = 5), @p65='?' (Size = 5), @p66='?' (Size = 5), @p67='?' (Size = 50), @p68='?' (DbType = Int32), @p69='?' (Size = 5), @p70='?' (Size = 5), @p71='?' (Size = 5), @p72='?' (Size = 50), @p73='?' (DbType = Int32), @p74='?' (Size = 5), @p75='?' (Size = 5), @p76='?' (Size = 5), @p77='?' (Size = 50)"], CommandType='Text', CommandTimeout='30']"
+""SET NOCOUNT ON;
+INSERT INTO [Checklist_Items] ([ChecklistID], [Equipment_TypeID], [ComponentID], [ConditionID], [Remarks])
+VALUES (@p3, @p4, @p5, @p6, @p7),
+(@p8, @p9, @p10, @p11, @p12),
+(@p13, @p14, @p15, @p16, @p17),
+(@p18, @p19, @p20, @p21, @p22),
+(@p23, @p24, @p25, @p26, @p27),
+(@p28, @p29, @p30, @p31, @p32),
+(@p33, @p34, @p35, @p36, @p37),
+(@p38, @p39, @p40, @p41, @p42),
+(@p43, @p44, @p45, @p46, @p47),
+(@p48, @p49, @p50, @p51, @p52),
+(@p53, @p54, @p55, @p56, @p57),
+(@p58, @p59, @p60, @p61, @p62),
+(@p63, @p64, @p65, @p66, @p67),
+(@p68, @p69, @p70, @p71, @p72),
+(@p73, @p74, @p75, @p76, @p77);" (0723d8ff)
+2020-10-29T20:50:58.6962613+08:00 80000024-0000-f700-b63f-84710c7967bb [INF] Executing ObjectResult, writing value of type '"EquipmentChecklistDataAccess.Models.Checklist"'. (8a1b66c8)
+2020-10-29T20:50:58.7419569+08:00 80000024-0000-f700-b63f-84710c7967bb [INF] Executed action "ChecklistAPI.Controllers.ChecklistsController.PostChecklist (ChecklistAPI)" in 394.0368ms (afa2e885)
+2020-10-29T20:50:58.7810336+08:00 80000024-0000-f700-b63f-84710c7967bb [INF] Executed endpoint '"ChecklistAPI.Controllers.ChecklistsController.PostChecklist (ChecklistAPI)"' (99874f2b)
+2020-10-29T20:50:58.7847640+08:00 80000024-0000-f700-b63f-84710c7967bb [INF] Request finished in 504.4409ms 201 application/json; charset=utf-8 (791a596a)

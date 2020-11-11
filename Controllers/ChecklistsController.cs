@@ -30,7 +30,9 @@ namespace ChecklistAPI.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Checklist>>> GetChecklists()
         {
-            return await _context.Checklists.ToListAsync();
+            return await _context.Checklists
+                .Include(x => x.Checklist_Items)
+                .ToListAsync();
         }
 
         // GET: api/Checklists/5
@@ -39,10 +41,14 @@ namespace ChecklistAPI.Controllers
         {
             var checklist = await _context.Checklists.FindAsync(id);
 
+
             if (checklist == null)
             {
                 return NotFound();
             }
+
+            var checklistItems = _context.Checklist_Items.Where(x => x.ChecklistID == id).ToHashSet();
+            checklist.Checklist_Items = checklistItems;
 
             return checklist;
         }
@@ -54,6 +60,35 @@ namespace ChecklistAPI.Controllers
             var checklist = await _context.Checklists
                 .Include(x => x.Checklist_Items)
                 .Where(x => (x.Checklist_Items.Where(x => x.ConditionID != "OK").Count()) > 0)
+                .ToListAsync();
+
+            if (checklist == null)
+            {
+                return NotFound();
+            }
+
+            return checklist;
+        }
+
+        [HttpGet("items")]
+        public async Task<ActionResult<IEnumerable<Checklist_Item>>> GetChecklistItems()
+        {
+            return await _context.Checklist_Items
+                .Include(x => x.Checklist)
+                .ThenInclude( y => y.User)
+                .Include(x => x.Component)
+                .ToListAsync();
+        }
+
+        // GET: api/Checklists/issues
+        [HttpGet("items/issues")]
+        public async Task<ActionResult<IEnumerable<Checklist_Item>>> GetChecklistItemsIssues()
+        {
+            var checklist = await _context.Checklist_Items
+                .Include(x => x.Checklist)
+                .ThenInclude(y => y.User)
+                .Include(x => x.Component)
+                .Where(x => x.ConditionID != "OK")
                 .ToListAsync();
 
             if (checklist == null)

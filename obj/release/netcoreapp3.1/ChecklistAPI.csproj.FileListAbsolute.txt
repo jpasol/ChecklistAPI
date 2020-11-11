@@ -212,3 +212,10 @@ C:\Users\jpasol\Desktop\Repository\ChecklistAPI\bin\Release\netcoreapp3.1\System
 C:\Users\jpasol\Desktop\Repository\ChecklistAPI\bin\Release\netcoreapp3.1\System.Text.Json.dll
 C:\Users\jpasol\Desktop\Repository\ChecklistAPI\bin\Release\netcoreapp3.1\Properties\serviceDependencies.json
 C:\Users\jpasol\Desktop\Repository\ChecklistAPI\bin\Release\netcoreapp3.1\Properties\serviceDependencies.local.json
+C:\Users\jpasol\Desktop\Repository\ChecklistAPI\bin\Release\netcoreapp3.1\Serilog.dll
+C:\Users\jpasol\Desktop\Repository\ChecklistAPI\bin\Release\netcoreapp3.1\Serilog.Extensions.Logging.dll
+C:\Users\jpasol\Desktop\Repository\ChecklistAPI\bin\Release\netcoreapp3.1\Serilog.Extensions.Logging.File.dll
+C:\Users\jpasol\Desktop\Repository\ChecklistAPI\bin\Release\netcoreapp3.1\Serilog.Formatting.Compact.dll
+C:\Users\jpasol\Desktop\Repository\ChecklistAPI\bin\Release\netcoreapp3.1\Serilog.Sinks.Async.dll
+C:\Users\jpasol\Desktop\Repository\ChecklistAPI\bin\Release\netcoreapp3.1\Serilog.Sinks.File.dll
+C:\Users\jpasol\Desktop\Repository\ChecklistAPI\bin\Release\netcoreapp3.1\Serilog.Sinks.RollingFile.dll

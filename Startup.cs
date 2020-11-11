@@ -45,8 +45,10 @@ namespace ChecklistAPI
                 if (env.IsStaging()) _conStr = "StgConnection";
                 if (env.IsProduction()) _conStr = "PrdConnection";
 
-                var _builder = new SqlConnectionStringBuilder();
-                _builder.ConnectionString = Configuration.GetConnectionString(_conStr);
+                var _builder = new SqlConnectionStringBuilder
+                {
+                    ConnectionString = Configuration.GetConnectionString(_conStr)
+                };
 
                 var _credentials = Configuration.GetSection("Credentials"); //turned into variable to avoid mistyping
                 _builder.UserID = _credentials["DbUser"];

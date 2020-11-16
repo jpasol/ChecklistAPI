@@ -76,7 +76,7 @@ namespace ChecklistAPI.Controllers
             return await _context.Checklist_Items
                 .Include(x => x.Checklist)
                 .ThenInclude( y => y.User)
-                .Include(x => x.Component)
+                .Include(x => x.Question)
                 .ToListAsync();
         }
 
@@ -87,7 +87,7 @@ namespace ChecklistAPI.Controllers
             var checklist = await _context.Checklist_Items
                 .Include(x => x.Checklist)
                 .ThenInclude(y => y.User)
-                .Include(x => x.Component)
+                .Include(x => x.Question)
                 .Where(x => x.ConditionID != "OK")
                 .ToListAsync();
 
@@ -171,7 +171,7 @@ namespace ChecklistAPI.Controllers
 
             for (int i = 0; i < items.Length; i++)
             {
-                if (items[i].Equipment_TypeID != equipment.Equipment_TypeID) throw new Exception("Some Checklist Item's Equipment Type ID is different from Checklist's Equipment Type ID");
+                if (items[i].Question.Equipment_TypeID != equipment.Equipment_TypeID) throw new Exception("Some Checklist Item's Equipment Type ID is different from Checklist's Equipment Type ID");
             }
 
             return true;

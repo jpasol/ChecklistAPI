@@ -30,9 +30,11 @@ namespace ChecklistAPI.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Checklist>>> GetChecklists()
         {
-            return await _context.Checklists
+            var test = await _context.Checklists
                 .Include(x => x.Checklist_Items)
                 .ToListAsync();
+
+            return test;
         }
 
         // GET: api/Checklists/5
@@ -171,7 +173,7 @@ namespace ChecklistAPI.Controllers
 
             for (int i = 0; i < items.Length; i++)
             {
-                if (items[i].Question.Equipment_TypeID != equipment.Equipment_TypeID) throw new Exception("Some Checklist Item's Equipment Type ID is different from Checklist's Equipment Type ID");
+                if (items[i].Equipment_TypeID != equipment.Equipment_TypeID) throw new Exception("Some Checklist Item's Equipment Type ID is different from Checklist's Equipment Type ID");
             }
 
             return true;

@@ -145,6 +145,7 @@ namespace ChecklistAPI.Controllers
             {
                 EnsureHasChecklistItems(checklist);
                 await EnsureSameEquipment(_context, checklist);
+                checklist.Date_Created = DateTime.Now;
                 _context.Checklists.Add(checklist);
                 await _context.SaveChangesAsync();
 

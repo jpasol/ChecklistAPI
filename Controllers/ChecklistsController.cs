@@ -30,9 +30,11 @@ namespace ChecklistAPI.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Checklist>>> GetChecklists()
         {
-            return await _context.Checklists
+            var test = await _context.Checklists
                 .Include(x => x.Checklist_Items)
                 .ToListAsync();
+
+            return test;
         }
 
         // GET: api/Checklists/5
@@ -76,7 +78,7 @@ namespace ChecklistAPI.Controllers
             return await _context.Checklist_Items
                 .Include(x => x.Checklist)
                 .ThenInclude( y => y.User)
-                .Include(x => x.Component)
+                .Include(x => x.Question)
                 .ToListAsync();
         }
 
@@ -87,7 +89,7 @@ namespace ChecklistAPI.Controllers
             var checklist = await _context.Checklist_Items
                 .Include(x => x.Checklist)
                 .ThenInclude(y => y.User)
-                .Include(x => x.Component)
+                .Include(x => x.Question)
                 .Where(x => x.ConditionID != "OK")
                 .ToListAsync();
 

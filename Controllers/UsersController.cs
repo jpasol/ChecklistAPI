@@ -11,8 +11,6 @@ using EquipmentChecklistDataAccess.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Authorization;
 using ChecklistAPI.Services;
-using Microsoft.VisualStudio.Web.CodeGeneration.Contracts.Messaging;
-
 namespace ChecklistAPI.Controllers
 {
     [Authorize(AuthenticationSchemes = "Bearer")]

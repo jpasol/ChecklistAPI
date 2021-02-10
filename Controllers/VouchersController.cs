@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using EquipmentChecklistDataAccess;
 using EquipmentChecklistDataAccess.Models;
+using Microsoft.EntityFrameworkCore;
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace ChecklistAPI.Controllers
@@ -22,36 +23,39 @@ namespace ChecklistAPI.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<string> GetVoucher()
+        public async Task<ActionResult<IEnumerable<Voucher>>> GetVoucher()
         {
-            return new string[] { "value1", "value2" };
+            return await _context.Vouchers.ToListAsync();
         }
 
         // GET api/<VouchersController>/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Voucher>> GetVoucher(string userId)
+        public async Task<ActionResult<IEnumerable<Voucher>>> GetVoucher(string id)
         {
-            //return await _context.Vouchers.FindAsync(userId);
-            return NotFound();
+            return await getVouchersById(id);
         }
 
         // POST api/<VouchersController>
         [HttpPost]
         public async Task<ActionResult<object>> PostVoucher([FromBody] Voucher voucher)
         {
+            var _userId = voucher.UserID;
+            var _vouchersById = getVouchersById(_userId).Result.Value;
+            if (_vouchersById.Any()) _context.RemoveRange(_vouchersById);
             try
             {
                 var _voucher = voucher;
-                _voucher.Validity = DateTime.Now.AddDays(1);
+                _voucher.Validity = DateTime.Now.AddHours(12);
                 _context.Vouchers.Add(_voucher);
                 await _context.SaveChangesAsync();
-
                 return CreatedAtAction("GetVoucher", new { }, voucher);
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 return e.Message;
             }
+            
+
         }
 
         // PUT api/<VouchersController>/5
@@ -62,8 +66,29 @@ namespace ChecklistAPI.Controllers
 
         // DELETE api/<VouchersController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public async Task<ActionResult<object>> Delete(string id)
         {
+            var _vouchers = getVouchersById(id).Result.Value;
+            try
+            {
+                _context.Vouchers.RemoveRange(_vouchers.ToArray());
+                await _context.SaveChangesAsync();
+                return Ok(new
+                {
+                    message = "Vouchers have been deleted",
+                    vouchers = _vouchers
+                });
+            }
+            catch (Exception e)
+            {
+                return e.Message;
+            }
         }
+
+        private async Task<ActionResult<IEnumerable<Voucher>>> getVouchersById(string id)
+        {
+            return await _context.Vouchers.Where(x => x.UserID == id).ToListAsync();
+        }
+
     }
 }

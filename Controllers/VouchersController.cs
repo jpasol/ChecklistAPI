@@ -23,7 +23,7 @@ namespace ChecklistAPI.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Voucher>>> GetVoucher()
+        public async Task<ActionResult<IEnumerable<Voucher>>> GetVouchers()
         {
             return await _context.Vouchers.ToListAsync();
         }
@@ -48,7 +48,7 @@ namespace ChecklistAPI.Controllers
                 _voucher.Validity = DateTime.Now.AddHours(12);
                 _context.Vouchers.Add(_voucher);
                 await _context.SaveChangesAsync();
-                return CreatedAtAction("GetVoucher", new { }, voucher);
+                return CreatedAtAction("GetVoucher", new { id = _userId}, voucher);
             }
             catch (Exception e)
             {

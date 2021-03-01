@@ -45,7 +45,7 @@ namespace ChecklistAPI.Controllers
             try
             {
                 var _voucher = voucher;
-                _voucher.Validity = DateTime.Now.AddHours(12);
+                _voucher.Validity = DateTime.Now.AddHours(4);
                 _context.Vouchers.Add(_voucher);
                 await _context.SaveChangesAsync();
                 return CreatedAtAction("GetVoucher", new { id = _userId}, voucher);

@@ -6,3 +6,6 @@ Properties/PublishProfiles/Production.pubxml.user
 *.json
 .vs/ChecklistAPI/v16/.suo
 .vs/ChecklistAPI/v16/TestStore/1/testlog.manifest
+Properties/PublishProfiles/Staging.pubxml.user
+ChecklistAPI.csproj.user
+.vs/ChecklistAPI/v16/.suo

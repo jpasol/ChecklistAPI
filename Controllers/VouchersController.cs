@@ -40,15 +40,19 @@ namespace ChecklistAPI.Controllers
         public async Task<ActionResult<object>> PostVoucher([FromBody] Voucher voucher)
         {
             var _userId = voucher.UserID;
-            var _vouchersById = getVouchersById(_userId).Result.Value;
-            if (_vouchersById.Any()) _context.RemoveRange(_vouchersById);
+            //var _vouchersById = getVouchersById(_userId).Result.Value; //change from id based to equipment based
+            var _equipid = voucher.EquipmentID;
+
+            var _vouchers = getVouchersByEquipmentAndUser(_userId,_equipid).Result.Value;
+
+            if (_vouchers.Any()) _context.RemoveRange(_vouchers);
             try
             {
                 var _voucher = voucher;
-                _voucher.Validity = DateTime.Now.AddHours(12);
+                _voucher.Validity = DateTime.Now.AddHours(4);
                 _context.Vouchers.Add(_voucher);
                 await _context.SaveChangesAsync();
-                return CreatedAtAction("GetVoucher", new { id = _userId}, voucher);
+                return CreatedAtAction("GetVoucher", new { id = _equipid}, voucher);
             }
             catch (Exception e)
             {
@@ -88,6 +92,11 @@ namespace ChecklistAPI.Controllers
         private async Task<ActionResult<IEnumerable<Voucher>>> getVouchersById(string id)
         {
             return await _context.Vouchers.Where(x => x.UserID == id).ToListAsync();
+        }
+
+        private async Task<ActionResult<IEnumerable<Voucher>>> getVouchersByEquipmentAndUser(string userid, string equipid)
+        {
+            return await _context.Vouchers.Where(x => x.UserID == userid || x.EquipmentID == equipid).ToListAsync();
         }
 
     }

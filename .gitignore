@@ -9,3 +9,4 @@ Properties/PublishProfiles/Production.pubxml.user
 Properties/PublishProfiles/Staging.pubxml.user
 ChecklistAPI.csproj.user
 .vs/ChecklistAPI/v16/.suo
+.vs/ChecklistAPI/DesignTimeBuild/.dtbcache.v2

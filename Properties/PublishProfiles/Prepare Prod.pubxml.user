@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <_PublishTargetUrl>C:\Users\jpasol\Desktop\API Prod</_PublishTargetUrl>
+    <History>True|2021-03-24T01:28:18.7079551Z;</History>
+  </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="PrdConnection">
+      <Value>Persist Security Info=False%3bInitial Catalog=EquipmentChecklistDB%3bData Source=10.88.140.68</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+</Project>
